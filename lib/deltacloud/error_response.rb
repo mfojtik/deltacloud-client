@@ -45,11 +45,11 @@ module Deltacloud
             raise client_error(klass::InvalidState, 'Resource state does not permit this action', e[:body])
           when /40\d/
             raise client_error(klass::ClientFailure, '', e[:body])
-          when 500
+          when '500'
             raise client_error(klass::ServerError, '', e[:body])
-          when 502
+          when '502'
             raise client_error(klass::BackendError, '', e[:body])
-          when 501
+          when '501'
             raise client_error(klass::NotSupported, '', e[:body])
           end
         end
