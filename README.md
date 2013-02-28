@@ -19,7 +19,7 @@ inst.reboot!  # Reboot instance
 
 # Advanced usage
 
-# Deltacloud API support changing driver per-request:
+# Deltacloud API supports changing driver per-request:
 
 client.driver(:ec2, 'API_KEY', 'API_SECRET').instances # List EC2 instances
 client.driver(:openstack, 'admin@tenant', 'password', KEYSTONE_URL).instances # List Openstack instances
@@ -30,18 +30,18 @@ Full documentation available [here](http://rdoc.info/github/mifo/deltacloud-clie
 
 # Adding support for collection
 
-* Write 'lib/deltacloud/client/models/ENTITY.rb'
+* Write `lib/deltacloud/client/models/ENTITY.rb`
 
 This class should include list of entity attributes in `attr_reader` block.
-Also it should implement `self#parse` method that define how entity will
+Also it should implement the `self#parse` method that defines how an entity will
 be deserialized from XML. (Look [here](https://github.com/mifo/deltacloud-client/blob/master/lib/deltacloud/client/models/realm.rb) for example.
-The `r` variable here is instance of Nokogiri::Element node.
+The `r` variable here is an instance of the Nokogiri::Element node.
 
-* Write 'lib/deltacloud/client/methods/ENTITY.rb'
+* Write `lib/deltacloud/client/methods/ENTITY.rb`
 
 All entity CRUD methods should go here. ([example](https://github.com/mifo/deltacloud-client/blob/master/lib/deltacloud/client/methods/realm.rb))
 
-* Require model/methods in `client.rb` and add `include` statement in `connection.rb`
+* Require model/methods in `client.rb` and add the `include` statement in the `connection.rb` file
 
 # License
 
