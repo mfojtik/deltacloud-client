@@ -2,6 +2,7 @@ module Deltacloud::Client
   class Instance < Base
 
     include Deltacloud::Client::Methods::Instance
+    include Deltacloud::Client::Methods::Realm
 
     attr_reader :realm_id
     attr_reader :owner_id
@@ -34,6 +35,12 @@ module Deltacloud::Client
     #
     def reboot!
       reboot_instance(_id) && reload!
+    end
+
+    # Retrieve the +Realm+ associated with Instance
+    #
+    def realm
+      super(realm_id)
     end
 
     class << self

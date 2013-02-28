@@ -2,6 +2,10 @@ module Deltacloud::Client
   module Methods
     module Api
 
+      def path
+        connection.url_prefix.path
+      end
+
       # The current version of Deltacloud API
       #
       def version

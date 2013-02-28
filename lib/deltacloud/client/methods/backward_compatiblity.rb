@@ -14,12 +14,6 @@ module Deltacloud::Client
         connection.url_prefix.port
       end
 
-      def api_path
-        connection.url_prefix.path
-      end
-
-      alias_method :path,         :api_path
-
       def connect(&block)
         yield self
       end
