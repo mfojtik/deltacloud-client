@@ -77,13 +77,13 @@ module Deltacloud::Client
       def convert(client_ref, obj)
         body = extract_xml_body(obj).to_xml.root
         attrs = parse(body)
-        attrs.merge!(:_id => body['id'])
-        raise Deltacloud::Client::Error.new('The :_id must not be nil.') if attrs[:_id].nil?
-        attrs.merge!(:_client => client_ref)
-        raise Deltacloud::Client::Error.new('The :_client reference is missing.') if attrs[:_client].nil?
-        # The :name and :description are common attributes
-        attrs.merge!(:name => text_at(body, 'name'))
-        attrs.merge!(:description => text_at(body, 'description'))
+        attrs.merge!({
+          :_id => body['id'],
+          :_client => client_ref,
+          :name => text_at(body, 'name'),
+          :description => text_at(body, 'description')
+        })
+        validate_attrs!(attrs)
         new(attrs)
       end
 
@@ -93,6 +93,11 @@ module Deltacloud::Client
         response.body.to_xml.xpath('/*/*').map do |entity|
           convert(client_ref, entity)
         end
+      end
+
+      def validate_attrs!(attrs)
+        raise Deltacloud::Client::Error.new('The :_id must not be nil.') if attrs[:_id].nil?
+        raise Deltacloud::Client::Error.new('The :_client reference is missing.') if attrs[:_client].nil?
       end
 
     end

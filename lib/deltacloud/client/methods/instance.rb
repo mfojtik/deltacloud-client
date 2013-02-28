@@ -77,13 +77,7 @@ module Deltacloud::Client
       # - instance_id -> The 'id' of the Instance to stop
       #
       def stop_instance(instance_id)
-        must_support! :instances
-        result = connection.post("#{path}/instances/#{instance_id}/stop")
-        if result.status.to_s =~ /20\d/
-          Deltacloud::Client::Instance.convert(self, result)
-        else
-          instance(instance_id)
-        end
+        instance_action :stop, instance_id
       end
 
       # Attempt to change the +Instance+ state to STARTED
@@ -91,13 +85,7 @@ module Deltacloud::Client
       # - instance_id -> The 'id' of the Instance to start
       #
       def start_instance(instance_id)
-        must_support! :instances
-        result = connection.post("#{path}/instances/#{instance_id}/start")
-        if result.status.to_s =~ /20\d/
-          Deltacloud::Client::Instance.convert(self, result)
-        else
-          instance(instance_id)
-        end
+        instance_action :start, instance_id
       end
 
       # Attempt to reboot the +Instance+
@@ -105,8 +93,16 @@ module Deltacloud::Client
       # - instance_id -> The 'id' of the Instance to reboot
       #
       def reboot_instance(instance_id)
+        instance_action :reboot, instance_id
+      end
+
+      private
+
+      # Avoid codu duplication ;-)
+      #
+      def instance_action(action, instance_id)
         must_support! :instances
-        result = connection.post("#{path}/instances/#{instance_id}/reboot")
+        result = connection.post("#{path}/instances/#{instance_id}/#{action}")
         if result.status.to_s =~ /20\d/
           Deltacloud::Client::Instance.convert(self, result)
         else

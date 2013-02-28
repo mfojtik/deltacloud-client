@@ -15,24 +15,31 @@ module Deltacloud
           :message => message
         }
         if error_body and (err = error_body.to_xml.root)
-          args.merge!(:original_error => err.to_s)
-          if backtrace = err.at('/error/backtrace')
-            args.merge!(:server_backtrace => backtrace.text)
-          end
-          if message = err.at('/error/message')
-            args.merge!(:message => message.text.strip)
-          end
-          if backend = err.at('/error/backend')
-            args.merge!(
-              :driver => backend['driver'],
-              :provider => backend['provider']
-            )
-          end
-          if state = err['status']
-            args.merge!(:status => state)
-          end
+          args.merge! parse_deltacloud_error(err)
         end
         klass.new(args)
+      end
+
+      # Parse the Deltacloud API error body to Hash
+      #
+      def parse_deltacloud_error(body)
+        args = { :original_error => body.to_s }
+        if backtrace = err.at('/error/backtrace')
+          args.merge!(:server_backtrace => backtrace.text)
+        end
+        if message = body.at('/error/message')
+          args.merge!(:message => message.text.strip)
+        end
+        if backend = body.at('/error/backend')
+          args.merge!(
+            :driver => backend['driver'],
+            :provider => backend['provider']
+          )
+        end
+        if state = err['status']
+          args.merge!(:status => state)
+        end
+        args
       end
 
       def call(env)
