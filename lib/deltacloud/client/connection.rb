@@ -8,7 +8,9 @@ module Deltacloud::Client
 
     include Deltacloud::Client::Methods::Api
     include Deltacloud::Client::Methods::BackwardCompatibility
+    include Deltacloud::Client::Methods::Realm
     include Deltacloud::Client::Methods::Instance
+    include Deltacloud::Client::Methods::InstanceState
 
     def initialize(opts={})
       @request_driver = opts[:driver]
@@ -62,6 +64,17 @@ module Deltacloud::Client
     #
     def cache_entrypoint!
       @entrypoint ||= connection.get(path).body
+    end
+
+    # Check if the credentials used are valid for the current @connection
+    #
+    def valid_credentials?
+      begin
+        r = connection.get(path, { :force_auth => 'true' })
+        r.status == 200
+      rescue Deltacloud::Client::AuthenticationError
+        false
+      end
     end
 
     private

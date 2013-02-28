@@ -40,8 +40,6 @@ module Deltacloud::Client
 
       def parse(inst)
         {
-          :name =>                text_at(inst, 'name'),
-          :description =>         text_at(inst, 'description'),
           :state =>               text_at(inst, 'state'),
           :realm_id =>            attr_at(inst, 'realm', :id),
           :owner_id =>            text_at(inst, 'owner_id'),

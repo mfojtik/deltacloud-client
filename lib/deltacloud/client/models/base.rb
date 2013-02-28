@@ -81,6 +81,9 @@ module Deltacloud::Client
         raise Deltacloud::Client::Error.new('The :_id must not be nil.') if attrs[:_id].nil?
         attrs.merge!(:_client => client_ref)
         raise Deltacloud::Client::Error.new('The :_client reference is missing.') if attrs[:_client].nil?
+        # The :name and :description are common attributes
+        attrs.merge!(:name => text_at(body, 'name'))
+        attrs.merge!(:description => text_at(body, 'description'))
         new(attrs)
       end
 

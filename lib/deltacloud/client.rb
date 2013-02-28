@@ -20,12 +20,24 @@ module Deltacloud
     # Deltacloud API methods
     require_relative './client/methods/api'
     require_relative './client/methods/backward_compatiblity'
+
+    # Extend Client module with methods that existed in old client
+    # and we want to keep them.
+    # Deprecation warnings should be provided to users if they use something
+    # from these modules.
+    #
+    extend Deltacloud::Client::Methods::BackwardCompatibility::ClassMethods
+
+    require_relative './client/methods/realm'
     require_relative './client/methods/instance'
+    require_relative './client/methods/instance_state'
 
     # Deltacloud models
     require_relative './client/models/base'
+    require_relative './client/models/realm'
     require_relative './client/models/instance_address'
     require_relative './client/models/instance'
+    require_relative './client/models/instance_state'
 
     require_relative './client/connection'
 

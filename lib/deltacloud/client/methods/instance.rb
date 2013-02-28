@@ -12,7 +12,7 @@ module Deltacloud::Client
       #
       def instances(filter_opts={})
         must_support! :instances
-        model.from_collection(self, connection.get("#{path}/instances", filter_opts))
+        Deltacloud::Client::Instance.from_collection(self, connection.get("#{path}/instances", filter_opts))
       end
 
       # Retrieve the given instance
@@ -21,7 +21,7 @@ module Deltacloud::Client
       #
       def instance(instance_id)
         must_support! :instances
-        model.convert(self, connection.get("#{path}/instances/#{instance_id}"))
+        Deltacloud::Client::Instance.convert(self, connection.get("#{path}/instances/#{instance_id}"))
       end
 
       # Create a new instance
@@ -55,10 +55,10 @@ module Deltacloud::Client
         # If more than 1 instance was created, return list
         #
         if r.body.to_xml.root.name == 'instances'
-          return model.from_collection(self, r.body)
+          return Deltacloud::Client::Instance.from_collection(self, r.body)
         end
 
-        model.convert(self, r)
+        Deltacloud::Client::Instance.convert(self, r)
       end
 
       # Destroy the current +Instance+
@@ -80,7 +80,7 @@ module Deltacloud::Client
         must_support! :instances
         result = connection.post("#{path}/instances/#{instance_id}/stop")
         if result.status.to_s =~ /20\d/
-          model.convert(self, result)
+          Deltacloud::Client::Instance.convert(self, result)
         else
           instance(instance_id)
         end
@@ -94,7 +94,7 @@ module Deltacloud::Client
         must_support! :instances
         result = connection.post("#{path}/instances/#{instance_id}/start")
         if result.status.to_s =~ /20\d/
-          model.convert(self, result)
+          Deltacloud::Client::Instance.convert(self, result)
         else
           instance(instance_id)
         end
@@ -108,16 +108,10 @@ module Deltacloud::Client
         must_support! :instances
         result = connection.post("#{path}/instances/#{instance_id}/reboot")
         if result.status.to_s =~ /20\d/
-          model.convert(self, result)
+          Deltacloud::Client::Instance.convert(self, result)
         else
           instance(instance_id)
         end
-      end
-
-      private
-
-      def model
-        Deltacloud::Client::Instance
       end
 
     end
