@@ -9,6 +9,7 @@ module Deltacloud::Client
     include Deltacloud::Client::Methods::Api
     include Deltacloud::Client::Methods::BackwardCompatibility
     include Deltacloud::Client::Methods::Realm
+    include Deltacloud::Client::Methods::Image
     include Deltacloud::Client::Methods::Instance
     include Deltacloud::Client::Methods::InstanceState
 

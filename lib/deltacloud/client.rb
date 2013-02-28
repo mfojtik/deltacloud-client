@@ -29,12 +29,14 @@ module Deltacloud
     extend Deltacloud::Client::Methods::BackwardCompatibility::ClassMethods
 
     require_relative './client/methods/realm'
+    require_relative './client/methods/image'
     require_relative './client/methods/instance'
     require_relative './client/methods/instance_state'
 
     # Deltacloud models
     require_relative './client/models/base'
     require_relative './client/models/realm'
+    require_relative './client/models/image'
     require_relative './client/models/instance_address'
     require_relative './client/models/instance'
     require_relative './client/models/instance_state'
