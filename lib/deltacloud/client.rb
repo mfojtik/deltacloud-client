@@ -39,6 +39,7 @@ module Deltacloud
     require_relative './client/methods/image'
     require_relative './client/methods/instance'
     require_relative './client/methods/instance_state'
+    require_relative './client/methods/storage_volume'
 
     # Deltacloud models
     require_relative './client/models/base'
@@ -49,6 +50,7 @@ module Deltacloud
     require_relative './client/models/instance_address'
     require_relative './client/models/instance'
     require_relative './client/models/instance_state'
+    require_relative './client/models/storage_volume'
 
     require_relative './client/connection'
 
