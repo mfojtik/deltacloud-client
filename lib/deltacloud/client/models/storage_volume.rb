@@ -10,8 +10,28 @@ module Deltacloud::Client
     attr_accessor :kind
     attr_accessor :mount
 
+    # Check if the current volume is attached to an Instance
+    #
     def attached?
       !mount[:instance].nil?
+    end
+
+    # Attach this volume to the instance
+    #
+    def attach(instance_id, device=nil)
+      attach_storage_volume(_id, instance_id, device) && reload!
+    end
+
+    # Detach this volume from the currently attached instance
+    #
+    def detach
+      detach_storage_volume(_id) && reload!
+    end
+
+    # Destroy the storage volume
+    #
+    def destroy!
+      destroy_storage_volume(_id)
     end
 
     def self.parse(r)
@@ -29,6 +49,16 @@ module Deltacloud::Client
           :device => attr_at(r, 'mount/device', :name)
         }
       }
+    end
+
+    private
+
+    def reload!
+      new_volume = storage_volume(_id)
+      update_instance_variables!(
+        :state => new_volume.state,
+        :mount => new_volume.mount
+      )
     end
   end
 end
