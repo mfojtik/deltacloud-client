@@ -9,23 +9,17 @@ module Deltacloud::Client
       # - :id -> Filter hardware_profiles using their 'id'
       #
       def hardware_profiles(filter_opts={})
-        must_support! :hardware_profiles
-        Deltacloud::Client::HardwareProfile.from_collection(
-          self,
-          connection.get("#{path}/hardware_profiles", filter_opts)
-        )
+        from_collection :hardware_profiles,
+          connection.get(api_uri('hardware_profiles'), filter_opts)
       end
 
       # Retrieve the given hardware_profile
       #
       # - hardware_profile_id -> hardware_profile to retrieve
       #
-      def hardware_profile(hardware_profile_id)
-        must_support! :hardware_profiles
-        Deltacloud::Client::HardwareProfile.convert(
-          self,
-          connection.get("#{path}/hardware_profiles/#{hardware_profile_id}")
-        )
+      def hardware_profile(hwp_id)
+        from_resource :hardware_profile,
+          connection.get(api_uri("hardware_profiles/#{hwp_id}"))
       end
 
     end

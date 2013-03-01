@@ -6,6 +6,10 @@ module Deltacloud::Client
         connection.url_prefix.path
       end
 
+      def api_uri(uri)
+        URI.parse([path, uri].join('/'))
+      end
+
       # The current version of Deltacloud API
       #
       def version

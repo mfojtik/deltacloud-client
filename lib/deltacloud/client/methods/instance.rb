@@ -11,8 +11,10 @@ module Deltacloud::Client
       # - :realm_id -> Filter instances based on their 'realm_id'
       #
       def instances(filter_opts={})
-        must_support! :instances
-        Deltacloud::Client::Instance.from_collection(self, connection.get("#{path}/instances", filter_opts))
+        from_collection(
+          :instances,
+          connection.get(api_uri('/instances'), filter_opts)
+        )
       end
 
       # Retrieve the given instance
@@ -20,8 +22,10 @@ module Deltacloud::Client
       # - instance_id -> Instance to retrieve
       #
       def instance(instance_id)
-        must_support! :instances
-        Deltacloud::Client::Instance.convert(self, connection.get("#{path}/instances/#{instance_id}"))
+        from_resource(
+          :instance,
+          connection.get(api_uri("instances/#{instance_id}"))
+        )
       end
 
       # Create a new instance
@@ -34,31 +38,10 @@ module Deltacloud::Client
       #
       def create_instance(image_id, create_opts={})
         must_support! :instances
-        create_opts.merge!(:image_id => image_id)
-        r = connection.post("#{path}/instances") do |request|
-          request.params = create_opts
+        r = connection.post(api_uri("instaces")) do |request|
+          request.params = create_opts.merge(:image_id => image_id)
         end
-        # If Deltacloud API return only Location (30x), follow it and
-        # retrieve created instance from there.
-        #
-        if r.status.to_s =~ /3(\d+)/
-          # If Deltacloud API redirect to list of instances
-          # then return list of **all** instances, otherwise
-          # grab the instance_id from Location header
-          #
-          if r.headers['Location'].split('/').last == 'instances'
-            return instances
-          else
-            return instance(r.headers['Location'].split('/').last)
-          end
-        end
-        # If more than 1 instance was created, return list
-        #
-        if r.body.to_xml.root.name == 'instances'
-          return Deltacloud::Client::Instance.from_collection(self, r.body)
-        end
-
-        Deltacloud::Client::Instance.convert(self, r)
+        parse_create_instance(r)
       end
 
       # Destroy the current +Instance+
@@ -68,7 +51,7 @@ module Deltacloud::Client
       #
       def destroy_instance(instance_id)
         must_support! :instances
-        r = connection.delete("#{path}/instances/#{instance_id}")
+        r = connection.delete(api_uri("instances/#{instance_id}"))
         r.status == 204
       end
 
@@ -101,12 +84,41 @@ module Deltacloud::Client
       # Avoid codu duplication ;-)
       #
       def instance_action(action, instance_id)
-        must_support! :instances
-        result = connection.post("#{path}/instances/#{instance_id}/#{action}")
-        if result.status.to_s =~ /20\d/
-          Deltacloud::Client::Instance.convert(self, result)
+        result = connection.post(
+          api_uri("/instances/#{instance_id}/#{action}")
+        )
+        if result.status.is_ok?
+          from_resource(:instance, result)
         else
           instance(instance_id)
+        end
+      end
+
+      # Handles parsing of +create_instance+ method
+      #
+      # - response -> +create_instance+ HTTP response body
+      #
+      def parse_create_instance(response)
+        # If Deltacloud API return only Location (30x), follow it and
+        # retrieve created instance from there.
+        #
+        if response.status.is_redirect?
+          # If Deltacloud API redirect to list of instances
+          # then return list of **all** instances, otherwise
+          # grab the instance_id from Location header
+          #
+          redirect_instance = response.headers['Location'].split('/').last
+          if redirect_instance == 'instances'
+            instances
+          else
+            instance(redirect_instance)
+          end
+        elsif response.body.to_xml.root.name == 'instances'
+          # If more than 1 instance was created, return list
+          #
+          from_collection(:instances, response.body)
+        else
+          from_resource(:instance, response)
         end
       end
 

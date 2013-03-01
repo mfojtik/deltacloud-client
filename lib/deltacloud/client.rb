@@ -8,6 +8,7 @@ module Deltacloud
 
     # Core extensions
     require_relative './core_ext/string'
+    require_relative './core_ext/fixnum'
     require_relative './core_ext/nil'
 
     # Faraday Middleware
@@ -15,6 +16,7 @@ module Deltacloud
 
     # Errors && Helpers
     require_relative './client/base_error'
+    require_relative './client/helpers/model_helper'
     require_relative './client/helpers/xml_helper'
     require_relative './client/helpers/property_helper'
 

@@ -6,6 +6,8 @@ module Deltacloud::Client
     attr_reader :request_provider
     attr_reader :entrypoint
 
+    include Deltacloud::Client::Helpers::Model
+
     include Deltacloud::Client::Methods::Api
     include Deltacloud::Client::Methods::BackwardCompatibility
     include Deltacloud::Client::Methods::Driver

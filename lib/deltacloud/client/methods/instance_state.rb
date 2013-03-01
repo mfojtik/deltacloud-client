@@ -5,11 +5,11 @@ module Deltacloud::Client
       # Representation of the current driver state machine
       #
       def instance_states
-        r = connection.get("#{path}/instance_states")
+        r = connection.get(api_uri("instance_states"))
         r.body.to_xml.root.xpath('state').map do |se|
-          state = Deltacloud::Client::InstanceState.new_state(se['name'])
+          state = model(:instance_state).new_state(se['name'])
           se.xpath('transition').each do |te|
-            state.transitions << Deltacloud::Client::InstanceState.new_transition(
+            state.transitions << model(:instance_state).new_transition(
               te['to'], te['action']
             )
           end

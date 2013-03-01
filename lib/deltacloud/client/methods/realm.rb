@@ -10,8 +10,8 @@ module Deltacloud::Client
       # - :state -> Filter realms  by their 'state'
       #
       def realms(filter_opts={})
-        must_support! :realms
-        Deltacloud::Client::Realm.from_collection(self, connection.get("#{path}/realms", filter_opts))
+        from_collection :realms,
+          connection.get(api_uri("realms"), filter_opts)
       end
 
       # Retrieve the given realm
@@ -19,8 +19,8 @@ module Deltacloud::Client
       # - realm_id -> Instance to retrieve
       #
       def realm(realm_id)
-        must_support! :realms
-        Deltacloud::Client::Realm.convert(self, connection.get("#{path}/realms/#{realm_id}"))
+        from_resource :realm,
+          connection.get(api_uri("realms/#{realm_id}"))
       end
 
     end

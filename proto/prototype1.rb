@@ -5,7 +5,7 @@ require 'ostruct'
 
 require_relative './../lib/deltacloud/client'
 
-API_URL = 'http://localhost:3001/api'
+API_URL = 'http://localhost:3002/api'
 
 client = Deltacloud::Client(API_URL, 'mockuser', 'mockpassword')
 
