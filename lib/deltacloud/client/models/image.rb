@@ -21,7 +21,7 @@ module Deltacloud::Client
     def launch(create_instance_opts={})
 
       if hwp_id = create_instance_opts.delete(:hwp_id)
-        raise Deltacloud::Client::IncompatibleHardwareProfile.new(
+        raise error(:incompatible_hardware_profile).new(
           "Profile '#{hwp_id}' is not compatible with this image."
         ) unless is_compatible?(hwp_id)
       end

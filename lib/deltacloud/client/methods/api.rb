@@ -56,7 +56,7 @@ module Deltacloud::Client
       #
       def must_support!(collection)
         unless support?(collection)
-          raise Deltacloud::Client::NotSupported.new("Collection '#{collection}' not supported by current API endpoint.")
+          raise error(:not_supported).new("Collection '#{collection}' not supported by current API endpoint.")
         end
       end
 

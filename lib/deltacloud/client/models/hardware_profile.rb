@@ -43,7 +43,7 @@ module Deltacloud::Client
         when 'range'  then Property::Range
         when 'fixed'  then Property::Fixed
         when 'opaque' then Property::Property
-        else raise Deltacloud::Client::Error.new("Unknown HWP property: #{kind}")
+        else raise error.new("Unknown HWP property: #{kind}")
       end
     end
 

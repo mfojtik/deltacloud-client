@@ -77,7 +77,7 @@ module Deltacloud::Client
       begin
         r = connection.get(path, { :force_auth => 'true' })
         r.status == 200
-      rescue Deltacloud::Client::AuthenticationError
+      rescue error(:authentication_error)
         false
       end
     end

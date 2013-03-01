@@ -11,6 +11,10 @@ module Deltacloud::Client
         Deltacloud::Client.const_get(name.to_s.camelize)
       end
 
+      def error(name=nil)
+        model(name || :error)
+      end
+
       # Checks if current @connection support +model_name+
       # and then convert HTTP response to a Ruby model
       #

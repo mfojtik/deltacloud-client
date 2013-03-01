@@ -96,8 +96,8 @@ module Deltacloud::Client
       end
 
       def validate_attrs!(attrs)
-        raise Deltacloud::Client::Error.new('The :_id must not be nil.') if attrs[:_id].nil?
-        raise Deltacloud::Client::Error.new('The :_client reference is missing.') if attrs[:_client].nil?
+        raise error.new('The :_id must not be nil.') if attrs[:_id].nil?
+        raise error.new('The :_client reference is missing.') if attrs[:_client].nil?
       end
 
     end

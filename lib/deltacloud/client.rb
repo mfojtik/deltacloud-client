@@ -11,14 +11,16 @@ module Deltacloud
     require_relative './core_ext/fixnum'
     require_relative './core_ext/nil'
 
-    # Faraday Middleware
-    require_relative './error_response'
-
     # Errors && Helpers
-    require_relative './client/base_error'
     require_relative './client/helpers/model_helper'
     require_relative './client/helpers/xml_helper'
     require_relative './client/helpers/property_helper'
+
+    # Exceptions goes here
+    require_relative './client/base_error'
+
+    # Faraday Middleware for Deltacloud errors
+    require_relative './error_response'
 
     # Deltacloud API methods
     require_relative './client/methods/api'

@@ -56,7 +56,7 @@ module Deltacloud::Client
       #
       def valid_credentials?(api_user, api_password)
         unless @client
-          raise Deltacloud::Client::Error.new('Please use driver("ec2")[API_PROVIDER].valid_credentials?')
+          raise error.new('Please use driver("ec2")[API_PROVIDER].valid_credentials?')
         end
         @client.use(@client.current_driver, api_user, api_password, @name).valid_credentials?
       end
