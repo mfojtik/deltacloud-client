@@ -2,7 +2,7 @@ module Deltacloud::Client
   module Helpers
     module Model
 
-      # Helper to retrieve the class straight from
+      # Retrieve the class straight from
       # Deltacloud::Client model.
       #
       # -name -> A class name in underscore form (:storage_volume)
@@ -11,6 +11,14 @@ module Deltacloud::Client
         Deltacloud::Client.const_get(name.to_s.camelize)
       end
 
+      # Syntax sugar method for retrieving various Client
+      # exception classes.
+      #
+      # - name -> Exception class name in underscore
+      #
+      # NOTE: If name is 'nil' the default Error exception
+      #       will be returned
+      #
       def error(name=nil)
         model(name || :error)
       end

@@ -52,6 +52,13 @@ module Deltacloud::Client
         r.status == 204
       end
 
+      # Attach the Storage Volume to the Instance
+      # The +device+ parameter could be used if supported.
+      #
+      # - volume_id -> Volume ID (eg. 'vol1')
+      # - instance_id -> Target Instance ID (eg. 'inst1')
+      # - device -> Target device in Instance (eg. '/dev/sda2')
+      #
       def attach_storage_volume(volume_id, instance_id, device=nil)
         must_support! :storage_volumes
         result = connection.post(api_uri("/storage_volumes/#{volume_id}/attach")) do |r|
@@ -62,6 +69,10 @@ module Deltacloud::Client
         end
       end
 
+      # Detach the Storage Volume from the Instance
+      #
+      # -volume_id -> Volume to detach
+      #
       def detach_storage_volume(volume_id)
         must_support! :storage_volumes
         result = connection.post(api_uri("/storage_volumes/#{volume_id}/detach"))
