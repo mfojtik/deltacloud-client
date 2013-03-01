@@ -43,6 +43,18 @@ module Deltacloud::Client
       super(realm_id)
     end
 
+    # Helper for is_STATE?
+    #
+    # is_running?
+    # is_stopped?
+    #
+    def method_missing(name, *args)
+      if name =~ /^is_(\w+)\?$/
+        return state == $1.upcase
+      end
+      super
+    end
+
     class << self
 
       def parse(inst)
