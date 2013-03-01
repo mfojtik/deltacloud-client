@@ -38,7 +38,7 @@ module Deltacloud::Client
       #
       def create_instance(image_id, create_opts={})
         must_support! :instances
-        r = connection.post(api_uri("instaces")) do |request|
+        r = connection.post(api_uri("instances")) do |request|
           request.params = create_opts.merge(:image_id => image_id)
         end
         parse_create_instance(r)

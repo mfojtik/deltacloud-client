@@ -23,6 +23,53 @@ module Deltacloud::Client
           connection.get(api_uri("storage_volumes/#{storage_volume_id}"))
       end
 
+      # Create new storage volume
+      #
+      # - :snapshot_id -> Snapshot to use for creating a new volume
+      # - :capaccity   -> Initial Volume capacity
+      # - :realm_id    -> Create volume in this realm
+      # - :name        -> Volume name
+      # - :description -> Volume description
+      #
+      # NOTE: Some create options might not be supported by backend cloud
+      #
+      def create_storage_volume(create_opts={})
+        must_support! :storage_volumes
+        r = connection.post(api_uri("storage_volumes")) do |request|
+          request.params = create_opts
+        end
+        from_resource :storage_volume, r
+      end
+
+      # Destroy the current +StorageVolume+
+      # Returns 'true' if the response was 204 No Content
+      #
+      # - volume_id -> The 'id' of the volume to destroy
+      #
+      def destroy_storage_volume(volume_id)
+        must_support! :storage_volumes
+        r = connection.delete(api_uri("storage_volumes/#{volume_id}"))
+        r.status == 204
+      end
+
+      def attach_storage_volume(volume_id, instance_id, device=nil)
+        must_support! :storage_volumes
+        result = connection.post(api_uri("/storage_volumes/#{volume_id}/attach")) do |r|
+          request.params = { :instance_id => instance_id, :device => device }
+        end
+        if result.status.is_ok?
+          from_resource(:storage_volume, result)
+        end
+      end
+
+      def detach_storage_volume(volume_id)
+        must_support! :storage_volumes
+        result = connection.post(api_uri("/storage_volumes/#{volume_id}/detach"))
+        if result.status.is_ok?
+          from_resource(:storage_volume, result)
+        end
+      end
+
     end
   end
 end
