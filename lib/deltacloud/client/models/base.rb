@@ -3,6 +3,8 @@ module Deltacloud::Client
   class Base
 
     extend Helpers::XmlHelper
+
+    include Deltacloud::Client::Helpers::Model
     include Deltacloud::Client::Methods::Api
 
     # These attributes are common for all models

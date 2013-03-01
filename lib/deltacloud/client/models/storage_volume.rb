@@ -1,5 +1,6 @@
 module Deltacloud::Client
   class StorageVolume < Base
+    include Deltacloud::Client::Methods::StorageVolume
 
     attr_accessor :created
     attr_accessor :state

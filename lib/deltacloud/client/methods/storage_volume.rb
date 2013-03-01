@@ -55,7 +55,7 @@ module Deltacloud::Client
       def attach_storage_volume(volume_id, instance_id, device=nil)
         must_support! :storage_volumes
         result = connection.post(api_uri("/storage_volumes/#{volume_id}/attach")) do |r|
-          request.params = { :instance_id => instance_id, :device => device }
+          r.params = { :instance_id => instance_id, :device => device }
         end
         if result.status.is_ok?
           from_resource(:storage_volume, result)
