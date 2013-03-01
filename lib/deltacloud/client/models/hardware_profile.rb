@@ -7,7 +7,9 @@ module Deltacloud::Client
 
     def self.parse(hwp)
       {
-        :properties => hwp.xpath('property').map { |p| property_klass(p['kind']).parse(p) }
+        :properties => hwp.xpath('property').map { |p|
+          property_klass(p['kind']).parse(p)
+        }
       }
     end
 
