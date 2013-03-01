@@ -8,7 +8,9 @@ module Deltacloud::Client
 
     include Deltacloud::Client::Methods::Api
     include Deltacloud::Client::Methods::BackwardCompatibility
+    include Deltacloud::Client::Methods::Driver
     include Deltacloud::Client::Methods::Realm
+    include Deltacloud::Client::Methods::HardwareProfile
     include Deltacloud::Client::Methods::Image
     include Deltacloud::Client::Methods::Instance
     include Deltacloud::Client::Methods::InstanceState
@@ -34,7 +36,7 @@ module Deltacloud::Client
     # - api_password -> API password
     # - api_provider -> API provider (aka API_PROVIDER string)
     #
-    def driver(driver_id, api_user, api_password, api_provider=nil, &block)
+    def use(driver_id, api_user, api_password, api_provider=nil, &block)
       new_client = self.class.new(
         :url => @connection.url_prefix.to_s,
         :api_user => api_user,
@@ -52,7 +54,7 @@ module Deltacloud::Client
     #
     # - provider_id -> API provider (aka API_PROVIDER)
     #
-    def provider(provider_id)
+    def use_provider(provider_id)
       new_connection = @connection.clone
       new_connection.headers['X-Deltacloud-Provider'] = provider_id
       new_connection.cache_entrypoint!

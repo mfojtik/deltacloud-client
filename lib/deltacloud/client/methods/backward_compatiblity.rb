@@ -20,14 +20,14 @@ module Deltacloud::Client
 
       def with_config(opts, &block)
         warn "WARN: The Client#with_config is obsoleted. Use the Client#driver instead."
-        api_instance = api_instance.driver(opts[:driver], opts[:username], opts[:password], opts[:provider])
+        api_instance = api_instance.use(opts[:driver], opts[:username], opts[:password], opts[:provider])
         yield api_instance if block_given?
         api_instance
       end
 
       def use_driver(new_driver, opts={})
         warn "WARN: The Client#use_driver is obsoleted. Use the Client#driver instead."
-        driver(new_driver, opts[:username], opts[:password], opts[:provider])
+        use(new_driver, opts[:username], opts[:password], opts[:provider])
       end
 
       alias_method :"use_config!", :use_driver

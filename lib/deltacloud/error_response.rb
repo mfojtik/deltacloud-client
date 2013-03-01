@@ -24,7 +24,7 @@ module Deltacloud
       #
       def parse_deltacloud_error(body)
         args = { :original_error => body.to_s }
-        if backtrace = err.at('/error/backtrace')
+        if backtrace = body.at('/error/backtrace')
           args.merge!(:server_backtrace => backtrace.text)
         end
         if message = body.at('/error/message')
@@ -36,7 +36,7 @@ module Deltacloud
             :provider => backend['provider']
           )
         end
-        if state = err['status']
+        if state = body['status']
           args.merge!(:status => state)
         end
         args

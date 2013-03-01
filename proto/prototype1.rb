@@ -9,7 +9,7 @@ API_URL = 'http://localhost:3001/api'
 
 client = Deltacloud::Client(API_URL, 'mockuser', 'mockpassword')
 
-c = client.driver(:mock, 'mockuser', 'mockpassword', 'us')
+c = client.use(:mock, 'mockuser', 'mockpassword', 'us')
 
 binding.pry
 

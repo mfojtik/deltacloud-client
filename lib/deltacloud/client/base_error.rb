@@ -28,6 +28,19 @@ module Deltacloud::Client
       @original_error
     end
 
+    # If the Deltacloud API server error response contain backtrace from
+    # server,then make this backtrace available as part of this exception
+    # backtrace
+    #
+    def set_backtrace(backtrace)
+      return super(backtrace) if @server_backtrace.nil?
+      super([
+        backtrace[0..3],
+        "=== Server backtrace ===",
+        @server_backtrace.split[0..10],
+      ].flatten)
+    end
+
   end
 
   # Report 401 errors
@@ -47,4 +60,7 @@ module Deltacloud::Client
 
   # Report 405 failures (resource state does not permit the requested operation)
   class InvalidState < ClientFailure; end
+
+  # Report this when client do Image#launch using incompatible HWP
+  class IncompatibleHardwareProfile < ClientFailure; end
 end
