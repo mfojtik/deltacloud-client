@@ -15,12 +15,16 @@ module Deltacloud::Client
     attr_reader :status
 
     def initialize(opts={})
-      @server_backtrace = opts[:server_backtrace]
-      @driver = opts[:driver]
-      @provider = opts[:provider]
-      @status = opts[:status]
-      @original_error = opts[:original_error]
-      super(opts[:message])
+      if opts.is_a? Hash
+        @server_backtrace = opts[:server_backtrace]
+        @driver = opts[:driver]
+        @provider = opts[:provider]
+        @status = opts[:status]
+        @original_error = opts[:original_error]
+        super(opts[:message])
+      else
+        super(opts)
+      end
     end
 
     # Return the original XML error message received from Deltacloud API
