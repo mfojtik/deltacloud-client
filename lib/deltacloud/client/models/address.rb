@@ -15,19 +15,33 @@
 
 module Deltacloud::Client
   class Address < Base
+    include Deltacloud::Client::Methods::Address
 
     # Inherited attributes: :_id, :name, :description
 
     # Custom attributes:
     #
-    # attr_reader :state
-    # attr_reader :realm_id
+    attr_reader :ip
+    attr_reader :instance_id
 
     # Address model methods
     #
-    # def reboot!
-    #   address_reboot(_id)
-    # end
+
+    # Associate the IP address to the +Instance+
+    #
+    def associate(instance_id)
+      associate_address(_id, instance_id)
+    end
+
+    # Disassociate the IP address from +Instance+
+    #
+    def disassociate
+      disassociate_address(_id)
+    end
+
+    def destroy!
+      destroy_address(_id)
+    end
 
     # Parse the Address entity from XML body
     #
@@ -35,8 +49,8 @@ module Deltacloud::Client
     #
     def self.parse(xml_body)
       {
-        # :state => xml_body.text_at(:state),
-        # :realm_id => xml_body.attr_at('realm', :id)
+        :ip => xml_body.text_at(:ip),
+        :instance_id => xml_body.attr_at('instance', :id)
       }
     end
   end

@@ -16,6 +16,8 @@
 module Deltacloud::Client
   class <%=name.to_s.camelize%> < Base
 
+    include Deltacloud::Client::Methods::<%=name.to_s.camelize%>
+
     # Inherited attributes: :_id, :name, :description
 
     # Custom attributes:

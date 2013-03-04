@@ -41,13 +41,13 @@ module Deltacloud::Client
       #
       # - create_opts
       #
-      def create_<%=name%>(create_opts={})
-        must_support! :<%=name.to_s.pluralize%>
-         response = connection.post(api_uri('<%=name.to_s.pluralize%>')) do |request|
-          request.params = create_opts
-        end
-        model(:<%=name%>).convert(self, response.body)
-      end
+      # def create_<%=name%>(create_opts={})
+      #   must_support! :<%=name.to_s.pluralize%>
+      #    response = connection.post(api_uri('<%=name.to_s.pluralize%>')) do |request|
+      #     request.params = create_opts
+      #   end
+      #   model(:<%=name%>).convert(self, response.body)
+      # end
 
     end
   end
