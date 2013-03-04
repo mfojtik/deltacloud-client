@@ -1,6 +1,7 @@
 # deltacloud-client
 
 [![Code Climate](https://codeclimate.com/github/mifo/deltacloud-client.png)](https://codeclimate.com/github/mifo/deltacloud-client)
+[![Build Status](https://travis-ci.org/mifo/deltacloud-client.png)](https://travis-ci.org/mifo/deltacloud-client)
 
 This is a Ruby client library for the [Deltacloud API](http://deltacloud.apache.org).
 
