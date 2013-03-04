@@ -1,10 +1,8 @@
 module Deltacloud
   module Client
+    require 'ostruct'
     require 'nokogiri'
     require 'faraday'
-
-    # Used for development ;-)
-    require 'pry' rescue nil
 
     # Core extensions
     require_relative './core_ext'
@@ -37,17 +35,16 @@ module Deltacloud
     # Deltacloud models
     require_relative './client/models'
 
-
     require_relative './client/connection'
 
     VERSION = '0.0.1'
   end
 
-  def self.Client(url, api_user, api_password)
-    Client::Connection.new(
+  def self.Client(url, api_user, api_password, opts={})
+    Client::Connection.new({
       :url => url,
       :api_user => api_user,
       :api_password => api_password
-    )
+    }.merge(opts))
   end
 end

@@ -15,16 +15,16 @@ module Deltacloud
     def client_error(klass, message, error=nil)
       args = {
         :message => message,
-        :original_error => error[:body],
+        :original_error => error ? error[:body] : {},
       }
-      args.merge! parse_deltacloud_error(error)
+      args.merge! parse_deltacloud_error(args[:original_error])
       klass.new(args)
     end
 
     # Parse the Deltacloud API error body to Hash
     #
     def parse_deltacloud_error(error_response)
-      body = error_response[:body]
+      body = error_response[:body] || ''
       return {} if body.empty?
       return {} if body.to_xml.root.name != 'error'
 

@@ -1,7 +1,7 @@
 module Deltacloud::Client
   class Connection
 
-    attr_reader :connection
+    attr_accessor :connection
     attr_reader :request_driver
     attr_reader :request_provider
     attr_reader :entrypoint
@@ -29,10 +29,10 @@ module Deltacloud::Client
       @request_provider = opts[:provider]
       @connection = Faraday.new(:url => opts[:url]) do |f|
         f.request :url_encoded
-        f.adapter  Faraday.default_adapter
         f.headers = default_request_headers
         f.basic_auth opts[:api_user], opts[:api_password]
         f.use Deltacloud::ErrorResponse
+        f.adapter :net_http
       end
       cache_entrypoint!
     end
@@ -58,23 +58,30 @@ module Deltacloud::Client
       new_client
     end
 
-    # Change the current API_PROVIDER and return copy of the client
-    # This allows chained calls like: client.provider('us').instances
+    # Change the API provider but keep the current client credentials.
+    # This allows to change the EC2 region and list instances in that
+    # region without need to supply credentials.
+    #
+    # client.use_provider('eu-west-1') { |p| p.instances }
     #
     # - provider_id -> API provider (aka API_PROVIDER)
     #
-    def use_provider(provider_id)
+    def use_provider(provider_id, &block)
+      new_client = self.clone
       new_connection = @connection.clone
       new_connection.headers['X-Deltacloud-Provider'] = provider_id
-      new_connection.cache_entrypoint!
-      new_connection
+      new_client.connection = new_connection
+      new_client.cache_entrypoint!(true)
+      yield new_client if block_given?
+      new_client
     end
 
     # Cache the API entrypoint (/api) for the current connection,
     # so we don't need to query /api everytime we ask if certain
     # collection/operation is supported
     #
-    def cache_entrypoint!
+    def cache_entrypoint!(force=false)
+      @entrypoint = nil if force
       @entrypoint ||= connection.get(path).body
     end
 
@@ -100,6 +107,10 @@ module Deltacloud::Client
         headers.merge!( 'X-Deltacloud-Provider' => @request_provider.to_s )
       end
       headers
+    end
+
+    def test_environment?
+      !ENV['TEST_ENV'].nil?
     end
 
   end

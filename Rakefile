@@ -1,9 +1,12 @@
 require 'rubygems'
-require 'erb'
+require 'rake'
+require 'rake/testtask'
+
 require 'pry' rescue LoadError
 
 desc 'Generate model/methods files for collection.'
 task :generate, :name do |t, args|
+  require 'erb'
   require_relative './lib/deltacloud/core_ext'
   model_tpl = ERB.new(File.read('support/model_template.erb'))
   methods_tpl = ERB.new(File.read('support/methods_template.erb'))
@@ -52,4 +55,10 @@ task :console do
     ENV['API_PASSWORD'] || 'mockpassword'
   )
   binding.pry
+end
+
+Rake::TestTask.new(:test) do |t|
+  t.test_files = FileList[
+    'tests/*/*_test.rb'
+  ]
 end
