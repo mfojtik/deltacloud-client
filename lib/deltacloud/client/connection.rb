@@ -16,7 +16,10 @@ module Deltacloud::Client
     include Deltacloud::Client::Methods::Image
     include Deltacloud::Client::Methods::Instance
     include Deltacloud::Client::Methods::InstanceState
+    include Deltacloud::Client::Methods::Key
     include Deltacloud::Client::Methods::StorageVolume
+    include Deltacloud::Client::Methods::StorageSnapshot
+    include Deltacloud::Client::Methods::Address
 
     def initialize(opts={})
       @request_driver = opts[:driver]

@@ -83,15 +83,15 @@ Deltacloud::Client::Connection#methods:
 ## Adding new Deltacloud collection to client
 
 ```
-$ rake collection:generate[YOUR_COLLECTION] # eg. 'storage_snapshot'
+$ rake generate[YOUR_COLLECTION] # eg. 'storage_snapshot'
 # Hit Enter 2x
 ```
 
-- Edit @lib/deltacloud/client/methods/YOUR_COLLECTION.rb@ and add all
+- Edit `lib/deltacloud/client/methods/YOUR_COLLECTION.rb` and add all
   methods for manipulating your collection. The list/show methods
   should already be generated for you, but double-check them.
 
-- Edit @lib/deltacloud/client/model/YOUR_COLLECTION.rb@ and add model
+- Edit `lib/deltacloud/client/model/YOUR_COLLECTION.rb` and add model
   methods. Model methods should really be just a syntax sugar and exercise
   the *Deltacloud::Client::Methods* methods.
   The purpose of *model* class life is to deserialize XML body received

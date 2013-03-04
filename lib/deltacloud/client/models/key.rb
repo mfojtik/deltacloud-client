@@ -14,40 +14,31 @@
 # under the License.
 
 module Deltacloud::Client
-  class StorageSnapshot < Base
-
-    include Deltacloud::Client::Methods::StorageSnapshot
-    include Deltacloud::Client::Methods::StorageVolume
+  class Key < Base
 
     # Inherited attributes: :_id, :name, :description
 
     # Custom attributes:
     #
-    attr_reader :created
-    attr_reader :storage_volume_id
+    attr_reader :state
+    attr_reader :username
+    attr_reader :password
+    attr_reader :public_key
+    attr_reader :fingerprint
 
-    # StorageSnapshot model methods
+    # Key model methods
+
+    # Parse the Key entity from XML body
     #
-    def storage_volume
-      storage_volume(storage_volume_id)
-    end
-
-    # Syntax sugar for destroying the current instance
-    # of StorageSnapshot
-    #
-    def destroy!
-      destroy_storage_snapshot(_id)
-    end
-
-
-    # Parse the StorageSnapshot entity from XML body
-    #
-    # - xml_body -> Deltacloud API XML representation of the storage_snapshot
+    # - xml_body -> Deltacloud API XML representation of the key
     #
     def self.parse(xml_body)
       {
-        :created => xml_body.text_at(:created),
-        :storage_volume_id => xml_body.attr_at('storage_volume', :id)
+        :state => xml_body.text_at(:state),
+        :username => xml_body.text_at(:username),
+        :password => xml_body.text_at(:password),
+        :fingerprint => xml_body.text_at(:fingerprint),
+        :public_key => xml_body.text_at(:pem)
       }
     end
   end

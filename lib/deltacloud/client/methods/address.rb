@@ -15,38 +15,38 @@
 
 module Deltacloud::Client
   module Methods
-    module <%=name.to_s.camelize%>
+    module Address
 
-      # Retrieve list of all <%=name%> entities
+      # Retrieve list of all address entities
       #
       # Filter options:
       #
       # - :id -> Filter entities using 'id' attribute
       #
-      def <%=name.to_s.pluralize%>(filter_opts={})
-        from_collection :<%=name.to_s.pluralize%>,
-        connection.get(api_uri('<%=name.to_s.pluralize%>'), filter_opts)
+      def addresses(filter_opts={})
+        from_collection :addresses,
+        connection.get(api_uri('addresses'), filter_opts)
       end
 
-      # Retrieve the single <%=name%> entity
+      # Retrieve the single address entity
       #
-      # - <%=name%>_id -> <%=name.to_s.camelize%> entity to retrieve
+      # - address_id -> Address entity to retrieve
       #
-      def <%=name%>(<%=name%>_id)
-        from_resource :<%=name%>,
-          connection.get(api_uri("<%=name.to_s.pluralize%>/#{<%=name%>_id}"))
+      def address(address_id)
+        from_resource :address,
+          connection.get(api_uri("addresses/#{address_id}"))
       end
 
-      # Create a new <%=name%>
+      # Create a new address
       #
       # - create_opts
       #
-      def create_<%=name%>(create_opts={})
-        must_support! :<%=name.to_s.pluralize%>
-         response = connection.post(api_uri('<%=name.to_s.pluralize%>')) do |request|
+      def create_address(create_opts={})
+        must_support! :addresses
+         response = connection.post(api_uri('addresses')) do |request|
           request.params = create_opts
         end
-        model(:<%=name%>).convert(self, response.body)
+        model(:address).convert(self, response.body)
       end
 
     end

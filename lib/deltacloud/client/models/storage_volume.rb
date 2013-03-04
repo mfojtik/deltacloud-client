@@ -1,6 +1,8 @@
 module Deltacloud::Client
   class StorageVolume < Base
+    include Deltacloud::Client::Methods::Instance
     include Deltacloud::Client::Methods::StorageVolume
+    include Deltacloud::Client::Methods::StorageSnapshot
 
     attr_accessor :created
     attr_accessor :state
@@ -33,6 +35,18 @@ module Deltacloud::Client
     #
     def destroy!
       destroy_storage_volume(_id)
+    end
+
+    # Syntax sugar for creating a snapshot from volume
+    # See: +create_storage_snapshot+
+    #
+    def snapshot!(snapshot_opts={})
+      create_storage_snapshot(_id, snapshot_opts)
+    end
+
+    def attached_instance
+      raise error('Volume is not attached to any instance') unless attached?
+      instance(mount[:instance])
     end
 
     def self.parse(xml_body)

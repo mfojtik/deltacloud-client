@@ -15,38 +15,49 @@
 
 module Deltacloud::Client
   module Methods
-    module <%=name.to_s.camelize%>
+    module Key
 
-      # Retrieve list of all <%=name%> entities
+      # Retrieve list of all key entities
       #
       # Filter options:
       #
       # - :id -> Filter entities using 'id' attribute
       #
-      def <%=name.to_s.pluralize%>(filter_opts={})
-        from_collection :<%=name.to_s.pluralize%>,
-        connection.get(api_uri('<%=name.to_s.pluralize%>'), filter_opts)
+      def keys(filter_opts={})
+        from_collection :keys,
+        connection.get(api_uri('keys'), filter_opts)
       end
 
-      # Retrieve the single <%=name%> entity
+      # Retrieve the single key entity
       #
-      # - <%=name%>_id -> <%=name.to_s.camelize%> entity to retrieve
+      # - key_id -> Key entity to retrieve
       #
-      def <%=name%>(<%=name%>_id)
-        from_resource :<%=name%>,
-          connection.get(api_uri("<%=name.to_s.pluralize%>/#{<%=name%>_id}"))
+      def key(key_id)
+        from_resource :key,
+          connection.get(api_uri("keys/#{key_id}"))
       end
 
-      # Create a new <%=name%>
+      # Create a new credentials to use with authentication
+      # to an +Instance+
       #
+      # - key_name -> The name of the key
       # - create_opts
+      #   : public_key -> Your SSH public key (eg. ~/.ssh/id_rsa.pub)
       #
-      def create_<%=name%>(create_opts={})
-        must_support! :<%=name.to_s.pluralize%>
-         response = connection.post(api_uri('<%=name.to_s.pluralize%>')) do |request|
-          request.params = create_opts
+      def create_key(key_name, create_opts={})
+        must_support! :keys
+         response = connection.post(api_uri('keys')) do |request|
+          request.params = create_opts.merge('name' => key_name)
         end
-        model(:<%=name%>).convert(self, response.body)
+        model(:key).convert(self, response.body)
+      end
+
+      # Destroy the SSH key
+      #
+      def destroy_key(key_id)
+        must_support! :keys
+        r = connection.delete(api_uri("keys/#{key_id}"))
+        r.status == 204
       end
 
     end
