@@ -97,6 +97,18 @@ $ rake collection:generate[YOUR_COLLECTION] # eg. 'storage_snapshot'
   The purpose of *model* class life is to deserialize XML body received
   from Deltacloud API to a Ruby class.
 
+## Debugging a nasty bug?
+
+- First sorry for not having a tests yet (see: TODO).
+- You can easily debug deltacloud-client using powerful **pry**.
+
+  - `gem install deltacloud-core`
+  - optional: `rbenv rehash` ;-)
+  - `deltacloudd -i mock -p 3002`
+  - `rake console`
+
+Console require **pry** gem installed. If you are not using this awesome
+gem, you can fix it by `gem install pry`.
 
 # License
 
