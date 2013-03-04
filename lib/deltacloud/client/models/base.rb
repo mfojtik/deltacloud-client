@@ -32,17 +32,6 @@ module Deltacloud::Client
 
     alias_method :_id, :obj_id
 
-    # Reference to the current client connection and entirypoint.
-    # This is needed to execute Deltacloud methods on model instances.
-    #
-    def connection
-      @client.connection
-    end
-
-    def entrypoint
-      @client.entrypoint
-    end
-
     # Populate instance variables in model
     # This method could be also used to update the variables for already
     # initialized models. Look at +Instance#reload!+ method.
@@ -97,12 +86,14 @@ module Deltacloud::Client
         end
       end
 
+      # The :_id and :_client attributes are mandotory
+      # to construct a Base model object.
+      #
       def validate_attrs!(attrs)
         raise error.new('The :_id must not be nil.') if attrs[:_id].nil?
         raise error.new('The :_client reference is missing.') if attrs[:_client].nil?
       end
 
     end
-
   end
 end
