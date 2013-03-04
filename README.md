@@ -110,6 +110,7 @@ $ rake generate[YOUR_COLLECTION] # eg. 'storage_snapshot'
 Console require **pry** gem installed. If you are not using this awesome
 gem, you can fix it by `gem install pry`.
 
+
 # License
 
 Apache License
