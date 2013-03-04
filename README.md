@@ -75,23 +75,28 @@ Deltacloud::Client::Connection#methods:
 # TODO
 
 - Added tests (right, I like to write the code first, because is more fun ;-))
-- Add missing Deltacloud API models
+- Add support for the missing Deltacloud API collection
 - Test AeolusProject for compatibility
 
-# Adding support for collection
+# Want help?
 
-* Write `lib/deltacloud/client/models/ENTITY.rb`
+## Adding new Deltacloud collection to client
 
-This class should include list of entity attributes in `attr_reader` block.
-Also it should implement the `self#parse` method that defines how an entity will
-be deserialized from XML. (Look [here](https://github.com/mifo/deltacloud-client/blob/master/lib/deltacloud/client/models/realm.rb) for example.
-The `r` variable here is an instance of the Nokogiri::Element node.
+```
+$ rake collection:generate[YOUR_COLLECTION] # eg. 'storage_snapshot'
+# Hit Enter 2x
+```
 
-* Write `lib/deltacloud/client/methods/ENTITY.rb`
+- Edit @lib/deltacloud/client/methods/YOUR_COLLECTION.rb@ and add all
+  methods for manipulating your collection. The list/show methods
+  should already be generated for you, but double-check them.
 
-All entity CRUD methods should go here. ([example](https://github.com/mifo/deltacloud-client/blob/master/lib/deltacloud/client/methods/realm.rb))
+- Edit @lib/deltacloud/client/model/YOUR_COLLECTION.rb@ and add model
+  methods. Model methods should really be just a syntax sugar and exercise
+  the *Deltacloud::Client::Methods* methods.
+  The purpose of *model* class life is to deserialize XML body received
+  from Deltacloud API to a Ruby class.
 
-* Require model/methods in `client.rb` and add the `include` statement in the `connection.rb` file
 
 # License
 
