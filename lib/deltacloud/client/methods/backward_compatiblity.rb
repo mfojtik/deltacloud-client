@@ -15,19 +15,22 @@ module Deltacloud::Client
       end
 
       def connect(&block)
-        yield self
+        yield self.clone
       end
 
       def with_config(opts, &block)
-        warn "WARN: The Client#with_config is obsoleted. Use the Client#driver instead."
-        api_instance = api_instance.use(opts[:driver], opts[:username], opts[:password], opts[:provider])
+        api_instance = use(
+          opts[:driver],
+          opts[:username],
+          opts[:password],
+          opts[:provider]
+        )
         yield api_instance if block_given?
         api_instance
       end
 
       def use_driver(new_driver, opts={})
-        warn "WARN: The Client#use_driver is obsoleted. Use the Client#driver instead."
-        use(new_driver, opts[:username], opts[:password], opts[:provider])
+        with_config(opts.merge(:driver => new_driver))
       end
 
       alias_method :"use_config!", :use_driver
@@ -39,7 +42,6 @@ module Deltacloud::Client
       module ClassMethods
 
         def valid_credentials?(api_user, api_password, api_url, opts={})
-          warn "WARN: Client#valid_credentials? is obsoleted. Use Deltacloud::Client(url, user, passwd).valid_credentials?"
           args = {
             :api_user => api_user,
             :api_password => api_password,

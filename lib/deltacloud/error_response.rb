@@ -24,7 +24,7 @@ module Deltacloud
     # Parse the Deltacloud API error body to Hash
     #
     def parse_deltacloud_error(error_response)
-      body = error_response[:body] || ''
+      body = error_response || ''
       return {} if body.empty?
       return {} if body.to_xml.root.name != 'error'
 
@@ -69,6 +69,8 @@ module Deltacloud
             'Resource state does not permit this action',
             e
           )
+        when '404'
+          raise client_error(error(:not_found), 'Object not found')
         when /40\d/
           raise client_error(error(:client_failure), '',  e)
         when '500'

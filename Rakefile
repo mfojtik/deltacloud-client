@@ -42,6 +42,24 @@ task :generate, :name do |t, args|
   puts
 end
 
+desc 'Generate method test file'
+task :test_generate, :name do |t, args|
+  require 'erb'
+  require_relative './lib/deltacloud/core_ext'
+  method_tpl = ERB.new(File.read('support/method_test_template.erb'))
+  name = args[:name]
+  methods_file = "tests/methods/#{name}_test.rb"
+  puts method_body = method_tpl.result(binding)
+  print "Save method test to '#{methods_file}'? [Y/n]"
+  answer = $stdin.gets.chomp
+  if answer.empty? or answer == 'Y'
+    File.open(methods_file, 'w') { |f|
+      f.write(method_body)
+    }
+  end
+end
+
+
 desc "Open console with client connected to #{ENV['API_URL'] || 'localhost:3002/api'}"
 task :console do
   unless binding.respond_to? :pry

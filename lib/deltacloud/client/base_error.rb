@@ -62,6 +62,8 @@ module Deltacloud::Client
   # Report 4xx failures (client failures)
   class ClientFailure < BaseError; end
 
+  class NotFound < BaseError; end
+
   # Report 405 failures (resource state does not permit the requested operation)
   class InvalidState < ClientFailure; end
 

@@ -1,0 +1,38 @@
+require_relative '../test_helper'
+
+describe Deltacloud::Client::Methods::<%=name.to_s.camelize%> do
+
+  before do
+    VCR.insert_cassette(__name__)
+    @client = new_client
+  end
+
+  after do
+    VCR.eject_cassette
+  end
+
+  it 'supports #<%=name.to_s.pluralize%>' do
+    @client.must_respond_to :<%=name.to_s.pluralize%>
+    @client.<%=name.to_s.pluralize%>.must_be_kind_of Array
+    @client.<%=name.to_s.pluralize%>.each { |r| r.must_be_instance_of Deltacloud::Client::<%=name.to_s.camelize%> }
+  end
+
+  it 'supports filtering #<%=name.to_s.pluralize%> by :id param' do
+    result = @client.<%=name.to_s.pluralize%>(:id => 'XXX')
+    result.must_be_kind_of Array
+    result.size.must_equal 1
+    result.first.must_be_instance_of Deltacloud::Client::<%=name.to_s.camelize%>
+    result = @client.<%=name.to_s.pluralize%>(:id => 'unknown')
+    result.must_be_kind_of Array
+    result.size.must_equal 0
+  end
+
+  it 'support #<%=name.to_s%>' do
+    @client.must_respond_to :<%=name%>
+    result = @client.<%=name%>('XXX')
+    result.must_be_instance_of Deltacloud::Client::<%=name.to_s.camelize%>
+    lambda { @client.<%=name%>(nil) }.must_raise Deltacloud::Client::NotFound
+    lambda { @client.<%=name%>('foo') }.must_raise Deltacloud::Client::NotFound
+  end
+
+end

@@ -1,0 +1,264 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://localhost:3001/api
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - application/xml
+      Authorization: 
+      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
+      User-Agent: 
+      - Faraday v0.8.6
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      content-type: 
+      - application/xml
+      server: 
+      - Apache-Deltacloud/1.1.1
+      x-deltacloud-driver: 
+      - mock
+      content-length: 
+      - "1368"
+      x-content-type-options: 
+      - nosniff
+      etag: 
+      - e43d25244dc2b8ce1da6fa91131507ee
+      cache-control: 
+      - max-age=0, private, must-revalidate
+      date: 
+      - Mon, 04 Mar 2013 19:48:36 GMT
+      connection: 
+      - close
+    body: 
+      encoding: US-ASCII
+      string: |
+        <api driver='mock' version='1.1.1'>
+          <link href='http://localhost:3001/api/instance_states' rel='instance_states'>
+          </link>
+          <link href='http://localhost:3001/api/storage_volumes' rel='storage_volumes'>
+          </link>
+          <link href='http://localhost:3001/api/metrics' rel='metrics'>
+          </link>
+          <link href='http://localhost:3001/api/hardware_profiles' rel='hardware_profiles'>
+          </link>
+          <link href='http://localhost:3001/api/instances' rel='instances'>
+            <feature name='metrics' rel='create'>
+              <param name='metrics' />
+            </feature>
+            <feature name='realm_filter' rel='index'>
+              <param name='realm_id' />
+            </feature>
+            <feature name='user_name' rel='create'>
+              <param name='name' />
+            </feature>
+            <feature name='authentication_key' rel='create'>
+              <param name='keyname' />
+            </feature>
+          </link>
+          <link href='http://localhost:3001/api/realms' rel='realms'>
+          </link>
+          <link href='http://localhost:3001/api/storage_snapshots' rel='storage_snapshots'>
+          </link>
+          <link href='http://localhost:3001/api/images' rel='images'>
+          </link>
+          <link href='http://localhost:3001/api/addresses' rel='addresses'>
+          </link>
+          <link href='http://localhost:3001/api/drivers' rel='drivers'>
+          </link>
+          <link href='http://localhost:3001/api/buckets' rel='buckets'>
+          </link>
+          <link href='http://localhost:3001/api/keys' rel='keys'>
+          </link>
+        </api>
+
+    http_version: 
+  recorded_at: Mon, 04 Mar 2013 19:48:36 GMT
+- request: 
+    method: get
+    uri: http://localhost:3001/api/instances/inst1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - application/xml
+      Authorization: 
+      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
+      User-Agent: 
+      - Faraday v0.8.6
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      content-type: 
+      - application/xml
+      x-backend-runtime: 
+      - "0.0013611316680908203"
+      server: 
+      - Apache-Deltacloud/1.1.1
+      x-deltacloud-driver: 
+      - mock
+      content-length: 
+      - "1170"
+      x-content-type-options: 
+      - nosniff
+      etag: 
+      - bae4b813c48703150cc5cf5d4123b3d1
+      cache-control: 
+      - max-age=0, private, must-revalidate
+      date: 
+      - Mon, 04 Mar 2013 19:48:36 GMT
+      connection: 
+      - close
+    body: 
+      encoding: US-ASCII
+      string: |
+        <?xml version='1.0' encoding='utf-8' ?>
+        <instance href='http://localhost:3001/api/instances/inst1' id='inst1'>
+          <name>MockUserInstance</name>
+          <owner_id>mockuser</owner_id>
+          <image href='http://localhost:3001/api/images/img3' id='img3'></image>
+          <realm href='http://localhost:3001/api/realms/us' id='us'></realm>
+          <state>RUNNING</state>
+          <hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small' id='m1-small'>
+          </hardware_profile>
+          <actions>
+            <link href='http://localhost:3001/api/instances/inst1/reboot' method='post' rel='reboot' />
+            <link href='http://localhost:3001/api/instances/inst1/stop' method='post' rel='stop' />
+            <link href='http://localhost:3001/api/instances/inst1/run;id=inst1' method='post' rel='run' />
+            <link href='http://localhost:3001/api/images;instance_id=inst1' method='post' rel='create_image' />
+          </actions>
+          <public_addresses><address type='hostname'>img1.inst1.public.com</address></public_addresses>
+          <private_addresses><address type='hostname'>img1.inst1.private.com</address></private_addresses>
+          <storage_volumes></storage_volumes>
+          <authentication type='key'>
+          </authentication>
+        </instance>
+
+    http_version: 
+  recorded_at: Mon, 04 Mar 2013 19:48:36 GMT
+- request: 
+    method: get
+    uri: http://localhost:3001/api/instances/
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - application/xml
+      Authorization: 
+      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
+      User-Agent: 
+      - Faraday v0.8.6
+  response: 
+    status: 
+      code: 404
+      message: 
+    headers: 
+      content-type: 
+      - text/html;charset=utf-8
+      x-cascade: 
+      - pass
+      server: 
+      - Apache-Deltacloud/1.1.1
+      x-deltacloud-driver: 
+      - mock
+      content-length: 
+      - "450"
+      x-xss-protection: 
+      - 1; mode=block
+      x-content-type-options: 
+      - nosniff
+      x-frame-options: 
+      - SAMEORIGIN
+      date: 
+      - Mon, 04 Mar 2013 19:48:36 GMT
+      connection: 
+      - close
+    body: 
+      encoding: US-ASCII
+      string: |
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style type="text/css">
+          body { text-align:center;font-family:helvetica,arial;font-size:22px;
+            color:#888;margin:20px}
+          #c {margin:0 auto;width:500px;text-align:left}
+          </style>
+        </head>
+        <body>
+          <h2>Sinatra doesn&rsquo;t know this ditty.</h2>
+          <img src='http://localhost:3001/api/__sinatra__/404.png'>
+          <div id="c">
+            Try this:
+            <pre>get '/instances/' do
+          "Hello World"
+        end</pre>
+          </div>
+        </body>
+        </html>
+
+    http_version: 
+  recorded_at: Mon, 04 Mar 2013 19:48:36 GMT
+- request: 
+    method: get
+    uri: http://localhost:3001/api/instances/foo
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - application/xml
+      Authorization: 
+      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
+      User-Agent: 
+      - Faraday v0.8.6
+  response: 
+    status: 
+      code: 404
+      message: 
+    headers: 
+      content-type: 
+      - application/xml
+      x-backend-runtime: 
+      - "0.0014994144439697266"
+      server: 
+      - Apache-Deltacloud/1.1.1
+      x-deltacloud-driver: 
+      - mock
+      content-length: 
+      - "412"
+      x-content-type-options: 
+      - nosniff
+      date: 
+      - Mon, 04 Mar 2013 19:48:36 GMT
+      connection: 
+      - close
+    body: 
+      encoding: US-ASCII
+      string: |
+        <?xml version='1.0' encoding='utf-8' ?>
+        <error status='404' url='/api/instances/foo'>
+          <backend driver='mock' provider='default'></backend>
+          <code>404</code>
+          <message><![CDATA[Not Found]]></message>
+          <backtrace></backtrace>
+          <request>
+            <param name='splat'><![CDATA[[]]]></param>
+            <param name='captures'><![CDATA[["foo"]]]></param>
+            <param name='id'><![CDATA["foo"]]></param>
+          </request>
+        </error>
+
+    http_version: 
+  recorded_at: Mon, 04 Mar 2013 19:48:36 GMT
+recorded_with: VCR 2.4.0

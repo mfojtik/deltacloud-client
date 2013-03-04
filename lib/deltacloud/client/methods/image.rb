@@ -20,7 +20,7 @@ module Deltacloud::Client
       # - image_id -> Image to retrieve
       #
       def image(image_id)
-        from_resource :images,
+        from_resource :image,
           connection.get(api_uri("images/#{image_id}"))
       end
 
@@ -39,6 +39,15 @@ module Deltacloud::Client
           )
         end
         model(:image).convert(self, r.body)
+      end
+
+      # Destroy given image
+      # NOTE: This operation might not be supported for all drivers.
+      #
+      def destroy_image(image_id)
+        must_support! :images
+        r = connection.delete(api_uri("images/#{image_id}"))
+        r.status == 204
       end
 
     end
