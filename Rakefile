@@ -80,3 +80,9 @@ Rake::TestTask.new(:test) do |t|
     'tests/*/*_test.rb'
   ]
 end
+
+desc "Generate test coverage report"
+task :coverage do
+  ENV['COVERAGE'] = 'true'
+  Rake::Task[:test].invoke
+end

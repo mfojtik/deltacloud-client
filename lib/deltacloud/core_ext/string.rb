@@ -6,19 +6,7 @@ class String
   # If Nokogiri::XML fails, InvalidXMLError is returned.
   #
   def to_xml
-    begin
-      Nokogiri::XML(self)
-    rescue => e
-      raise Deltacloud::Client::InvalidXMLError.new(e.message)
-    end
-  end
-
-  def text_at(xpath)
-    to_xml.text_at(xpath)
-  end
-
-  def attr_at(xpath, attr_name)
-    to_xml.attr_at(xpath, attr_name)
+    Nokogiri::XML(self)
   end
 
   unless method_defined? :camelize
