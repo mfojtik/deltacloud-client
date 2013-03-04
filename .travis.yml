@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+  - 1.8.7
+  - 1.9.3
+  - jruby-head
+jdk:
+  - openjdk7
+gemfile: Gemfile
+install:
+  - bundle install
+script:
+  - bundle exec rake test
+notifications:
+  email:
+    - mi@mifo.sk
+

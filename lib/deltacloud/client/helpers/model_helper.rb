@@ -8,6 +8,9 @@ module Deltacloud::Client
       # -name -> A class name in underscore form (:storage_volume)
       #
       def model(name)
+        if name.nil? or (!name.nil? and name.empty?)
+          raise error.new("The model name can't be blank")
+        end
         Deltacloud::Client.const_get(name.to_s.camelize)
       end
 
@@ -40,7 +43,6 @@ module Deltacloud::Client
       # Check if the collection for given model is supported
       # in current @connection and then parse/convert
       # resource XML to a Ruby class
-      #
       #
       def from_resource(model_name, resource_body)
         must_support!(model_name.to_s.pluralize)

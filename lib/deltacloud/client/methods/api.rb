@@ -7,7 +7,7 @@ module Deltacloud::Client
       end
 
       def api_uri(uri)
-        URI.parse([path, uri].join('/'))
+        URI.parse([path, uri.gsub(/^(\/+)/,'')].join('/'))
       end
 
       # The current version of Deltacloud API
