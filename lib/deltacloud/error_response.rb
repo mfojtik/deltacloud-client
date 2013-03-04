@@ -26,7 +26,10 @@ module Deltacloud
     def parse_deltacloud_error(error_response)
       body = error_response[:body]
       return {} if body.empty?
-      return {} if body.to_xml.root != 'error'
+      return {} if body.to_xml.root.name != 'error'
+
+      body = body.to_xml
+      args = {}
 
       if backtrace = body.at('/error/backtrace')
         args.merge!(:server_backtrace => backtrace.text)

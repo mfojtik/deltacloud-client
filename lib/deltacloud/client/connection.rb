@@ -22,6 +22,7 @@ module Deltacloud::Client
     include Deltacloud::Client::Methods::Address
     include Deltacloud::Client::Methods::Bucket
     include Deltacloud::Client::Methods::Blob
+    include Deltacloud::Client::Methods::Firewall
 
     def initialize(opts={})
       @request_driver = opts[:driver]

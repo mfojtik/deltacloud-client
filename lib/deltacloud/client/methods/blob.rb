@@ -17,15 +17,11 @@ module Deltacloud::Client
   module Methods
     module Blob
 
-      # Retrieve list of all blob entities
+      # Retrieve list of all blob entities from given bucket
       #
-      # Filter options:
-      #
-      # - :id -> Filter entities using 'id' attribute
-      #
-      def blobs(bucket_id, filter_opts={})
-        from_collection :buckets,
-        connection.get(api_uri("buckets/#{bucket_id}/blobs"), filter_opts)
+      def blobs(bucket_id=nil)
+        raise error.new("The :bucket_id cannot be nil.") if bucket_id.nil?
+        bucket(bucket_id).blob_ids.map { |blob_id| blob(bucket_id, blob_id) }
       end
 
       # Retrieve the single blob entity
@@ -33,8 +29,10 @@ module Deltacloud::Client
       # - blob_id -> Blob entity to retrieve
       #
       def blob(bucket_id, blob_id)
-        from_resource :buckets,
-          connection.get(api_uri("buckets/#{bucket_id}/blobs/#{blob_id}"))
+        model(:blob).convert(
+          self,
+          connection.get(api_uri("buckets/#{bucket_id}/#{blob_id}"))
+        )
       end
 
       # Create a new blob

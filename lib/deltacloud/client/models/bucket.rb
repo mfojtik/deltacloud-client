@@ -17,6 +17,7 @@ module Deltacloud::Client
   class Bucket < Base
 
     include Deltacloud::Client::Methods::Bucket
+    include Deltacloud::Client::Methods::Blob
 
     # Inherited attributes: :_id, :name, :description
 
@@ -27,9 +28,28 @@ module Deltacloud::Client
 
     # Bucket model methods
     #
-    # def reboot!
-    #   bucket_reboot(_id)
-    # end
+    #
+
+    # All blobs associated with the current bucket
+    # The 'bucket_id' should not be set in this case.
+    #
+    def blobs(bucket_id=nil)
+      super(_id)
+    end
+
+    # Add a new blob to the bucket.
+    # See: +create_blob+
+    #
+    def add_blob(blob_name, blob_data, blob_create_opts={})
+      create_blob(_id, blob_name, blob_data, create_opts)
+    end
+
+    # Remove a blob from the bucket
+    # See: +destroy_blob+
+    #
+    def remove_blob(blob_id)
+      destroy_blob(_id, blob_id)
+    end
 
     # Parse the Bucket entity from XML body
     #
