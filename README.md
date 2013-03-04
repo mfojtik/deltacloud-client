@@ -36,26 +36,33 @@ Full documentation available [here](http://rdoc.info/github/mifo/deltacloud-clie
 
 [1] pry(main)> ls client
 
-Deltacloud::Client::Helpers::Model#methods: error  from_collection  from_resource  model
+Deltacloud::Client::Helpers::Model#methods:
+  error  from_collection  from_resource  model
 
 Deltacloud::Client::Methods::Api#methods:
   api_driver  api_version     current_provider  entrypoints  features       path      supported_collections
   api_uri     current_driver  driver_name       feature?     must_support!  support?  version
 
-Deltacloud::Client::Methods::BackwardCompatibility#methods: api_host  api_port  connect  discovered?  use_config!  use_driver  with_config
+Deltacloud::Client::Methods::BackwardCompatibility#methods:
+  api_host  api_port  connect  discovered?  use_config!  use_driver  with_config
 
-Deltacloud::Client::Methods::Driver#methods: driver  drivers  providers
+Deltacloud::Client::Methods::Driver#methods:
+  driver  drivers  providers
 
-Deltacloud::Client::Methods::Realm#methods: realm  realms
+Deltacloud::Client::Methods::Realm#methods:
+  realm  realms
 
-Deltacloud::Client::Methods::HardwareProfile#methods: hardware_profile  hardware_profiles
+Deltacloud::Client::Methods::HardwareProfile#methods:
+  hardware_profile  hardware_profiles
 
-Deltacloud::Client::Methods::Image#methods: create_image  image  images
+Deltacloud::Client::Methods::Image#methods:
+  create_image  image  images
 
 Deltacloud::Client::Methods::Instance#methods:
   create_instance  destroy_instance  instance  instances  reboot_instance  start_instance  stop_instance
 
-Deltacloud::Client::Methods::InstanceState#methods: instance_state  instance_states
+Deltacloud::Client::Methods::InstanceState#methods:
+  instance_state  instance_states
 
 Deltacloud::Client::Methods::StorageVolume#methods:
   attach_storage_volume  create_storage_volume  destroy_storage_volume  detach_storage_volume  storage_volume  storage_volumes
