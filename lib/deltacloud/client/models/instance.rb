@@ -57,18 +57,18 @@ module Deltacloud::Client
 
     class << self
 
-      def parse(inst)
+      def parse(xml_body)
         {
-          :state =>               text_at(inst, 'state'),
-          :realm_id =>            attr_at(inst, 'realm', :id),
-          :owner_id =>            text_at(inst, 'owner_id'),
-          :image_id =>            attr_at(inst, 'image', :id),
-          :hardware_profile_id => attr_at(inst, 'hardware_profile', :id),
+          :state =>               xml_body.text_at('state'),
+          :owner_id =>            xml_body.text_at('owner_id'),
+          :realm_id =>            xml_body.attr_at('realm', :id),
+          :image_id =>            xml_body.attr_at('image', :id),
+          :hardware_profile_id => xml_body.attr_at('hardware_profile', :id),
           :public_addresses => InstanceAddress.convert(
-            inst.xpath('public_addresses/address')
+            xml_body.xpath('public_addresses/address')
           ),
           :private_addresses => InstanceAddress.convert(
-            inst.xpath('private_addresses/address')
+            xml_body.xpath('private_addresses/address')
           )
         }
       end

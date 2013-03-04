@@ -4,10 +4,10 @@ module Deltacloud::Client
     attr_reader :limit
     attr_reader :state
 
-    def self.parse(r)
+    def self.parse(xml_body)
       {
-        :state =>               text_at(r, 'state'),
-        :limit =>               text_at(r, 'limit')
+        :state => xml_body.text_at('state'),
+        :limit => xml_body.text_at('limit')
       }
     end
   end

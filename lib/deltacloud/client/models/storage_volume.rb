@@ -35,19 +35,19 @@ module Deltacloud::Client
       destroy_storage_volume(_id)
     end
 
-    def self.parse(r)
+    def self.parse(xml_body)
       {
-        :created =>             text_at(r, 'created'),
-        :state =>               text_at(r, 'state'),
-        :device =>              text_at(r, 'device'),
-        :capacity =>            text_at(r, 'capacity'),
-        :capacity_unit =>       attr_at(r, 'capacity', :unit),
-        :state =>               text_at(r, 'state'),
-        :realm_id =>            attr_at(r, 'realm', :id),
-        :kind  =>               text_at(r, 'kind'),
+        :created =>             xml_body.text_at('created'),
+        :state =>               xml_body.text_at('state'),
+        :device =>              xml_body.text_at('device'),
+        :capacity =>            xml_body.text_at('capacity'),
+        :capacity_unit =>       xml_body.attr_at('capacity', :unit),
+        :state =>               xml_body.text_at('state'),
+        :realm_id =>            xml_body.attr_at('realm', :id),
+        :kind  =>               xml_body.text_at('kind'),
         :mount  =>              {
-          :instance => attr_at(r, 'mount/instance', :id),
-          :device => attr_at(r, 'mount/device', :name)
+          :instance => xml_body.attr_at('mount/instance', :id),
+          :device => xml_body.attr_at('mount/device', :name)
         }
       }
     end

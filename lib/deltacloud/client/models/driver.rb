@@ -18,10 +18,9 @@ module Deltacloud::Client
       prov
     end
 
-    def self.parse(r)
+    def self.parse(xml_body)
       {
-        :name => text_at(r, :name),
-        :providers => r.xpath('provider').map { |p| Provider.parse(p) }
+        :providers => xml_body.xpath('provider').map { |p| Provider.parse(p) }
       }
     end
 

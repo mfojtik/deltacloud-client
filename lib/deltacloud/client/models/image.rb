@@ -29,14 +29,14 @@ module Deltacloud::Client
       @client.create_instance(self._id, create_instance_opts)
     end
 
-    def self.parse(i)
+    def self.parse(xml_body)
       {
-        :owner_id =>        text_at(i, 'state'),
-        :architecture =>    text_at(i, 'architecture'),
-        :state =>           text_at(i, 'state'),
-        :creation_time =>   text_at(i, 'creation_time'),
-        :root_type =>       text_at(i, 'root_type'),
-        :hardware_profile_ids => i.xpath('hardware_profiles/hardware_profile').map { |h|
+        :owner_id =>        xml_body.text_at(:owner_id),
+        :architecture =>    xml_body.text_at(:architecture),
+        :state =>           xml_body.text_at(:state),
+        :creation_time =>   xml_body.text_at('creation_time'),
+        :root_type =>       xml_body.text_at('root_type'),
+        :hardware_profile_ids => xml_body.xpath('hardware_profiles/hardware_profile').map { |h|
           h['id']
         }
       }

@@ -82,8 +82,8 @@ module Deltacloud::Client
         attrs.merge!({
           :_id => body['id'],
           :_client => client_ref,
-          :name => text_at(body, 'name'),
-          :description => text_at(body, 'description')
+          :name => body.text_at(:name),
+          :description => body.text_at(:description)
         })
         validate_attrs!(attrs)
         new(attrs)
