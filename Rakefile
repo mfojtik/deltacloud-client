@@ -19,7 +19,7 @@ namespace :collection do
         f.write(model_body)
       }
       File.open('lib/deltacloud/client/models.rb', 'a') { |f|
-        f.puts "require_relative './client/models/#{name}'"
+        f.puts "require_relative './models/#{name}'"
       }
     end
     puts methods_body = methods_tpl.result(binding)
@@ -30,7 +30,7 @@ namespace :collection do
         f.write(methods_body)
       }
       File.open('lib/deltacloud/client/methods.rb', 'a') { |f|
-        f.puts "require_relative './client/methods/#{name}'"
+        f.puts "require_relative './methods/#{name}'"
       }
     end
     puts
