@@ -7,10 +7,7 @@ module Deltacloud
     require 'pry' rescue nil
 
     # Core extensions
-    require_relative './core_ext/element'
-    require_relative './core_ext/string'
-    require_relative './core_ext/fixnum'
-    require_relative './core_ext/nil'
+    require_relative './core_ext'
 
     # Errors && Helpers
     require_relative './client/helpers/model_helper'
@@ -34,24 +31,12 @@ module Deltacloud
     #
     extend Deltacloud::Client::Methods::BackwardCompatibility::ClassMethods
 
-    require_relative './client/methods/driver'
-    require_relative './client/methods/realm'
-    require_relative './client/methods/hardware_profile'
-    require_relative './client/methods/image'
-    require_relative './client/methods/instance'
-    require_relative './client/methods/instance_state'
-    require_relative './client/methods/storage_volume'
+    # Deltacloud methods
+    require_relative './client/methods'
 
     # Deltacloud models
-    require_relative './client/models/base'
-    require_relative './client/models/driver'
-    require_relative './client/models/realm'
-    require_relative './client/models/hardware_profile'
-    require_relative './client/models/image'
-    require_relative './client/models/instance_address'
-    require_relative './client/models/instance'
-    require_relative './client/models/instance_state'
-    require_relative './client/models/storage_volume'
+    require_relative './client/models'
+
 
     require_relative './client/connection'
 
