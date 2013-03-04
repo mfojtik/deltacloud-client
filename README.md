@@ -75,7 +75,7 @@ Deltacloud::Client::Connection#methods:
 
 # TODO
 
-- Added tests (right, I like to write the code first, because is more fun ;-))
+- Added more tests (right, I like to write the code first, because is more fun ;-))
 - Add support for the missing Deltacloud API collection
 - Test AeolusProject for compatibility
 
@@ -100,7 +100,6 @@ $ rake generate[YOUR_COLLECTION] # eg. 'storage_snapshot'
 
 ## Debugging a nasty bug?
 
-- First sorry for not having a tests yet (see: TODO).
 - You can easily debug deltacloud-client using powerful **pry**.
 
   - `gem install deltacloud-core`
