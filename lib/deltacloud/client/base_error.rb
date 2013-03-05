@@ -4,11 +4,7 @@ module Deltacloud::Client
   #
   class Error < StandardError; end
 
-  # Reporting XML deserialization errors
-  #
-  class InvalidXMLError < StandardError; end
-
-  class BaseError < StandardError
+  class BaseError < Error
     attr_reader :server_backtrace
     attr_reader :driver
     attr_reader :provider
@@ -40,7 +36,7 @@ module Deltacloud::Client
       return super(backtrace) if @server_backtrace.nil?
       super([
         backtrace[0..3],
-        "=== Server backtrace ===",
+        "-------Deltacloud API backtrace-------",
         @server_backtrace.split[0..10],
       ].flatten)
     end
@@ -62,6 +58,7 @@ module Deltacloud::Client
   # Report 4xx failures (client failures)
   class ClientFailure < BaseError; end
 
+  # Report 404 error (object not found)
   class NotFound < BaseError; end
 
   # Report 405 failures (resource state does not permit the requested operation)

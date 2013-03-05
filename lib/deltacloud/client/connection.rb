@@ -25,16 +25,18 @@ module Deltacloud::Client
     include Deltacloud::Client::Methods::Firewall
 
     def initialize(opts={})
-      @request_driver = opts[:driver]
-      @request_provider = opts[:provider]
       @connection = Faraday.new(:url => opts[:url]) do |f|
+        # NOTE: The order of this is somehow important for VCR
+        #       recording.
         f.request :url_encoded
-        f.headers = default_request_headers
+        f.headers = deltacloud_request_headers
         f.basic_auth opts[:api_user], opts[:api_password]
         f.use Deltacloud::ErrorResponse
         f.adapter :net_http
       end
       cache_entrypoint!
+      @request_driver = opts[:driver] || current_driver
+      @request_provider = opts[:provider] || current_provider
     end
 
     # Change the current driver and return copy of the client
@@ -80,6 +82,8 @@ module Deltacloud::Client
     # so we don't need to query /api everytime we ask if certain
     # collection/operation is supported
     #
+    # - force -> If 'true' force to refresh stored cached entrypoint
+    #
     def cache_entrypoint!(force=false)
       @entrypoint = nil if force
       @entrypoint ||= connection.get(path).body
@@ -98,21 +102,15 @@ module Deltacloud::Client
 
     private
 
-    def default_request_headers
+    # Default Deltacloud HTTP headers. Common for *all* requests
+    # to Deltacloud API
+    #
+    def deltacloud_request_headers
       headers = { 'Accept' => 'application/xml' }
-      if request_driver
-        headers.merge!( 'X-Deltacloud-Driver' => @request_driver.to_s )
-      end
-      if request_provider
-        headers.merge!( 'X-Deltacloud-Provider' => @request_provider.to_s )
-      end
+      headers['X-Deltacloud-Driver'] = request_driver.to_s if request_driver
+      headers['X-Deltacloud-Provider'] = request_provider.to_s if request_provider
       headers
     end
 
-    def test_environment?
-      !ENV['TEST_ENV'].nil?
-    end
-
   end
-
 end

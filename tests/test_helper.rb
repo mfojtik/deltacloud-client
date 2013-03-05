@@ -3,6 +3,8 @@ require 'bundler'
 Bundler.setup(:default, :development)
 Bundler.require(:default, :development)
 
+require 'require_relative' if RUBY_VERSION < '1.9'
+
 if ENV['COVERAGE']
   require 'simplecov'
   SimpleCov.command_name 'tests:units'
@@ -14,8 +16,6 @@ if ENV['COVERAGE']
     add_filter "tests/"
   end
 end
-
-ENV['TEST_ENV'] = 'true'
 
 require 'minitest/autorun'
 require 'vcr'

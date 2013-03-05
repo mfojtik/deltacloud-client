@@ -85,7 +85,7 @@ module Deltacloud::Client
       update_instance_variables!(
         :public_addresses => new_instance.public_addresses,
         :private_addresses => new_instance.private_addresses,
-        :state => new_instance.state,
+        :state => new_instance.state
       )
     end
 

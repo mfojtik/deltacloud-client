@@ -1,5 +1,6 @@
 module Deltacloud
   module Client
+    require 'require_relative' if RUBY_VERSION < '1.9'
     require 'ostruct'
     require 'nokogiri'
     require 'faraday'

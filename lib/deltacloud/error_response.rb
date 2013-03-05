@@ -10,77 +10,68 @@ module Deltacloud
     # - klass -> Deltacloud::Client::+Class+
     # - message -> Exception message (overiden by error body message if
     #              present)
-    # - error_body -> Deltacloud XML error representation
+    # - error -> Deltacloud XML error representation
     #
-    def client_error(klass, message, error=nil)
+    def client_error(name, error, message=nil)
       args = {
         :message => message,
-        :original_error => error ? error[:body] : {},
+        :status => error ? error[:status] : '500'
       }
-      args.merge! parse_deltacloud_error(args[:original_error])
-      klass.new(args)
-    end
-
-    # Parse the Deltacloud API error body to Hash
-    #
-    def parse_deltacloud_error(error_response)
-      body = error_response || ''
-      return {} if body.empty?
-      return {} if body.to_xml.root.name != 'error'
-
-      body = body.to_xml
-      args = {}
-
-      if backtrace = body.at('/error/backtrace')
-        args.merge!(:server_backtrace => backtrace.text)
+      # If Deltacloud API send error in response body, parse it.
+      # Otherwise, when DC API send just plain text error, use
+      # it as exception message.
+      # If DC API does not send anything back, then fallback to
+      # the 'message' attribute.
+      #
+      if error and !error[:body].empty?
+        if xml_error?(error)
+          args.merge! parse_error(error[:body].to_xml.root)
+        else
+          args[:message] = error[:body]
+        end
       end
-
-      if message = body.at('/error/message')
-        args.merge!(:message => message.text.strip)
-      else
-        args.merge!(:message => error_response[:status])
-      end
-
-      if backend = body.at('/error/backend')
-        args.merge!(
-          :driver => backend['driver'],
-          :provider => backend['provider']
-        )
-      end
-
-      if state = body['status']
-        args.merge!(:status => state)
-      end
-
-      args
+      error(name).new(args)
     end
 
     def call(env)
       @app.call(env).on_complete do |e|
         case e[:status].to_s
         when '401'
-          raise client_error(
-            error(:authentication_error),
-            'Invalid :api_user or :api_password'
-          )
+          raise client_error(:authentication_error, e, 'Invalid :api_user or :api_password')
         when '405'
           raise client_error(
-            error(:invalid_state),
-            'Resource state does not permit this action',
-            e
+            :invalid_state, e, 'Resource state does not permit this action'
           )
         when '404'
-          raise client_error(error(:not_found), 'Object not found')
+          raise client_error(:not_found, e, 'Object not found')
         when /40\d/
-          raise client_error(error(:client_failure), '',  e)
+          raise client_error(:client_failure, e)
         when '500'
-          raise client_error(error(:server_error), '',  e)
+          raise client_error(:server_error, e)
         when '502'
-          raise client_error(error(:backend_error), '', e)
+          raise client_error(:backend_error, e)
         when '501'
-          raise client_error(error(:not_supported), '', e)
+          raise client_error(:not_supported, e)
         end
       end
+    end
+
+    private
+
+    def xml_error?(error)
+      error[:body].to_xml.root && error[:body].to_xml.root.name == 'error'
+    end
+
+    # Parse the Deltacloud API error body to Hash
+    #
+    def parse_error(body)
+      args = {}
+      args[:original_error] = body.to_s
+      args[:server_backtrace] = body.text_at('backtrace')
+      args[:message] ||= body.text_at('message')
+      args[:driver] = body.attr_at('backend', 'driver')
+      args[:provider] = body.attr_at('backend', 'provider')
+      args
     end
   end
 end
