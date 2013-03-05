@@ -25,6 +25,8 @@ module Deltacloud::Client
     include Deltacloud::Client::Methods::Firewall
 
     def initialize(opts={})
+      @request_driver = opts[:driver]
+      @request_provider = opts[:provider]
       @connection = Faraday.new(:url => opts[:url]) do |f|
         # NOTE: The order of this is somehow important for VCR
         #       recording.
@@ -35,8 +37,8 @@ module Deltacloud::Client
         f.adapter :net_http
       end
       cache_entrypoint!
-      @request_driver = opts[:driver] || current_driver
-      @request_provider = opts[:provider] || current_provider
+      @request_driver ||= current_driver
+      @request_provider ||= current_provider
     end
 
     # Change the current driver and return copy of the client
@@ -106,9 +108,10 @@ module Deltacloud::Client
     # to Deltacloud API
     #
     def deltacloud_request_headers
-      headers = { 'Accept' => 'application/xml' }
-      headers['X-Deltacloud-Driver'] = request_driver.to_s if request_driver
-      headers['X-Deltacloud-Provider'] = request_provider.to_s if request_provider
+      headers = {}
+      headers['Accept'] = 'application/xml'
+      headers['X-Deltacloud-Driver'] = @request_driver.to_s if @request_driver
+      headers['X-Deltacloud-Provider'] = @request_provider.to_s if @request_provider
       headers
     end
 

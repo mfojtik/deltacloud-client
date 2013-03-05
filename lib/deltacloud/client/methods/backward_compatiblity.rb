@@ -19,14 +19,13 @@ module Deltacloud::Client
       end
 
       def with_config(opts, &block)
-        api_instance = use(
+        yield inst = use(
           opts[:driver],
           opts[:username],
           opts[:password],
           opts[:provider]
-        )
-        yield api_instance if block_given?
-        api_instance
+        ) if block_given?
+        inst
       end
 
       def use_driver(new_driver, opts={})

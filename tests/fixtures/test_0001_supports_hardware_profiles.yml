@@ -1,277 +1,500 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: get
     uri: http://localhost:3001/api
-    body: 
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Accept: 
+      string: ''
+    headers:
+      Accept:
       - application/xml
-      Authorization: 
+      Authorization:
       - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent: 
+      User-Agent:
       - Faraday v0.8.6
-  response: 
-    status: 
+  response:
+    status:
       code: 200
       message: 
-    headers: 
-      content-type: 
+    headers:
+      content-type:
       - application/xml
-      server: 
+      server:
       - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver: 
+      x-deltacloud-driver:
       - mock
-      content-length: 
-      - "1368"
-      x-content-type-options: 
+      content-length:
+      - '1368'
+      x-content-type-options:
       - nosniff
-      etag: 
+      etag:
       - e43d25244dc2b8ce1da6fa91131507ee
-      cache-control: 
+      cache-control:
       - max-age=0, private, must-revalidate
-      date: 
-      - Mon, 04 Mar 2013 19:49:08 GMT
-      connection: 
+      date:
+      - Tue, 05 Mar 2013 16:04:27 GMT
+      connection:
       - close
-    body: 
+    body:
       encoding: US-ASCII
-      string: |
-        <api driver='mock' version='1.1.1'>
-          <link href='http://localhost:3001/api/instance_states' rel='instance_states'>
-          </link>
-          <link href='http://localhost:3001/api/storage_volumes' rel='storage_volumes'>
-          </link>
-          <link href='http://localhost:3001/api/metrics' rel='metrics'>
-          </link>
-          <link href='http://localhost:3001/api/hardware_profiles' rel='hardware_profiles'>
-          </link>
-          <link href='http://localhost:3001/api/instances' rel='instances'>
-            <feature name='metrics' rel='create'>
-              <param name='metrics' />
-            </feature>
-            <feature name='realm_filter' rel='index'>
-              <param name='realm_id' />
-            </feature>
-            <feature name='user_name' rel='create'>
-              <param name='name' />
-            </feature>
-            <feature name='authentication_key' rel='create'>
-              <param name='keyname' />
-            </feature>
-          </link>
-          <link href='http://localhost:3001/api/realms' rel='realms'>
-          </link>
-          <link href='http://localhost:3001/api/storage_snapshots' rel='storage_snapshots'>
-          </link>
-          <link href='http://localhost:3001/api/images' rel='images'>
-          </link>
-          <link href='http://localhost:3001/api/addresses' rel='addresses'>
-          </link>
-          <link href='http://localhost:3001/api/drivers' rel='drivers'>
-          </link>
-          <link href='http://localhost:3001/api/buckets' rel='buckets'>
-          </link>
-          <link href='http://localhost:3001/api/keys' rel='keys'>
-          </link>
-        </api>
-
+      string: ! "<api driver='mock' version='1.1.1'>\n  <link href='http://localhost:3001/api/instance_states'
+        rel='instance_states'>\n  </link>\n  <link href='http://localhost:3001/api/storage_volumes'
+        rel='storage_volumes'>\n  </link>\n  <link href='http://localhost:3001/api/metrics'
+        rel='metrics'>\n  </link>\n  <link href='http://localhost:3001/api/hardware_profiles'
+        rel='hardware_profiles'>\n  </link>\n  <link href='http://localhost:3001/api/instances'
+        rel='instances'>\n    <feature name='metrics' rel='create'>\n      <param
+        name='metrics' />\n    </feature>\n    <feature name='realm_filter' rel='index'>\n
+        \     <param name='realm_id' />\n    </feature>\n    <feature name='user_name'
+        rel='create'>\n      <param name='name' />\n    </feature>\n    <feature name='authentication_key'
+        rel='create'>\n      <param name='keyname' />\n    </feature>\n  </link>\n
+        \ <link href='http://localhost:3001/api/realms' rel='realms'>\n  </link>\n
+        \ <link href='http://localhost:3001/api/storage_snapshots' rel='storage_snapshots'>\n
+        \ </link>\n  <link href='http://localhost:3001/api/images' rel='images'>\n
+        \ </link>\n  <link href='http://localhost:3001/api/addresses' rel='addresses'>\n
+        \ </link>\n  <link href='http://localhost:3001/api/drivers' rel='drivers'>\n
+        \ </link>\n  <link href='http://localhost:3001/api/buckets' rel='buckets'>\n
+        \ </link>\n  <link href='http://localhost:3001/api/keys' rel='keys'>\n  </link>\n</api>\n"
     http_version: 
-  recorded_at: Mon, 04 Mar 2013 19:49:08 GMT
-- request: 
+  recorded_at: Tue, 05 Mar 2013 16:04:27 GMT
+- request:
     method: get
     uri: http://localhost:3001/api/hardware_profiles
-    body: 
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Accept: 
+      string: ''
+    headers:
+      Accept:
       - application/xml
-      Authorization: 
+      Authorization:
       - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent: 
+      User-Agent:
       - Faraday v0.8.6
-  response: 
-    status: 
-      code: 200
+  response:
+    status:
+      code: 500
       message: 
-    headers: 
-      content-type: 
+    headers:
+      content-type:
       - application/xml
-      x-backend-runtime: 
-      - "3.504753112792969e-05"
-      server: 
+      x-backend-runtime:
+      - '4.1484832763671875e-05'
+      server:
       - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver: 
+      x-deltacloud-driver:
       - mock
-      content-length: 
-      - "2513"
-      x-content-type-options: 
+      content-length:
+      - '48878'
+      x-content-type-options:
       - nosniff
-      etag: 
-      - 6fb008e6971780cc37ce300cb7ede981
-      cache-control: 
-      - max-age=0, private, must-revalidate
-      date: 
-      - Mon, 04 Mar 2013 19:49:08 GMT
-      connection: 
+      date:
+      - Tue, 05 Mar 2013 16:04:27 GMT
+      connection:
       - close
-    body: 
+    body:
       encoding: US-ASCII
-      string: |
-        <?xml version='1.0' encoding='utf-8' ?>
-        <hardware_profiles>
-          <hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small' id='m1-small'>
-            <id>m1-small</id>
-            <name>m1-small</name>
-            <property kind='fixed' name='cpu' unit='count' value='1' />
-            <property kind='fixed' name='memory' unit='MB' value='1740.8' />
-            <property kind='fixed' name='storage' unit='GB' value='160' />
-            <property kind='fixed' name='architecture' unit='label' value='i386' />
-          </hardware_profile>
-          <hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-large' id='m1-large'>
-            <id>m1-large</id>
-            <name>m1-large</name>
-            <property kind='range' name='cpu' unit='count' value='1'>
-              <param href='http://localhost:3001/api/instances' method='post' name='hwp_cpu' operation='create' />
-              <range first='1' last='6' />
-            </property>
-            <property kind='range' name='memory' unit='MB' value='10240'>
-              <param href='http://localhost:3001/api/instances' method='post' name='hwp_memory' operation='create' />
-              <range first='7680' last='15360' />
-            </property>
-            <property kind='enum' name='storage' unit='GB' value='850'>
-              <param href='http://localhost:3001/api/instances' method='post' name='hwp_storage' operation='create' />
-              <enum>
-                <entry value='850' />
-                <entry value='1024' />
-              </enum>
-            </property>
-            <property kind='fixed' name='architecture' unit='label' value='x86_64' />
-          </hardware_profile>
-          <hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-xlarge' id='m1-xlarge'>
-            <id>m1-xlarge</id>
-            <name>m1-xlarge</name>
-            <property kind='fixed' name='cpu' unit='count' value='4' />
-            <property kind='range' name='memory' unit='MB' value='12288'>
-              <param href='http://localhost:3001/api/instances' method='post' name='hwp_memory' operation='create' />
-              <range first='12288' last='32768' />
-            </property>
-            <property kind='enum' name='storage' unit='GB' value='1024'>
-              <param href='http://localhost:3001/api/instances' method='post' name='hwp_storage' operation='create' />
-              <enum>
-                <entry value='1024' />
-                <entry value='2048' />
-                <entry value='4096' />
-              </enum>
-            </property>
-            <property kind='fixed' name='architecture' unit='label' value='x86_64' />
-          </hardware_profile>
-          <hardware_profile href='http://localhost:3001/api/hardware_profiles/opaque' id='opaque'>
-            <id>opaque</id>
-            <name>opaque</name>
-          </hardware_profile>
-        </hardware_profiles>
-
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<error status='500' url='/api/hardware_profiles'>\n
+        \ <backend driver='mock' provider='default'></backend>\n  <code>500</code>\n
+        \ <message><![CDATA[invalid locals key: :@hardware_profile (keys must be variable
+        names)]]></message>\n  <backtrace>/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/template.rb:193:in
+        `block in precompiled_preamble'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/template.rb:189:in
+        `map'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/template.rb:189:in
+        `precompiled_preamble'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/haml.rb:38:in
+        `precompiled_preamble'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/template.rb:157:in
+        `precompiled'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/template.rb:213:in
+        `compile_template_method'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/template.rb:208:in
+        `compiled_method'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/template.rb:143:in
+        `evaluate'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/haml.rb:24:in
+        `evaluate'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/template.rb:77:in
+        `render'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:711:in
+        `render'\n/home/mfojtik/code/core/server/lib/sinatra/rack_accept.rb:35:in
+        `render'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:607:in
+        `haml'\n/home/mfojtik/code/core/server/lib/deltacloud/collections/../../../views/hardware_profiles/index.xml.haml:4:in
+        `block (2 levels) in singletonclass'\n/home/mfojtik/code/core/server/lib/deltacloud/collections/../../../views/hardware_profiles/index.xml.haml:3:in
+        `each'\n/home/mfojtik/code/core/server/lib/deltacloud/collections/../../../views/hardware_profiles/index.xml.haml:3:in
+        `block in singletonclass'\n/home/mfojtik/code/core/server/lib/deltacloud/collections/../../../views/hardware_profiles/index.xml.haml:65527:in
+        `instance_eval'\n/home/mfojtik/code/core/server/lib/deltacloud/collections/../../../views/hardware_profiles/index.xml.haml:65527:in
+        `singletonclass'\n/home/mfojtik/code/core/server/lib/deltacloud/collections/../../../views/hardware_profiles/index.xml.haml:65525:in
+        `__tilt_13545660'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/template.rb:144:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/template.rb:144:in
+        `evaluate'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/haml.rb:24:in
+        `evaluate'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/tilt-1.3.4/lib/tilt/template.rb:77:in
+        `render'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:711:in
+        `render'\n/home/mfojtik/code/core/server/lib/sinatra/rack_accept.rb:35:in
+        `render'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:607:in
+        `haml'\n/home/mfojtik/code/core/server/lib/deltacloud/helpers/deltacloud_helper.rb:79:in
+        `block (2 levels) in filter_all'\n/home/mfojtik/code/core/server/lib/sinatra/rack_accept.rb:103:in
+        `call'\n/home/mfojtik/code/core/server/lib/sinatra/rack_accept.rb:103:in `respond_to'\n/home/mfojtik/code/core/server/lib/deltacloud/helpers/deltacloud_helper.rb:77:in
+        `filter_all'\n/home/mfojtik/code/core/server/lib/deltacloud/helpers/rabbit_helper.rb:22:in
+        `block (2 levels) in standard_index_operation'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-rabbit-1.1.6/lib/sinatra/rabbit/base.rb:400:in
+        `instance_eval'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-rabbit-1.1.6/lib/sinatra/rabbit/base.rb:400:in
+        `block in control'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:1293:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:1293:in
+        `block in compile!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:860:in
+        `[]'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:860:in
+        `block (3 levels) in route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:876:in
+        `route_eval'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:860:in
+        `block (2 levels) in route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:897:in
+        `block in process_route'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:895:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:895:in
+        `process_route'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:859:in
+        `block in route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:858:in
+        `each'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:858:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:963:in
+        `block in dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:960:in
+        `dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `block in call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:780:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:841:in
+        `forward'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:910:in
+        `route_missing'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:871:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:963:in
+        `block in dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:960:in
+        `dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `block in call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:780:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/showexceptions.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/code/core/server/lib/sinatra/rack_accept.rb:164:in `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/showexceptions.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/.gem/ruby/1.9.1/gems/rack-accept-0.4.5/lib/rack/accept/context.rb:22:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:841:in
+        `forward'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:910:in
+        `route_missing'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:871:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:963:in
+        `block in dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:960:in
+        `dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `block in call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:780:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:841:in
+        `forward'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:910:in
+        `route_missing'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:871:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:963:in
+        `block in dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:960:in
+        `dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `block in call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:780:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/showexceptions.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/code/core/server/lib/sinatra/rack_accept.rb:164:in `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/showexceptions.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/.gem/ruby/1.9.1/gems/rack-accept-0.4.5/lib/rack/accept/context.rb:22:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:841:in
+        `forward'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:910:in
+        `route_missing'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:871:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:963:in
+        `block in dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:960:in
+        `dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `block in call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:780:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:841:in
+        `forward'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:910:in
+        `route_missing'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:871:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:963:in
+        `block in dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:960:in
+        `dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `block in call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:780:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/showexceptions.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/code/core/server/lib/sinatra/rack_accept.rb:164:in `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/showexceptions.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/.gem/ruby/1.9.1/gems/rack-accept-0.4.5/lib/rack/accept/context.rb:22:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:841:in
+        `forward'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:910:in
+        `route_missing'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:871:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:963:in
+        `block in dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:960:in
+        `dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `block in call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:780:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:841:in
+        `forward'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:910:in
+        `route_missing'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:871:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:963:in
+        `block in dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:960:in
+        `dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `block in call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:780:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/showexceptions.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/code/core/server/lib/sinatra/rack_accept.rb:164:in `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/showexceptions.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/.gem/ruby/1.9.1/gems/rack-accept-0.4.5/lib/rack/accept/context.rb:22:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:841:in
+        `forward'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:910:in
+        `route_missing'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:871:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:963:in
+        `block in dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:960:in
+        `dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `block in call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:780:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:841:in
+        `forward'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:910:in
+        `route_missing'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:871:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:867:in
+        `route!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:963:in
+        `block in dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:960:in
+        `dispatch!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `block in call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `block in invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `catch'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:946:in
+        `invoke'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:794:in
+        `call!'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:780:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/showexceptions.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/code/core/server/lib/sinatra/rack_accept.rb:164:in `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/showexceptions.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/.gem/ruby/1.9.1/gems/rack-accept-0.4.5/lib/rack/accept/context.rb:22:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/code/core/server/lib/sinatra/rack_driver_select.rb:45:in
+        `call'\n/home/mfojtik/code/core/server/lib/sinatra/rack_etag.rb:41:in `call'\n/home/mfojtik/code/core/server/lib/sinatra/rack_date.rb:31:in
+        `call'\n/home/mfojtik/code/core/server/lib/sinatra/rack_logger.rb:87:in `call'\n/home/mfojtik/code/core/server/lib/sinatra/rack_accept.rb:164:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/showexceptions.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/.gem/ruby/1.9.1/gems/rack-accept-0.4.5/lib/rack/accept/context.rb:22:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/xss_header.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/path_traversal.rb:16:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/json_csrf.rb:18:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/base.rb:48:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-protection-1.4.0/lib/rack/protection/frame_options.rb:31:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb:9:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/head.rb:11:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:124:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:1417:in
+        `block in call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:1499:in
+        `synchronize'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/sinatra-1.3.5/lib/sinatra/base.rb:1417:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/urlmap.rb:65:in
+        `block in call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/urlmap.rb:50:in
+        `each'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/urlmap.rb:50:in
+        `call'\n/home/mfojtik/code/core/server/lib/sinatra/rack_matrix_params.rb:104:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/rack-1.5.2/lib/rack/builder.rb:138:in
+        `call'\n/home/mfojtik/.gem/ruby/1.9.1/gems/thin-1.5.0/lib/thin/connection.rb:81:in
+        `block in pre_process'\n/home/mfojtik/.gem/ruby/1.9.1/gems/thin-1.5.0/lib/thin/connection.rb:79:in
+        `catch'\n/home/mfojtik/.gem/ruby/1.9.1/gems/thin-1.5.0/lib/thin/connection.rb:79:in
+        `pre_process'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/eventmachine-1.0.1/lib/eventmachine.rb:1037:in
+        `call'\n/home/mfojtik/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/eventmachine-1.0.1/lib/eventmachine.rb:1037:in
+        `block in spawn_threadpool'</backtrace>\n  <request>\n    <param name='splat'><![CDATA[[]]]></param>\n
+        \   <param name='captures'><![CDATA[[#<RuntimeError: invalid locals key: :@hardware_profile
+        (keys must be variable names)>]]]></param>\n  </request>\n</error>\n"
     http_version: 
-  recorded_at: Mon, 04 Mar 2013 19:49:08 GMT
-- request: 
-    method: get
-    uri: http://localhost:3001/api/hardware_profiles
-    body: 
-      encoding: US-ASCII
-      string: ""
-    headers: 
-      Accept: 
-      - application/xml
-      Authorization: 
-      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent: 
-      - Faraday v0.8.6
-  response: 
-    status: 
-      code: 200
-      message: 
-    headers: 
-      content-type: 
-      - application/xml
-      x-backend-runtime: 
-      - "3.600120544433594e-05"
-      server: 
-      - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver: 
-      - mock
-      content-length: 
-      - "2513"
-      x-content-type-options: 
-      - nosniff
-      etag: 
-      - 6fb008e6971780cc37ce300cb7ede981
-      cache-control: 
-      - max-age=0, private, must-revalidate
-      date: 
-      - Mon, 04 Mar 2013 19:49:08 GMT
-      connection: 
-      - close
-    body: 
-      encoding: US-ASCII
-      string: |
-        <?xml version='1.0' encoding='utf-8' ?>
-        <hardware_profiles>
-          <hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small' id='m1-small'>
-            <id>m1-small</id>
-            <name>m1-small</name>
-            <property kind='fixed' name='cpu' unit='count' value='1' />
-            <property kind='fixed' name='memory' unit='MB' value='1740.8' />
-            <property kind='fixed' name='storage' unit='GB' value='160' />
-            <property kind='fixed' name='architecture' unit='label' value='i386' />
-          </hardware_profile>
-          <hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-large' id='m1-large'>
-            <id>m1-large</id>
-            <name>m1-large</name>
-            <property kind='range' name='cpu' unit='count' value='1'>
-              <param href='http://localhost:3001/api/instances' method='post' name='hwp_cpu' operation='create' />
-              <range first='1' last='6' />
-            </property>
-            <property kind='range' name='memory' unit='MB' value='10240'>
-              <param href='http://localhost:3001/api/instances' method='post' name='hwp_memory' operation='create' />
-              <range first='7680' last='15360' />
-            </property>
-            <property kind='enum' name='storage' unit='GB' value='850'>
-              <param href='http://localhost:3001/api/instances' method='post' name='hwp_storage' operation='create' />
-              <enum>
-                <entry value='850' />
-                <entry value='1024' />
-              </enum>
-            </property>
-            <property kind='fixed' name='architecture' unit='label' value='x86_64' />
-          </hardware_profile>
-          <hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-xlarge' id='m1-xlarge'>
-            <id>m1-xlarge</id>
-            <name>m1-xlarge</name>
-            <property kind='fixed' name='cpu' unit='count' value='4' />
-            <property kind='range' name='memory' unit='MB' value='12288'>
-              <param href='http://localhost:3001/api/instances' method='post' name='hwp_memory' operation='create' />
-              <range first='12288' last='32768' />
-            </property>
-            <property kind='enum' name='storage' unit='GB' value='1024'>
-              <param href='http://localhost:3001/api/instances' method='post' name='hwp_storage' operation='create' />
-              <enum>
-                <entry value='1024' />
-                <entry value='2048' />
-                <entry value='4096' />
-              </enum>
-            </property>
-            <property kind='fixed' name='architecture' unit='label' value='x86_64' />
-          </hardware_profile>
-          <hardware_profile href='http://localhost:3001/api/hardware_profiles/opaque' id='opaque'>
-            <id>opaque</id>
-            <name>opaque</name>
-          </hardware_profile>
-        </hardware_profiles>
-
-    http_version: 
-  recorded_at: Mon, 04 Mar 2013 19:49:08 GMT
+  recorded_at: Tue, 05 Mar 2013 16:04:27 GMT
 recorded_with: VCR 2.4.0

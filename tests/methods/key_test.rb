@@ -35,4 +35,14 @@ describe Deltacloud::Client::Methods::Key do
     lambda { @client.key('foo') }.must_raise Deltacloud::Client::NotFound
   end
 
+  it 'support #create_key and #destroy_key' do
+    @client.must_respond_to :create_key
+    result = @client.create_key('foo')
+    result.must_be_instance_of Deltacloud::Client::Key
+    result.name.must_equal 'foo'
+    result.public_key.wont_be_nil
+    @client.must_respond_to :destroy_key
+    @client.destroy_key(result._id)
+  end
+
 end

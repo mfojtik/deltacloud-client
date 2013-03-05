@@ -58,8 +58,8 @@ http_interactions:
     http_version: 
   recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
 - request:
-    method: get
-    uri: http://localhost:3001/api/instance_states
+    method: post
+    uri: http://localhost:3001/api/keys?name=foo
     body:
       encoding: US-ASCII
       string: ''
@@ -72,21 +72,23 @@ http_interactions:
       - Faraday v0.8.6
   response:
     status:
-      code: 200
+      code: 201
       message: 
     headers:
       content-type:
       - application/xml
+      location:
+      - http://localhost:3001/api/keys/foo
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
       - mock
       content-length:
-      - '543'
+      - '2088'
       x-content-type-options:
       - nosniff
       etag:
-      - fa9267298fdf7b936d9635aa5ce29640
+      - 40aede204feb1e362302f7e652216b05
       cache-control:
       - max-age=0, private, must-revalidate
       date:
@@ -95,19 +97,82 @@ http_interactions:
       - close
     body:
       encoding: US-ASCII
-      string: ! "<states>\n  <state name='start'>\n    <transition action='create'
-        to='pending'></transition>\n  </state>\n  <state name='pending'>\n    <transition
-        auto='true' to='running'></transition>\n  </state>\n  <state name='running'>\n
-        \   <transition action='reboot' to='running'></transition>\n    <transition
-        action='stop' to='stopped'></transition>\n  </state>\n  <state name='stopped'>\n
-        \   <transition action='start' to='running'></transition>\n    <transition
-        action='destroy' to='finish'></transition>\n  </state>\n  <state name='finish'>\n
-        \ </state>\n</states>\n"
+      string: ! '<?xml version=''1.0'' encoding=''utf-8'' ?>
+
+        <key href=''http://localhost:3001/api/keys/foo'' id=''foo'' type=''key''>
+
+        <name>foo</name>
+
+        <actions>
+
+        <link href=''http://localhost:3001/api/keys/foo'' method=''delete'' rel=''destroy''
+        />
+
+        </actions>
+
+        <fingerprint>81:af:a4:94:15:d0:06:df:0b:54:fc:bc:c1:49:86:d7:61:9e:67:7a</fingerprint>
+
+        <pem>
+
+        <![CDATA[-----BEGIN RSA PRIVATE KEY-----
+
+        JT1vLvRgo/Fv1djXyfFRv94QUSfkPgc2ZNlzyXNmYsEYi5sTbEafhAtXJpJNOJc9RT3fHya4lH8
+
+        h/GWcVw1bQXB9zEZ6CCESM914/4eDlgt2kCPnT34ypgEnj3m4Z2OMoGgy6ZLkDLpx7yFQvE4GiA
+
+        0rm/eLjdVt/JzMybSDhgKruB5G8lEyUU1aI6GdZMB0H25Zrm1=amkCVxcGFb2eVhXrTewrQ3loD
+
+        JaH7xcJ8ln/66jIedBs1bUUh3A1mZGrTMdqTg8Lnl4F+CacONJIyIQ7qImWPPZxntzWDqY9J6JP
+
+        eyScNN5JRSk/xLAmga/enbmk+2U+TUu9QvgI0r0+=EabrLIBqU/ozQcScXevpnhfwHWdCXo1whq
+
+        OeS0nIB0yuEGi60gngpcPyZeE7Orwq51x3DICpz2lW2fkgfNJtmbl55APSiOvTbnpt4QNK+vsFx
+
+        y8W6dR9+kDE61o1etTJJCEZEGqGqB5Y1nDO0MDqF4tnJzmbc63AU9wffd819umtSb+gCth2Kr5t
+
+        zD76h4+e5MMW226Zli3lvnpYA3BTvTuZwYhF5ADhUT=X7UmrJ8wCFHJZHf9cE6GJbFVO1zoRN/n
+
+        GL4Am0zjM9jTYCPzxQLqSZxZGBscZrvODF2WIdbxc0qB9/nCT05z+ZodVpBElPhyb0pWshn/2h=
+
+        p5WECmL4zNSFWU44ay0rHG4zbH60iiwT+zZNS3krpFd0RaIA9IX4nT5hPxLC1PWNpZCbWXPkZ98
+
+        C3ydFaXcCwhmdHMqNdKV5r3I/BbHFW7H3PaadIJ7JNIMI/2Fl0M=XVcxoCz6tiWIA80txDqD9c0
+
+        iYBalrHDbfS0AvgJ1Am+pWlQw+fb=cvRoQIrMbhAgFfRIsN64/esXV4LhwYJQFuX+UiV6EctO6w
+
+        vP931RzXu1EvUWp6dCT9h=k2s2I0AOfvu+8L+BPGF/Pp+hvOiP1LdyYtHlnqyeE1q5+hukVnrsx
+
+        +xnARB66Ta8ML27znCc1p9V8wyQQ1DGQYy6zSUIxmp5dxuOp2jMwY2tFNujxoOt2rbgL5LOEwv3
+
+        m3pvROU8lbPdRFFix+aFjAWRwxSg6LCbsnX/6pDtQ358ddh2CR5aAm6ciGN6psXtC0kXWhNOi6O
+
+        rRCTUs+IV9OO77720vJ58xBjWvhc=eVRQa6kCew6hZZvFFPWd/MFAR755ojQi9bfle+C1kgor83
+
+        =a4mn+gIaRcR5dQbv3fUYQ4GN/DIhgjEUPZwdS763SP7ktY4aPLM2PPd1cEiliNM8fI=0Ja4=9L
+
+        oTjlSCWrVab0Bd57gyAOPXYhZ6tNNv1l9x=LWcemE7u6jYCV9fBJqnOy/hKiDv=hIZc0dJBsKFz
+
+        q+2yyKubXqYwDeh2FGPc4TR6OQ+z78C5s1wUcFJ6yo6hgPZb1nerJZWw2TVhrCdgzKMI50wmxV=
+
+        qcTvGkslB+9y7RK4JtX8vcKPjpGTvxroJKHOyBykTHqDWkjyIPjyc4A/rylygZ1E30Y2JxmDJpb
+
+        ZI1PEN8N8Pb3cQgcv5r8XV5KmR5NvtDfmNi88kz2GT3hPf4/rW78PQ=ugpSOWyFUwvd0uiJfNjK
+
+        =fqx=qr/sGZfBeMHZsF3V8ev7RXBumGqgC3kh3hvwLiJ9Slm=rk9xFy/h3sFdVEXIDuP-----END
+        RSA PRIVATE KEY-----]]>
+
+        </pem>
+
+        <state></state>
+
+        </key>
+
+'
     http_version: 
   recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
 - request:
-    method: get
-    uri: http://localhost:3001/api/instance_states
+    method: delete
+    uri: http://localhost:3001/api/keys/foo
     body:
       encoding: US-ASCII
       string: ''
@@ -120,85 +185,22 @@ http_interactions:
       - Faraday v0.8.6
   response:
     status:
-      code: 200
+      code: 204
       message: 
     headers:
-      content-type:
-      - application/xml
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
       - mock
-      content-length:
-      - '543'
       x-content-type-options:
       - nosniff
-      etag:
-      - fa9267298fdf7b936d9635aa5ce29640
-      cache-control:
-      - max-age=0, private, must-revalidate
       date:
       - Tue, 05 Mar 2013 16:04:29 GMT
       connection:
       - close
-    body:
-      encoding: US-ASCII
-      string: ! "<states>\n  <state name='start'>\n    <transition action='create'
-        to='pending'></transition>\n  </state>\n  <state name='pending'>\n    <transition
-        auto='true' to='running'></transition>\n  </state>\n  <state name='running'>\n
-        \   <transition action='reboot' to='running'></transition>\n    <transition
-        action='stop' to='stopped'></transition>\n  </state>\n  <state name='stopped'>\n
-        \   <transition action='start' to='running'></transition>\n    <transition
-        action='destroy' to='finish'></transition>\n  </state>\n  <state name='finish'>\n
-        \ </state>\n</states>\n"
-    http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
-- request:
-    method: get
-    uri: http://localhost:3001/api/instance_states
     body:
       encoding: US-ASCII
       string: ''
-    headers:
-      Accept:
-      - application/xml
-      Authorization:
-      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent:
-      - Faraday v0.8.6
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      content-type:
-      - application/xml
-      server:
-      - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver:
-      - mock
-      content-length:
-      - '543'
-      x-content-type-options:
-      - nosniff
-      etag:
-      - fa9267298fdf7b936d9635aa5ce29640
-      cache-control:
-      - max-age=0, private, must-revalidate
-      date:
-      - Tue, 05 Mar 2013 16:04:29 GMT
-      connection:
-      - close
-    body:
-      encoding: US-ASCII
-      string: ! "<states>\n  <state name='start'>\n    <transition action='create'
-        to='pending'></transition>\n  </state>\n  <state name='pending'>\n    <transition
-        auto='true' to='running'></transition>\n  </state>\n  <state name='running'>\n
-        \   <transition action='reboot' to='running'></transition>\n    <transition
-        action='stop' to='stopped'></transition>\n  </state>\n  <state name='stopped'>\n
-        \   <transition action='start' to='running'></transition>\n    <transition
-        action='destroy' to='finish'></transition>\n  </state>\n  <state name='finish'>\n
-        \ </state>\n</states>\n"
     http_version: 
   recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
 recorded_with: VCR 2.4.0

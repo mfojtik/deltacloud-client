@@ -35,7 +35,7 @@ describe Deltacloud::Client::Methods::Image do
     lambda { @client.image('foo') }.must_raise Deltacloud::Client::NotFound
   end
 
-  it 'support #create_image' do
+  it 'support #create_image and #destroy_image' do
     @client.must_respond_to :create_image
     img = @client.create_image('inst1', :name => 'test')
     img.must_be_instance_of Deltacloud::Client::Image

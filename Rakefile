@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'rake'
 require 'rake/testtask'
+require 'rake/packagetask'
 
 require 'pry' rescue LoadError
 
@@ -79,6 +80,12 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList[
     'tests/*/*_test.rb'
   ]
+end
+
+desc "Execute test against live Deltacloud API"
+task :test_live do
+  ENV['NO_VCR'] = 'true'
+  Rake::Task[:test].invoke
 end
 
 desc "Generate test coverage report"

@@ -18,7 +18,6 @@ if ENV['COVERAGE']
 end
 
 require 'minitest/autorun'
-require 'vcr'
 #
 # Change this at will
 #
@@ -26,15 +25,25 @@ DELTACLOUD_URL = ENV['API_URL'] || 'http://localhost:3001/api'
 DELTACLOUD_USER = 'mockuser'
 DELTACLOUD_PASSWORD = 'mockpassword'
 
-VCR.configure do |c|
-  c.hook_into :faraday
-  c.default_cassette_options = { :serialize_with => :syck }
-  c.cassette_library_dir = File.join(File.dirname(__FILE__), 'fixtures')
-  c.default_cassette_options = { :record => :new_episodes }
+def new_client
+  Deltacloud::Client(DELTACLOUD_URL, DELTACLOUD_USER, DELTACLOUD_PASSWORD)
+end
+
+unless ENV['NO_VCR']
+  require 'vcr'
+  VCR.configure do |c|
+    c.hook_into :faraday
+    c.cassette_library_dir = File.join(File.dirname(__FILE__), 'fixtures')
+    c.default_cassette_options = { :record => :new_episodes }
+  end
 end
 
 require_relative './../lib/deltacloud/client'
 
-def new_client
-  Deltacloud::Client(DELTACLOUD_URL, DELTACLOUD_USER, DELTACLOUD_PASSWORD)
+def cleanup_instances(inst_arr)
+  inst_arr.each do |i|
+    i.reload!
+    i.stop! unless i.is_stopped?
+    i.destroy!
+  end
 end

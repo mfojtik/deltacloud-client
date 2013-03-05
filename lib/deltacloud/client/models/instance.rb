@@ -43,6 +43,11 @@ module Deltacloud::Client
       super(realm_id)
     end
 
+    def method_missing(name, *args)
+      return self.state.downcase == $1 if name.to_s =~ /^is_(\w+)\?$/
+      super
+    end
+
     # Helper for is_STATE?
     #
     # is_running?
@@ -74,8 +79,6 @@ module Deltacloud::Client
       end
 
     end
-
-    private
 
     # Attempt to reload :public_addresses, :private_addresses and :state
     # of the instance, after the instance is modified by calling method

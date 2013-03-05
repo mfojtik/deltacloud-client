@@ -48,6 +48,18 @@ module Deltacloud::Client
       "#<#{self.class.name}> #{@options.merge(:_id => @obj_id).inspect}"
     end
 
+    def client
+      @client
+    end
+
+    def connection
+      client.connection
+    end
+
+    def entrypoint
+      client.entrypoint
+    end
+
     class << self
 
       # Parse the XML response body from Deltacloud API

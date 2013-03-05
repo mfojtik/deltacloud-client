@@ -1,252 +1,199 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: get
     uri: http://localhost:3001/api
-    body: 
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Accept: 
+      string: ''
+    headers:
+      Accept:
       - application/xml
-      Authorization: 
+      Authorization:
       - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent: 
+      User-Agent:
       - Faraday v0.8.6
-  response: 
-    status: 
+  response:
+    status:
       code: 200
       message: 
-    headers: 
-      content-type: 
+    headers:
+      content-type:
       - application/xml
-      server: 
+      server:
       - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver: 
+      x-deltacloud-driver:
       - mock
-      content-length: 
-      - "1368"
-      x-content-type-options: 
+      content-length:
+      - '1368'
+      x-content-type-options:
       - nosniff
-      etag: 
+      etag:
       - e43d25244dc2b8ce1da6fa91131507ee
-      cache-control: 
+      cache-control:
       - max-age=0, private, must-revalidate
-      date: 
-      - Mon, 04 Mar 2013 19:49:08 GMT
-      connection: 
+      date:
+      - Tue, 05 Mar 2013 16:04:27 GMT
+      connection:
       - close
-    body: 
+    body:
       encoding: US-ASCII
-      string: |
-        <api driver='mock' version='1.1.1'>
-          <link href='http://localhost:3001/api/instance_states' rel='instance_states'>
-          </link>
-          <link href='http://localhost:3001/api/storage_volumes' rel='storage_volumes'>
-          </link>
-          <link href='http://localhost:3001/api/metrics' rel='metrics'>
-          </link>
-          <link href='http://localhost:3001/api/hardware_profiles' rel='hardware_profiles'>
-          </link>
-          <link href='http://localhost:3001/api/instances' rel='instances'>
-            <feature name='metrics' rel='create'>
-              <param name='metrics' />
-            </feature>
-            <feature name='realm_filter' rel='index'>
-              <param name='realm_id' />
-            </feature>
-            <feature name='user_name' rel='create'>
-              <param name='name' />
-            </feature>
-            <feature name='authentication_key' rel='create'>
-              <param name='keyname' />
-            </feature>
-          </link>
-          <link href='http://localhost:3001/api/realms' rel='realms'>
-          </link>
-          <link href='http://localhost:3001/api/storage_snapshots' rel='storage_snapshots'>
-          </link>
-          <link href='http://localhost:3001/api/images' rel='images'>
-          </link>
-          <link href='http://localhost:3001/api/addresses' rel='addresses'>
-          </link>
-          <link href='http://localhost:3001/api/drivers' rel='drivers'>
-          </link>
-          <link href='http://localhost:3001/api/buckets' rel='buckets'>
-          </link>
-          <link href='http://localhost:3001/api/keys' rel='keys'>
-          </link>
-        </api>
-
+      string: ! "<api driver='mock' version='1.1.1'>\n  <link href='http://localhost:3001/api/instance_states'
+        rel='instance_states'>\n  </link>\n  <link href='http://localhost:3001/api/storage_volumes'
+        rel='storage_volumes'>\n  </link>\n  <link href='http://localhost:3001/api/metrics'
+        rel='metrics'>\n  </link>\n  <link href='http://localhost:3001/api/hardware_profiles'
+        rel='hardware_profiles'>\n  </link>\n  <link href='http://localhost:3001/api/instances'
+        rel='instances'>\n    <feature name='metrics' rel='create'>\n      <param
+        name='metrics' />\n    </feature>\n    <feature name='realm_filter' rel='index'>\n
+        \     <param name='realm_id' />\n    </feature>\n    <feature name='user_name'
+        rel='create'>\n      <param name='name' />\n    </feature>\n    <feature name='authentication_key'
+        rel='create'>\n      <param name='keyname' />\n    </feature>\n  </link>\n
+        \ <link href='http://localhost:3001/api/realms' rel='realms'>\n  </link>\n
+        \ <link href='http://localhost:3001/api/storage_snapshots' rel='storage_snapshots'>\n
+        \ </link>\n  <link href='http://localhost:3001/api/images' rel='images'>\n
+        \ </link>\n  <link href='http://localhost:3001/api/addresses' rel='addresses'>\n
+        \ </link>\n  <link href='http://localhost:3001/api/drivers' rel='drivers'>\n
+        \ </link>\n  <link href='http://localhost:3001/api/buckets' rel='buckets'>\n
+        \ </link>\n  <link href='http://localhost:3001/api/keys' rel='keys'>\n  </link>\n</api>\n"
     http_version: 
-  recorded_at: Mon, 04 Mar 2013 19:49:08 GMT
-- request: 
+  recorded_at: Tue, 05 Mar 2013 16:04:27 GMT
+- request:
     method: get
     uri: http://localhost:3001/api/hardware_profiles/m1-small
-    body: 
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Accept: 
+      string: ''
+    headers:
+      Accept:
       - application/xml
-      Authorization: 
+      Authorization:
       - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent: 
+      User-Agent:
       - Faraday v0.8.6
-  response: 
-    status: 
+  response:
+    status:
       code: 200
       message: 
-    headers: 
-      content-type: 
+    headers:
+      content-type:
       - application/xml
-      x-backend-runtime: 
-      - "3.886222839355469e-05"
-      server: 
+      x-backend-runtime:
+      - '7.152557373046875e-05'
+      server:
       - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver: 
+      x-deltacloud-driver:
       - mock
-      content-length: 
-      - "465"
-      x-content-type-options: 
+      content-length:
+      - '465'
+      x-content-type-options:
       - nosniff
-      etag: 
+      etag:
       - 28c52ced85d102f8d21eafb861582994
-      cache-control: 
+      cache-control:
       - max-age=0, private, must-revalidate
-      date: 
-      - Mon, 04 Mar 2013 19:49:08 GMT
-      connection: 
+      date:
+      - Tue, 05 Mar 2013 16:04:27 GMT
+      connection:
       - close
-    body: 
+    body:
       encoding: US-ASCII
-      string: |
-        <?xml version='1.0' encoding='utf-8' ?>
-        <hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small' id='m1-small'>
-          <id>m1-small</id>
-          <name>m1-small</name>
-          <property kind='fixed' name='cpu' unit='count' value='1' />
-          <property kind='fixed' name='memory' unit='MB' value='1740.8' />
-          <property kind='fixed' name='storage' unit='GB' value='160' />
-          <property kind='fixed' name='architecture' unit='label' value='i386' />
-        </hardware_profile>
-
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small'
+        id='m1-small'>\n  <id>m1-small</id>\n  <name>m1-small</name>\n  <property
+        kind='fixed' name='cpu' unit='count' value='1' />\n  <property kind='fixed'
+        name='memory' unit='MB' value='1740.8' />\n  <property kind='fixed' name='storage'
+        unit='GB' value='160' />\n  <property kind='fixed' name='architecture' unit='label'
+        value='i386' />\n</hardware_profile>\n"
     http_version: 
-  recorded_at: Mon, 04 Mar 2013 19:49:08 GMT
-- request: 
+  recorded_at: Tue, 05 Mar 2013 16:04:27 GMT
+- request:
     method: get
     uri: http://localhost:3001/api/hardware_profiles/
-    body: 
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Accept: 
+      string: ''
+    headers:
+      Accept:
       - application/xml
-      Authorization: 
+      Authorization:
       - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent: 
+      User-Agent:
       - Faraday v0.8.6
-  response: 
-    status: 
+  response:
+    status:
       code: 404
       message: 
-    headers: 
-      content-type: 
+    headers:
+      content-type:
       - text/html;charset=utf-8
-      x-cascade: 
+      x-cascade:
       - pass
-      server: 
+      server:
       - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver: 
+      x-deltacloud-driver:
       - mock
-      content-length: 
-      - "458"
-      x-xss-protection: 
+      content-length:
+      - '458'
+      x-xss-protection:
       - 1; mode=block
-      x-content-type-options: 
+      x-content-type-options:
       - nosniff
-      x-frame-options: 
+      x-frame-options:
       - SAMEORIGIN
-      date: 
-      - Mon, 04 Mar 2013 19:49:08 GMT
-      connection: 
+      date:
+      - Tue, 05 Mar 2013 16:04:27 GMT
+      connection:
       - close
-    body: 
+    body:
       encoding: US-ASCII
-      string: |
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <style type="text/css">
-          body { text-align:center;font-family:helvetica,arial;font-size:22px;
-            color:#888;margin:20px}
-          #c {margin:0 auto;width:500px;text-align:left}
-          </style>
-        </head>
-        <body>
-          <h2>Sinatra doesn&rsquo;t know this ditty.</h2>
-          <img src='http://localhost:3001/api/__sinatra__/404.png'>
-          <div id="c">
-            Try this:
-            <pre>get '/hardware_profiles/' do
-          "Hello World"
-        end</pre>
-          </div>
-        </body>
-        </html>
-
+      string: ! "<!DOCTYPE html>\n<html>\n<head>\n  <style type=\"text/css\">\n  body
+        { text-align:center;font-family:helvetica,arial;font-size:22px;\n    color:#888;margin:20px}\n
+        \ #c {margin:0 auto;width:500px;text-align:left}\n  </style>\n</head>\n<body>\n
+        \ <h2>Sinatra doesn&rsquo;t know this ditty.</h2>\n  <img src='http://localhost:3001/api/__sinatra__/404.png'>\n
+        \ <div id=\"c\">\n    Try this:\n    <pre>get '/hardware_profiles/' do\n  \"Hello
+        World\"\nend</pre>\n  </div>\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Mon, 04 Mar 2013 19:49:08 GMT
-- request: 
+  recorded_at: Tue, 05 Mar 2013 16:04:27 GMT
+- request:
     method: get
     uri: http://localhost:3001/api/hardware_profiles/foo
-    body: 
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Accept: 
+      string: ''
+    headers:
+      Accept:
       - application/xml
-      Authorization: 
+      Authorization:
       - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent: 
+      User-Agent:
       - Faraday v0.8.6
-  response: 
-    status: 
+  response:
+    status:
       code: 404
       message: 
-    headers: 
-      content-type: 
+    headers:
+      content-type:
       - application/xml
-      x-backend-runtime: 
-      - "0.00010156631469726562"
-      server: 
+      x-backend-runtime:
+      - '4.482269287109375e-05'
+      server:
       - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver: 
+      x-deltacloud-driver:
       - mock
-      content-length: 
-      - "420"
-      x-content-type-options: 
+      content-length:
+      - '420'
+      x-content-type-options:
       - nosniff
-      date: 
-      - Mon, 04 Mar 2013 19:49:08 GMT
-      connection: 
+      date:
+      - Tue, 05 Mar 2013 16:04:27 GMT
+      connection:
       - close
-    body: 
+    body:
       encoding: US-ASCII
-      string: |
-        <?xml version='1.0' encoding='utf-8' ?>
-        <error status='404' url='/api/hardware_profiles/foo'>
-          <backend driver='mock' provider='default'></backend>
-          <code>404</code>
-          <message><![CDATA[Not Found]]></message>
-          <backtrace></backtrace>
-          <request>
-            <param name='splat'><![CDATA[[]]]></param>
-            <param name='captures'><![CDATA[["foo"]]]></param>
-            <param name='id'><![CDATA["foo"]]></param>
-          </request>
-        </error>
-
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<error status='404' url='/api/hardware_profiles/foo'>\n
+        \ <backend driver='mock' provider='default'></backend>\n  <code>404</code>\n
+        \ <message><![CDATA[Not Found]]></message>\n  <backtrace></backtrace>\n  <request>\n
+        \   <param name='splat'><![CDATA[[]]]></param>\n    <param name='captures'><![CDATA[[\"foo\"]]]></param>\n
+        \   <param name='id'><![CDATA[\"foo\"]]></param>\n  </request>\n</error>\n"
     http_version: 
-  recorded_at: Mon, 04 Mar 2013 19:49:08 GMT
+  recorded_at: Tue, 05 Mar 2013 16:04:27 GMT
 recorded_with: VCR 2.4.0
