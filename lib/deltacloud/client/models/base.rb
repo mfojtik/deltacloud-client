@@ -27,6 +27,7 @@ module Deltacloud::Client
       # Do not allow to modify the object#base_id
       @obj_id.freeze
       @client = @options.delete(:_client)
+      @original_body = @options.delete(:original_body)
       update_instance_variables!(@options)
     end
 
@@ -60,6 +61,10 @@ module Deltacloud::Client
       client.entrypoint
     end
 
+    def original_body
+      @original_body
+    end
+
     class << self
 
       # Parse the XML response body from Deltacloud API
@@ -87,7 +92,7 @@ module Deltacloud::Client
           :description => body.text_at(:description)
         })
         validate_attrs!(attrs)
-        new(attrs)
+        new(attrs.merge(:original_body => obj))
       end
 
       # Convert response for the collection responses.

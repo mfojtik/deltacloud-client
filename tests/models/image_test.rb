@@ -11,6 +11,11 @@ describe Deltacloud::Client::Image do
     VCR.eject_cassette
   end
 
+  it 'support #original_body' do
+    img = @client.image('img1')
+    img.original_body.must_be_instance_of Faraday::Response
+  end
+
   it 'supports #hardware_profiles' do
     img = @client.image('img1')
     img.must_respond_to :hardware_profiles
