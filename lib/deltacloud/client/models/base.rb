@@ -61,8 +61,16 @@ module Deltacloud::Client
       client.entrypoint
     end
 
+    # Return the original XML body model was constructed from
+    # This might help debugging broken XML
+    #
     def original_body
       @original_body
+    end
+
+    def id
+      warn '[DEPRECATION] `id` is deprecated because of possible conflict with Object#id. Use `_id` instead.'
+      _id
     end
 
     class << self
