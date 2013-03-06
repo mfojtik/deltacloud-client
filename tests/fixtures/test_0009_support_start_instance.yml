@@ -33,7 +33,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:29 GMT
+      - Wed, 06 Mar 2013 08:56:18 GMT
       connection:
       - close
     body:
@@ -56,7 +56,7 @@ http_interactions:
         \ </link>\n  <link href='http://localhost:3001/api/buckets' rel='buckets'>\n
         \ </link>\n  <link href='http://localhost:3001/api/keys' rel='keys'>\n  </link>\n</api>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:18 GMT
 - request:
     method: post
     uri: http://localhost:3001/api/instances?image_id=img1
@@ -78,43 +78,43 @@ http_interactions:
       content-type:
       - application/xml
       location:
-      - http://localhost:3001/api/instances/inst8
+      - http://localhost:3001/api/instances/inst14
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
       - mock
       content-length:
-      - '1166'
+      - '1175'
       x-content-type-options:
       - nosniff
       etag:
-      - 62a04a13fe50a4ee5612aae57a2564a4
+      - 846e96034593a904f856ed5c0ef1ba97
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:29 GMT
+      - Wed, 06 Mar 2013 08:56:18 GMT
       connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<instance href='http://localhost:3001/api/instances/inst8'
-        id='inst8'>\n  <name>i-1362499469</name>\n  <owner_id>mockuser</owner_id>\n
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<instance href='http://localhost:3001/api/instances/inst14'
+        id='inst14'>\n  <name>i-1362560178</name>\n  <owner_id>mockuser</owner_id>\n
         \ <image href='http://localhost:3001/api/images/img1' id='img1'></image>\n
         \ <realm href='http://localhost:3001/api/realms/us' id='us'></realm>\n  <state>RUNNING</state>\n
         \ <hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small'
-        id='m1-small'>\n  </hardware_profile>\n  <actions>\n    <link href='http://localhost:3001/api/instances/inst8/reboot'
-        method='post' rel='reboot' />\n    <link href='http://localhost:3001/api/instances/inst8/stop'
-        method='post' rel='stop' />\n    <link href='http://localhost:3001/api/instances/inst8/run;id=inst8'
-        method='post' rel='run' />\n    <link href='http://localhost:3001/api/images;instance_id=inst8'
+        id='m1-small'>\n  </hardware_profile>\n  <actions>\n    <link href='http://localhost:3001/api/instances/inst14/reboot'
+        method='post' rel='reboot' />\n    <link href='http://localhost:3001/api/instances/inst14/stop'
+        method='post' rel='stop' />\n    <link href='http://localhost:3001/api/instances/inst14/run;id=inst14'
+        method='post' rel='run' />\n    <link href='http://localhost:3001/api/images;instance_id=inst14'
         method='post' rel='create_image' />\n  </actions>\n  <public_addresses><address
-        type='hostname'>img1.inst8.public.com</address></public_addresses>\n  <private_addresses><address
-        type='hostname'>img1.inst8.private.com</address></private_addresses>\n  <storage_volumes></storage_volumes>\n
+        type='hostname'>img1.inst14.public.com</address></public_addresses>\n  <private_addresses><address
+        type='hostname'>img1.inst14.private.com</address></private_addresses>\n  <storage_volumes></storage_volumes>\n
         \ <authentication type='key'>\n  </authentication>\n</instance>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:18 GMT
 - request:
     method: post
-    uri: http://localhost:3001/api/instances/inst8/stop
+    uri: http://localhost:3001/api/instances/inst14/stop
     body:
       encoding: US-ASCII
       string: ''
@@ -133,39 +133,39 @@ http_interactions:
       content-type:
       - application/xml
       x-backend-runtime:
-      - '0.001348257064819336'
+      - '0.0021376609802246094'
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
       - mock
       content-length:
-      - '1164'
+      - '1173'
       x-content-type-options:
       - nosniff
       date:
-      - Tue, 05 Mar 2013 16:04:29 GMT
+      - Wed, 06 Mar 2013 08:56:18 GMT
       connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<instance href='http://localhost:3001/api/instances/inst8'
-        id='inst8'>\n  <name>i-1362499469</name>\n  <owner_id>mockuser</owner_id>\n
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<instance href='http://localhost:3001/api/instances/inst14'
+        id='inst14'>\n  <name>i-1362560178</name>\n  <owner_id>mockuser</owner_id>\n
         \ <image href='http://localhost:3001/api/images/img1' id='img1'></image>\n
         \ <realm href='http://localhost:3001/api/realms/us' id='us'></realm>\n  <state>STOPPED</state>\n
         \ <hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small'
-        id='m1-small'>\n  </hardware_profile>\n  <actions>\n    <link href='http://localhost:3001/api/instances/inst8/start'
-        method='post' rel='start' />\n    <link href='http://localhost:3001/api/instances/inst8'
-        method='delete' rel='destroy' />\n    <link href='http://localhost:3001/api/instances/inst8/run;id=inst8'
-        method='post' rel='run' />\n    <link href='http://localhost:3001/api/images;instance_id=inst8'
+        id='m1-small'>\n  </hardware_profile>\n  <actions>\n    <link href='http://localhost:3001/api/instances/inst14/start'
+        method='post' rel='start' />\n    <link href='http://localhost:3001/api/instances/inst14'
+        method='delete' rel='destroy' />\n    <link href='http://localhost:3001/api/instances/inst14/run;id=inst14'
+        method='post' rel='run' />\n    <link href='http://localhost:3001/api/images;instance_id=inst14'
         method='post' rel='create_image' />\n  </actions>\n  <public_addresses><address
-        type='hostname'>img1.inst8.public.com</address></public_addresses>\n  <private_addresses><address
-        type='hostname'>img1.inst8.private.com</address></private_addresses>\n  <storage_volumes></storage_volumes>\n
+        type='hostname'>img1.inst14.public.com</address></public_addresses>\n  <private_addresses><address
+        type='hostname'>img1.inst14.private.com</address></private_addresses>\n  <storage_volumes></storage_volumes>\n
         \ <authentication type='key'>\n  </authentication>\n</instance>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:18 GMT
 - request:
     method: post
-    uri: http://localhost:3001/api/instances/inst8/start
+    uri: http://localhost:3001/api/instances/inst14/start
     body:
       encoding: US-ASCII
       string: ''
@@ -184,34 +184,34 @@ http_interactions:
       content-type:
       - application/xml
       x-backend-runtime:
-      - '0.0011715888977050781'
+      - '0.001978158950805664'
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
       - mock
       content-length:
-      - '1166'
+      - '1175'
       x-content-type-options:
       - nosniff
       date:
-      - Tue, 05 Mar 2013 16:04:29 GMT
+      - Wed, 06 Mar 2013 08:56:18 GMT
       connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<instance href='http://localhost:3001/api/instances/inst8'
-        id='inst8'>\n  <name>i-1362499469</name>\n  <owner_id>mockuser</owner_id>\n
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<instance href='http://localhost:3001/api/instances/inst14'
+        id='inst14'>\n  <name>i-1362560178</name>\n  <owner_id>mockuser</owner_id>\n
         \ <image href='http://localhost:3001/api/images/img1' id='img1'></image>\n
         \ <realm href='http://localhost:3001/api/realms/us' id='us'></realm>\n  <state>RUNNING</state>\n
         \ <hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small'
-        id='m1-small'>\n  </hardware_profile>\n  <actions>\n    <link href='http://localhost:3001/api/instances/inst8/reboot'
-        method='post' rel='reboot' />\n    <link href='http://localhost:3001/api/instances/inst8/stop'
-        method='post' rel='stop' />\n    <link href='http://localhost:3001/api/instances/inst8/run;id=inst8'
-        method='post' rel='run' />\n    <link href='http://localhost:3001/api/images;instance_id=inst8'
+        id='m1-small'>\n  </hardware_profile>\n  <actions>\n    <link href='http://localhost:3001/api/instances/inst14/reboot'
+        method='post' rel='reboot' />\n    <link href='http://localhost:3001/api/instances/inst14/stop'
+        method='post' rel='stop' />\n    <link href='http://localhost:3001/api/instances/inst14/run;id=inst14'
+        method='post' rel='run' />\n    <link href='http://localhost:3001/api/images;instance_id=inst14'
         method='post' rel='create_image' />\n  </actions>\n  <public_addresses><address
-        type='hostname'>img1.inst8.public.com</address></public_addresses>\n  <private_addresses><address
-        type='hostname'>img1.inst8.private.com</address></private_addresses>\n  <storage_volumes></storage_volumes>\n
+        type='hostname'>img1.inst14.public.com</address></public_addresses>\n  <private_addresses><address
+        type='hostname'>img1.inst14.private.com</address></private_addresses>\n  <storage_volumes></storage_volumes>\n
         \ <authentication type='key'>\n  </authentication>\n</instance>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:18 GMT
 recorded_with: VCR 2.4.0

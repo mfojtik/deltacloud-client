@@ -33,7 +33,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:29 GMT
+      - Wed, 06 Mar 2013 08:56:18 GMT
       connection:
       - close
     body:
@@ -56,7 +56,7 @@ http_interactions:
         \ </link>\n  <link href='http://localhost:3001/api/buckets' rel='buckets'>\n
         \ </link>\n  <link href='http://localhost:3001/api/keys' rel='keys'>\n  </link>\n</api>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:18 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/instance_states
@@ -90,7 +90,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:29 GMT
+      - Wed, 06 Mar 2013 08:56:18 GMT
       connection:
       - close
     body:
@@ -104,7 +104,7 @@ http_interactions:
         action='destroy' to='finish'></transition>\n  </state>\n  <state name='finish'>\n
         \ </state>\n</states>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:18 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/instance_states
@@ -138,7 +138,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:29 GMT
+      - Wed, 06 Mar 2013 08:56:18 GMT
       connection:
       - close
     body:
@@ -152,7 +152,7 @@ http_interactions:
         action='destroy' to='finish'></transition>\n  </state>\n  <state name='finish'>\n
         \ </state>\n</states>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:18 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/instance_states
@@ -186,7 +186,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:29 GMT
+      - Wed, 06 Mar 2013 08:56:18 GMT
       connection:
       - close
     body:
@@ -200,5 +200,5 @@ http_interactions:
         action='destroy' to='finish'></transition>\n  </state>\n  <state name='finish'>\n
         \ </state>\n</states>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:18 GMT
 recorded_with: VCR 2.4.0

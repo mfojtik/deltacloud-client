@@ -33,7 +33,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:27 GMT
+      - Wed, 06 Mar 2013 08:56:16 GMT
       connection:
       - close
     body:
@@ -56,7 +56,7 @@ http_interactions:
         \ </link>\n  <link href='http://localhost:3001/api/buckets' rel='buckets'>\n
         \ </link>\n  <link href='http://localhost:3001/api/keys' rel='keys'>\n  </link>\n</api>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:27 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/buckets/bucket1/blob1
@@ -90,7 +90,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:27 GMT
+      - Wed, 06 Mar 2013 08:56:16 GMT
       connection:
       - close
     body:
@@ -102,7 +102,7 @@ http_interactions:
         \ </user_metadata>\n  <content href='http://localhost:3001/api/buckets/bucket1/blob1/content'
         rel='blob_content'></content>\n</blob>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:27 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/buckets/bucket1/foo
@@ -132,7 +132,7 @@ http_interactions:
       x-content-type-options:
       - nosniff
       date:
-      - Tue, 05 Mar 2013 16:04:27 GMT
+      - Wed, 06 Mar 2013 08:56:16 GMT
       connection:
       - close
     body:
@@ -144,5 +144,5 @@ http_interactions:
         \"foo\"]]]></param>\n    <param name='id'><![CDATA[\"bucket1\"]]></param>\n
         \   <param name='blob_id'><![CDATA[\"foo\"]]></param>\n  </request>\n</error>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:27 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
 recorded_with: VCR 2.4.0

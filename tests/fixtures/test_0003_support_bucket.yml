@@ -33,7 +33,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:27 GMT
+      - Wed, 06 Mar 2013 08:56:16 GMT
       connection:
       - close
     body:
@@ -56,7 +56,7 @@ http_interactions:
         \ </link>\n  <link href='http://localhost:3001/api/buckets' rel='buckets'>\n
         \ </link>\n  <link href='http://localhost:3001/api/keys' rel='keys'>\n  </link>\n</api>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:27 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/buckets/bucket1
@@ -78,7 +78,7 @@ http_interactions:
       content-type:
       - application/xml
       x-backend-runtime:
-      - '0.002124786376953125'
+      - '0.005996227264404297'
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
@@ -92,7 +92,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:27 GMT
+      - Wed, 06 Mar 2013 08:56:16 GMT
       connection:
       - close
     body:
@@ -103,7 +103,7 @@ http_interactions:
         id='blob3'></blob>\n  <blob href='http://localhost:3001/api/buckets/bucket1/blob2'
         id='blob2'></blob>\n</bucket>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:27 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/buckets/
@@ -139,7 +139,7 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       date:
-      - Tue, 05 Mar 2013 16:04:27 GMT
+      - Wed, 06 Mar 2013 08:56:16 GMT
       connection:
       - close
     body:
@@ -151,7 +151,7 @@ http_interactions:
         \ <div id=\"c\">\n    Try this:\n    <pre>get '/buckets/' do\n  \"Hello World\"\nend</pre>\n
         \ </div>\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:27 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/buckets/foo
@@ -173,7 +173,7 @@ http_interactions:
       content-type:
       - application/xml
       x-backend-runtime:
-      - '0.0027556419372558594'
+      - '0.005069255828857422'
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
@@ -183,7 +183,7 @@ http_interactions:
       x-content-type-options:
       - nosniff
       date:
-      - Tue, 05 Mar 2013 16:04:27 GMT
+      - Wed, 06 Mar 2013 08:56:16 GMT
       connection:
       - close
     body:
@@ -194,5 +194,5 @@ http_interactions:
         \   <param name='splat'><![CDATA[[]]]></param>\n    <param name='captures'><![CDATA[[\"foo\"]]]></param>\n
         \   <param name='id'><![CDATA[\"foo\"]]></param>\n  </request>\n</error>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:27 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
 recorded_with: VCR 2.4.0

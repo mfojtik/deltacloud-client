@@ -33,7 +33,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:29 GMT
+      - Wed, 06 Mar 2013 08:56:19 GMT
       connection:
       - close
     body:
@@ -56,7 +56,7 @@ http_interactions:
         \ </link>\n  <link href='http://localhost:3001/api/buckets' rel='buckets'>\n
         \ </link>\n  <link href='http://localhost:3001/api/keys' rel='keys'>\n  </link>\n</api>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:19 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/realms/eu
@@ -78,7 +78,7 @@ http_interactions:
       content-type:
       - application/xml
       x-backend-runtime:
-      - '0.00029587745666503906'
+      - '0.00024580955505371094'
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
@@ -92,7 +92,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:29 GMT
+      - Wed, 06 Mar 2013 08:56:19 GMT
       connection:
       - close
     body:
@@ -100,7 +100,7 @@ http_interactions:
       string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<realm href='http://localhost:3001/api/realms/eu'
         id='eu'>\n  <name>Europe</name>\n  <state>AVAILABLE</state>\n</realm>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:19 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/realms/
@@ -136,7 +136,7 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       date:
-      - Tue, 05 Mar 2013 16:04:29 GMT
+      - Wed, 06 Mar 2013 08:56:19 GMT
       connection:
       - close
     body:
@@ -148,7 +148,7 @@ http_interactions:
         \ <div id=\"c\">\n    Try this:\n    <pre>get '/realms/' do\n  \"Hello World\"\nend</pre>\n
         \ </div>\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:19 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/realms/foo
@@ -170,7 +170,7 @@ http_interactions:
       content-type:
       - application/xml
       x-backend-runtime:
-      - '0.0005195140838623047'
+      - '0.0002186298370361328'
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
@@ -180,7 +180,7 @@ http_interactions:
       x-content-type-options:
       - nosniff
       date:
-      - Tue, 05 Mar 2013 16:04:29 GMT
+      - Wed, 06 Mar 2013 08:56:19 GMT
       connection:
       - close
     body:
@@ -191,5 +191,5 @@ http_interactions:
         \   <param name='splat'><![CDATA[[]]]></param>\n    <param name='captures'><![CDATA[[\"foo\"]]]></param>\n
         \   <param name='id'><![CDATA[\"foo\"]]></param>\n  </request>\n</error>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:29 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:19 GMT
 recorded_with: VCR 2.4.0

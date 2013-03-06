@@ -33,7 +33,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:30 GMT
+      - Wed, 06 Mar 2013 08:56:19 GMT
       connection:
       - close
     body:
@@ -56,7 +56,7 @@ http_interactions:
         \ </link>\n  <link href='http://localhost:3001/api/buckets' rel='buckets'>\n
         \ </link>\n  <link href='http://localhost:3001/api/keys' rel='keys'>\n  </link>\n</api>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:30 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:19 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/storage_volumes/vol1
@@ -78,7 +78,7 @@ http_interactions:
       content-type:
       - application/xml
       x-backend-runtime:
-      - '0.0009937286376953125'
+      - '0.0031464099884033203'
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
@@ -92,7 +92,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:30 GMT
+      - Wed, 06 Mar 2013 08:56:19 GMT
       connection:
       - close
     body:
@@ -102,7 +102,7 @@ http_interactions:
         unit='GB'>1</capacity>\n  <name>vol1</name>\n  <realm href='http://localhost:3001/api/realms/us'
         id='us'></realm>\n  <realm_id>us</realm_id>\n  <state>AVAILABLE</state>\n</storage_volume>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:30 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:19 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/storage_volumes/
@@ -138,7 +138,7 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       date:
-      - Tue, 05 Mar 2013 16:04:30 GMT
+      - Wed, 06 Mar 2013 08:56:19 GMT
       connection:
       - close
     body:
@@ -150,7 +150,7 @@ http_interactions:
         \ <div id=\"c\">\n    Try this:\n    <pre>get '/storage_volumes/' do\n  \"Hello
         World\"\nend</pre>\n  </div>\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:30 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:19 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/storage_volumes/foo
@@ -172,7 +172,7 @@ http_interactions:
       content-type:
       - application/xml
       x-backend-runtime:
-      - '0.002515077590942383'
+      - '0.002554178237915039'
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
@@ -182,7 +182,7 @@ http_interactions:
       x-content-type-options:
       - nosniff
       date:
-      - Tue, 05 Mar 2013 16:04:30 GMT
+      - Wed, 06 Mar 2013 08:56:19 GMT
       connection:
       - close
     body:
@@ -193,5 +193,5 @@ http_interactions:
         \   <param name='splat'><![CDATA[[]]]></param>\n    <param name='captures'><![CDATA[[\"foo\"]]]></param>\n
         \   <param name='id'><![CDATA[\"foo\"]]></param>\n  </request>\n</error>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:30 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:19 GMT
 recorded_with: VCR 2.4.0

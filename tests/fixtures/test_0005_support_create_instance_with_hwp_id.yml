@@ -33,7 +33,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:28 GMT
+      - Wed, 06 Mar 2013 08:56:18 GMT
       connection:
       - close
     body:
@@ -56,7 +56,7 @@ http_interactions:
         \ </link>\n  <link href='http://localhost:3001/api/buckets' rel='buckets'>\n
         \ </link>\n  <link href='http://localhost:3001/api/keys' rel='keys'>\n  </link>\n</api>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:28 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:18 GMT
 - request:
     method: post
     uri: http://localhost:3001/api/instances?hwp_id=m1-large&image_id=img1
@@ -78,38 +78,38 @@ http_interactions:
       content-type:
       - application/xml
       location:
-      - http://localhost:3001/api/instances/inst7
+      - http://localhost:3001/api/instances/inst15
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
       - mock
       content-length:
-      - '1166'
+      - '1175'
       x-content-type-options:
       - nosniff
       etag:
-      - 366d52494a47ea63f991d1000ab3bf62
+      - a5154912c43a70a5f96dc590a26784d4
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:28 GMT
+      - Wed, 06 Mar 2013 08:56:18 GMT
       connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<instance href='http://localhost:3001/api/instances/inst7'
-        id='inst7'>\n  <name>i-1362499468</name>\n  <owner_id>mockuser</owner_id>\n
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<instance href='http://localhost:3001/api/instances/inst15'
+        id='inst15'>\n  <name>i-1362560178</name>\n  <owner_id>mockuser</owner_id>\n
         \ <image href='http://localhost:3001/api/images/img1' id='img1'></image>\n
         \ <realm href='http://localhost:3001/api/realms/us' id='us'></realm>\n  <state>RUNNING</state>\n
         \ <hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-large'
-        id='m1-large'>\n  </hardware_profile>\n  <actions>\n    <link href='http://localhost:3001/api/instances/inst7/reboot'
-        method='post' rel='reboot' />\n    <link href='http://localhost:3001/api/instances/inst7/stop'
-        method='post' rel='stop' />\n    <link href='http://localhost:3001/api/instances/inst7/run;id=inst7'
-        method='post' rel='run' />\n    <link href='http://localhost:3001/api/images;instance_id=inst7'
+        id='m1-large'>\n  </hardware_profile>\n  <actions>\n    <link href='http://localhost:3001/api/instances/inst15/reboot'
+        method='post' rel='reboot' />\n    <link href='http://localhost:3001/api/instances/inst15/stop'
+        method='post' rel='stop' />\n    <link href='http://localhost:3001/api/instances/inst15/run;id=inst15'
+        method='post' rel='run' />\n    <link href='http://localhost:3001/api/images;instance_id=inst15'
         method='post' rel='create_image' />\n  </actions>\n  <public_addresses><address
-        type='hostname'>img1.inst7.public.com</address></public_addresses>\n  <private_addresses><address
-        type='hostname'>img1.inst7.private.com</address></private_addresses>\n  <storage_volumes></storage_volumes>\n
+        type='hostname'>img1.inst15.public.com</address></public_addresses>\n  <private_addresses><address
+        type='hostname'>img1.inst15.private.com</address></private_addresses>\n  <storage_volumes></storage_volumes>\n
         \ <authentication type='key'>\n  </authentication>\n</instance>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:28 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:18 GMT
 recorded_with: VCR 2.4.0

@@ -35,7 +35,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Tue, 05 Mar 2013 16:04:25 GMT
+      - Wed, 06 Mar 2013 08:56:15 GMT
       connection:
       - close
     body:
@@ -68,5 +68,5 @@ http_interactions:
         rel='keys'>\n  </link>\n  <link href='http://localhost:3001/api/load_balancers'
         rel='load_balancers'>\n  </link>\n</api>\n"
     http_version: 
-  recorded_at: Tue, 05 Mar 2013 16:04:25 GMT
+  recorded_at: Wed, 06 Mar 2013 08:56:15 GMT
 recorded_with: VCR 2.4.0
