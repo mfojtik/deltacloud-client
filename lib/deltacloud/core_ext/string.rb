@@ -15,16 +15,20 @@ class String
     end
   end
 
-  def pluralize
-    return self + 'es' if self =~ /ess$/
-    return self[0, self.length-1] + "ies" if self =~ /ty$/
-    return self if self =~ /data$/
-    self + "s"
+  unless method_defined? :pluralize
+    def pluralize
+      return self + 'es' if self =~ /ess$/
+      return self[0, self.length-1] + "ies" if self =~ /ty$/
+      return self if self =~ /data$/
+      self + "s"
+    end
   end
 
-  def singularize
-    return self.gsub(/ies$/, 'y') if self =~ /ies$/
-    return self.gsub(/es$/, '') if self =~ /sses$/
-    self.gsub(/s$/, '')
+  unless method_defined? :singularize
+    def singularize
+      return self.gsub(/ies$/, 'y') if self =~ /ies$/
+      return self.gsub(/es$/, '') if self =~ /sses$/
+      self.gsub(/s$/, '')
+    end
   end
 end
