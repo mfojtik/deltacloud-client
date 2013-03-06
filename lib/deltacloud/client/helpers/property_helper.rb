@@ -19,6 +19,10 @@ module Deltacloud::Client
           Property.new(body['name'], body['unit'], body['value'])
         end
 
+        def kind
+          self.class.name.split('::').last.downcase.to_sym
+        end
+
       end
 
       class Range < Property

@@ -35,4 +35,12 @@ describe Deltacloud::Client::Methods::Address do
     lambda { @client.address('foo') }.must_raise Deltacloud::Client::NotFound
   end
 
+  it 'support #create_address' do
+    @client.must_respond_to :create_address
+    result = @client.create_address
+    result.must_be_instance_of Deltacloud::Client::Address
+    result.ip.wont_be_empty
+    result.instance_id.must_be_nil
+  end
+
 end

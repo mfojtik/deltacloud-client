@@ -26,7 +26,7 @@ module Deltacloud::Client
     end
 
     def storage
-      propery :storage
+      property :storage
     end
 
     def opaque?

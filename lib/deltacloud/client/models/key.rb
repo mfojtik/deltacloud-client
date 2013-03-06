@@ -27,6 +27,13 @@ module Deltacloud::Client
     attr_reader :fingerprint
 
     # Key model methods
+    def pem
+      @public_key
+    end
+
+    def destroy!
+      destroy_key(_id)
+    end
 
     # Parse the Key entity from XML body
     #

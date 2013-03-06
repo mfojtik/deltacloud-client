@@ -15,13 +15,15 @@
 
 # Kernel::load File::join(File::dirname(__FILE__), '../server/lib/deltacloud/version.rb')
 
+require './lib/deltacloud/client'
+
 Gem::Specification.new do |s|
   s.author = 'The Apache Software Foundation'
   s.homepage = "http://www.deltacloud.org"
   s.email = 'dev@deltacloud.apache.org'
   s.name = 'deltacloud-client'
   s.description = %q{A REST client for the Deltacloud API}
-  s.version = '1.1.2' # FIXME
+  s.version = Deltacloud::Client::VERSION
   s.summary = %q{Deltacloud REST Client}
   s.files = Dir['Rakefile', 'lib/**/*.rb']
   s.test_files= Dir.glob("tests/**/**")

@@ -38,7 +38,19 @@ module Deltacloud
 
     require_relative './client/connection'
 
-    VERSION = '0.0.1'
+    VERSION = '1.1.2'
+
+    # Check if the connection to Deltacloud API is valid
+    def self.valid_connection?(api_url)
+      begin
+        Deltacloud::Client(api_url, '', '') && true
+      rescue Faraday::Error::ConnectionFailed
+        false
+      rescue Deltacloud::Client::AuthenticationError
+        false
+      end
+    end
+
   end
 
   def self.Client(url, api_user, api_password, opts={})
