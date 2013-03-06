@@ -17,6 +17,7 @@ module Deltacloud::Client
   class Blob < Base
 
     include Deltacloud::Client::Methods::Blob
+    include Deltacloud::Client::Methods::Bucket
 
     # Inherited attributes: :_id, :name, :description
 
@@ -30,9 +31,10 @@ module Deltacloud::Client
 
     # Blob model methods
     #
-    # def reboot!
-    #   blob_reboot(_id)
-    # end
+
+    def bucket
+      super(bucket_id)
+    end
 
     # Parse the Blob entity from XML body
     #
@@ -40,7 +42,7 @@ module Deltacloud::Client
     #
     def self.parse(xml_body)
       {
-        :bucket_id => xml_body.text_at(:bucket_id) || xml_body.text_at(:bucket),
+        :bucket_id => xml_body.text_at(:bucket_id) || xml_body.text_at(:bucket), # FIXME: DC bug
         :content_length => xml_body.text_at(:content_length),
         :content_type => xml_body.text_at(:content_type),
         :last_modified => xml_body.text_at(:last_modified),

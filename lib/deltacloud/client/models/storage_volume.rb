@@ -29,7 +29,7 @@ module Deltacloud::Client
 
     # Detach this volume from the currently attached instance
     #
-    def detach
+    def detach!
       detach_storage_volume(_id) && reload!
     end
 
@@ -47,9 +47,8 @@ module Deltacloud::Client
       reload! && snap
     end
 
-    def attached_instance
-      raise error('Volume is not attached to any instance') unless attached?
-      instance(mount[:instance])
+    def instance
+      super(mount[:instance])
     end
 
     def self.parse(xml_body)

@@ -193,4 +193,90 @@ http_interactions:
         \ </mount>\n</storage_volume>\n"
     http_version: 
   recorded_at: Wed, 06 Mar 2013 15:51:37 GMT
+- request:
+    method: post
+    uri: http://localhost:3001/api/storage_volumes/vol1/detach
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Authorization:
+      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
+      User-Agent:
+      - Faraday v0.8.6
+  response:
+    status:
+      code: 202
+      message: 
+    headers:
+      content-type:
+      - application/xml
+      server:
+      - Apache-Deltacloud/1.1.1
+      x-deltacloud-driver:
+      - mock
+      content-length:
+      - '366'
+      x-content-type-options:
+      - nosniff
+      date:
+      - Wed, 06 Mar 2013 16:39:42 GMT
+      connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<storage_volume href='http://localhost:3001/api/storage_volumes/vol1'
+        id='vol1'>\n  <created>Thu Jul 30 14:35:11 UTC 2009</created>\n  <capacity
+        unit='GB'>1</capacity>\n  <name>vol1</name>\n  <realm href='http://localhost:3001/api/realms/us'
+        id='us'></realm>\n  <realm_id>us</realm_id>\n  <state>AVAILABLE</state>\n</storage_volume>\n"
+    http_version: 
+  recorded_at: Wed, 06 Mar 2013 16:39:42 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/storage_volumes/vol1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Authorization:
+      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
+      User-Agent:
+      - Faraday v0.8.6
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/xml
+      x-backend-runtime:
+      - '0.0027980804443359375'
+      server:
+      - Apache-Deltacloud/1.1.1
+      x-deltacloud-driver:
+      - mock
+      content-length:
+      - '366'
+      x-content-type-options:
+      - nosniff
+      etag:
+      - 46e0acb37615405bfaa1b17970ed4734
+      cache-control:
+      - max-age=0, private, must-revalidate
+      date:
+      - Wed, 06 Mar 2013 16:39:42 GMT
+      connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<storage_volume href='http://localhost:3001/api/storage_volumes/vol1'
+        id='vol1'>\n  <created>Thu Jul 30 14:35:11 UTC 2009</created>\n  <capacity
+        unit='GB'>1</capacity>\n  <name>vol1</name>\n  <realm href='http://localhost:3001/api/realms/us'
+        id='us'></realm>\n  <realm_id>us</realm_id>\n  <state>AVAILABLE</state>\n</storage_volume>\n"
+    http_version: 
+  recorded_at: Wed, 06 Mar 2013 16:39:42 GMT
 recorded_with: VCR 2.4.0
