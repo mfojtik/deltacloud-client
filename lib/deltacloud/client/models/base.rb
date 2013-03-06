@@ -49,14 +49,23 @@ module Deltacloud::Client
       "#<#{self.class.name}> #{@options.merge(:_id => @obj_id).inspect}"
     end
 
+    # An internal reference to the current Deltacloud::Client::Connection
+    # instance. Used for implementing the model methods
+    #
     def client
       @client
     end
 
+    # Shorthand for +client+.connection
+    #
+    # Return Faraday connection object.
+    #
     def connection
       client.connection
     end
 
+    # Return the cached version of Deltacloud API entrypoint
+    #
     def entrypoint
       client.entrypoint
     end
@@ -68,6 +77,9 @@ module Deltacloud::Client
       @original_body
     end
 
+    # The model#id is the old way how to get the Deltacloud API resource
+    # 'id'. However this collide with the Ruby Object#id.
+    #
     def id
       warn '[DEPRECATION] `id` is deprecated because of possible conflict with Object#id. Use `_id` instead.'
       _id
