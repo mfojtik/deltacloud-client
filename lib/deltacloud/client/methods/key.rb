@@ -25,7 +25,7 @@ module Deltacloud::Client
       #
       def keys(filter_opts={})
         from_collection :keys,
-        connection.get(api_uri('keys'), filter_opts)
+          connection.get(api_uri('keys'), filter_opts)
       end
 
       # Retrieve the single key entity
@@ -45,19 +45,13 @@ module Deltacloud::Client
       #   : public_key -> Your SSH public key (eg. ~/.ssh/id_rsa.pub)
       #
       def create_key(key_name, create_opts={})
-        must_support! :keys
-         response = connection.post(api_uri('keys')) do |request|
-          request.params = create_opts.merge('name' => key_name)
-        end
-        model(:key).convert(self, response.body)
+        create_resource :key, create_opts.merge(:name => key_name)
       end
 
       # Destroy the SSH key
       #
       def destroy_key(key_id)
-        must_support! :keys
-        r = connection.delete(api_uri("keys/#{key_id}"))
-        r.status == 204
+        destroy_resource :key, key_id
       end
 
     end

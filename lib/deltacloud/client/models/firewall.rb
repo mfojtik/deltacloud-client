@@ -16,6 +16,7 @@
 module Deltacloud::Client
   class Firewall < Base
 
+    include Deltacloud::Client::Methods::Common
     include Deltacloud::Client::Methods::Firewall
 
     # Inherited attributes: :_id, :name, :description

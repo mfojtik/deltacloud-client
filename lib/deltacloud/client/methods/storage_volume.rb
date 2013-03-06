@@ -26,7 +26,7 @@ module Deltacloud::Client
       # Create new storage volume
       #
       # - :snapshot_id -> Snapshot to use for creating a new volume
-      # - :capaccity   -> Initial Volume capacity
+      # - :capacity    -> Initial Volume capacity
       # - :realm_id    -> Create volume in this realm
       # - :name        -> Volume name
       # - :description -> Volume description
@@ -34,11 +34,7 @@ module Deltacloud::Client
       # NOTE: Some create options might not be supported by backend cloud
       #
       def create_storage_volume(create_opts={})
-        must_support! :storage_volumes
-        r = connection.post(api_uri("storage_volumes")) do |request|
-          request.params = create_opts
-        end
-        from_resource :storage_volume, r
+        create_resource :storage_volume, create_opts
       end
 
       # Destroy the current +StorageVolume+
@@ -47,9 +43,7 @@ module Deltacloud::Client
       # - volume_id -> The 'id' of the volume to destroy
       #
       def destroy_storage_volume(volume_id)
-        must_support! :storage_volumes
-        r = connection.delete(api_uri("storage_volumes/#{volume_id}"))
-        r.status == 204
+        destroy_resource :storage_volume, volume_id
       end
 
       # Attach the Storage Volume to the Instance

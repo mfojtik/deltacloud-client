@@ -32,22 +32,14 @@ module Deltacloud::Client
       #   - :description -> Description of the new image
       #
       def create_image(instance_id, create_opts={})
-        must_support! :images
-        r = connection.post(api_uri('images')) do |request|
-          request.params = create_opts.merge(
-            :instance_id => instance_id
-          )
-        end
-        model(:image).convert(self, r.body)
+        create_resource :image, { :instance_id => instance_id }.merge(create_opts)
       end
 
       # Destroy given image
       # NOTE: This operation might not be supported for all drivers.
       #
       def destroy_image(image_id)
-        must_support! :images
-        r = connection.delete(api_uri("images/#{image_id}"))
-        r.status == 204
+        destroy_resource :image, image_id
       end
 
     end

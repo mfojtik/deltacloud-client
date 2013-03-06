@@ -33,7 +33,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Wed, 06 Mar 2013 08:56:16 GMT
+      - Wed, 06 Mar 2013 15:47:53 GMT
       connection:
       - close
     body:
@@ -56,10 +56,10 @@ http_interactions:
         \ </link>\n  <link href='http://localhost:3001/api/buckets' rel='buckets'>\n
         \ </link>\n  <link href='http://localhost:3001/api/keys' rel='keys'>\n  </link>\n</api>\n"
     http_version: 
-  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
+  recorded_at: Wed, 06 Mar 2013 15:47:53 GMT
 - request:
     method: get
-    uri: http://localhost:3001/api/buckets/bucket1
+    uri: http://localhost:3001/api/hardware_profiles/m1-small
     body:
       encoding: US-ASCII
       string: ''
@@ -78,172 +78,36 @@ http_interactions:
       content-type:
       - application/xml
       x-backend-runtime:
-      - '0.0054171085357666016'
+      - '0.00010967254638671875'
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
       - mock
       content-length:
-      - '407'
+      - '465'
       x-content-type-options:
       - nosniff
       etag:
-      - d1130db2fb1a271d67e7d69ac1bd604e
+      - 28c52ced85d102f8d21eafb861582994
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Wed, 06 Mar 2013 08:56:16 GMT
+      - Wed, 06 Mar 2013 15:47:53 GMT
       connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<bucket href='http://localhost:3001/api/buckets/bucket1'
-        id='bucket1'>\n  <name>bucket1</name>\n  <size>3</size>\n  <blob href='http://localhost:3001/api/buckets/bucket1/blob1'
-        id='blob1'></blob>\n  <blob href='http://localhost:3001/api/buckets/bucket1/blob3'
-        id='blob3'></blob>\n  <blob href='http://localhost:3001/api/buckets/bucket1/blob2'
-        id='blob2'></blob>\n</bucket>\n"
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small'
+        id='m1-small'>\n  <id>m1-small</id>\n  <name>m1-small</name>\n  <property
+        kind='fixed' name='cpu' unit='count' value='1' />\n  <property kind='fixed'
+        name='memory' unit='MB' value='1740.8' />\n  <property kind='fixed' name='storage'
+        unit='GB' value='160' />\n  <property kind='fixed' name='architecture' unit='label'
+        value='i386' />\n</hardware_profile>\n"
     http_version: 
-  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
+  recorded_at: Wed, 06 Mar 2013 15:47:53 GMT
 - request:
     method: get
-    uri: http://localhost:3001/api/buckets/bucket1/blob1
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/xml
-      Authorization:
-      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent:
-      - Faraday v0.8.6
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      content-type:
-      - application/xml
-      server:
-      - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver:
-      - mock
-      content-length:
-      - '485'
-      x-content-type-options:
-      - nosniff
-      etag:
-      - 6ffb9a8c697a593bc98fed727e98f855
-      cache-control:
-      - max-age=0, private, must-revalidate
-      date:
-      - Wed, 06 Mar 2013 08:56:16 GMT
-      connection:
-      - close
-    body:
-      encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<blob href='http://localhost:3001/api/buckets/bucket1/blob1'
-        id='blob1'>\n  <bucket>bucket1</bucket>\n  <content_length>17</content_length>\n
-        \ <content_type>text/plain</content_type>\n  <last_modified>2010-09-23 17:44:54
-        +0200</last_modified>\n  <user_metadata>\n    <entry key='SOMENEWKEY'><![CDATA[NEWVALUE]]></entry>\n
-        \ </user_metadata>\n  <content href='http://localhost:3001/api/buckets/bucket1/blob1/content'
-        rel='blob_content'></content>\n</blob>\n"
-    http_version: 
-  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
-- request:
-    method: get
-    uri: http://localhost:3001/api/buckets/bucket1/blob3
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/xml
-      Authorization:
-      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent:
-      - Faraday v0.8.6
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      content-type:
-      - application/xml
-      server:
-      - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver:
-      - mock
-      content-length:
-      - '428'
-      x-content-type-options:
-      - nosniff
-      etag:
-      - f5c6bcf8a055f57b9f69ac36ef07626f
-      cache-control:
-      - max-age=0, private, must-revalidate
-      date:
-      - Wed, 06 Mar 2013 08:56:16 GMT
-      connection:
-      - close
-    body:
-      encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<blob href='http://localhost:3001/api/buckets/bucket1/blob3'
-        id='blob3'>\n  <bucket>bucket1</bucket>\n  <content_length>17</content_length>\n
-        \ <content_type>text/plain</content_type>\n  <last_modified>2010-08-14 03:14:31
-        +0200</last_modified>\n  <user_metadata>\n  </user_metadata>\n  <content href='http://localhost:3001/api/buckets/bucket1/blob3/content'
-        rel='blob_content'></content>\n</blob>\n"
-    http_version: 
-  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
-- request:
-    method: get
-    uri: http://localhost:3001/api/buckets/bucket1/blob2
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/xml
-      Authorization:
-      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent:
-      - Faraday v0.8.6
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      content-type:
-      - application/xml
-      server:
-      - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver:
-      - mock
-      content-length:
-      - '476'
-      x-content-type-options:
-      - nosniff
-      etag:
-      - c4aec8663f7a6df184a8253d5d13142a
-      cache-control:
-      - max-age=0, private, must-revalidate
-      date:
-      - Wed, 06 Mar 2013 08:56:16 GMT
-      connection:
-      - close
-    body:
-      encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<blob href='http://localhost:3001/api/buckets/bucket1/blob2'
-        id='blob2'>\n  <bucket>bucket1</bucket>\n  <content_length>56</content_length>\n
-        \ <content_type>text/html</content_type>\n  <last_modified>2010-09-23 17:55:05
-        +0200</last_modified>\n  <user_metadata>\n    <entry key='VERSION'><![CDATA[1.2]]></entry>\n
-        \ </user_metadata>\n  <content href='http://localhost:3001/api/buckets/bucket1/blob2/content'
-        rel='blob_content'></content>\n</blob>\n"
-    http_version: 
-  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
-- request:
-    method: get
-    uri: http://localhost:3001/api/buckets/bucket1
+    uri: http://localhost:3001/api/hardware_profiles/m1-small
     body:
       encoding: US-ASCII
       string: ''
@@ -262,172 +126,36 @@ http_interactions:
       content-type:
       - application/xml
       x-backend-runtime:
-      - '0.0033838748931884766'
+      - '0.00014019012451171875'
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
       - mock
       content-length:
-      - '407'
+      - '465'
       x-content-type-options:
       - nosniff
       etag:
-      - d1130db2fb1a271d67e7d69ac1bd604e
+      - 28c52ced85d102f8d21eafb861582994
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Wed, 06 Mar 2013 08:56:16 GMT
+      - Wed, 06 Mar 2013 15:47:53 GMT
       connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<bucket href='http://localhost:3001/api/buckets/bucket1'
-        id='bucket1'>\n  <name>bucket1</name>\n  <size>3</size>\n  <blob href='http://localhost:3001/api/buckets/bucket1/blob1'
-        id='blob1'></blob>\n  <blob href='http://localhost:3001/api/buckets/bucket1/blob3'
-        id='blob3'></blob>\n  <blob href='http://localhost:3001/api/buckets/bucket1/blob2'
-        id='blob2'></blob>\n</bucket>\n"
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small'
+        id='m1-small'>\n  <id>m1-small</id>\n  <name>m1-small</name>\n  <property
+        kind='fixed' name='cpu' unit='count' value='1' />\n  <property kind='fixed'
+        name='memory' unit='MB' value='1740.8' />\n  <property kind='fixed' name='storage'
+        unit='GB' value='160' />\n  <property kind='fixed' name='architecture' unit='label'
+        value='i386' />\n</hardware_profile>\n"
     http_version: 
-  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
+  recorded_at: Wed, 06 Mar 2013 15:47:53 GMT
 - request:
     method: get
-    uri: http://localhost:3001/api/buckets/bucket1/blob1
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/xml
-      Authorization:
-      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent:
-      - Faraday v0.8.6
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      content-type:
-      - application/xml
-      server:
-      - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver:
-      - mock
-      content-length:
-      - '485'
-      x-content-type-options:
-      - nosniff
-      etag:
-      - 6ffb9a8c697a593bc98fed727e98f855
-      cache-control:
-      - max-age=0, private, must-revalidate
-      date:
-      - Wed, 06 Mar 2013 08:56:16 GMT
-      connection:
-      - close
-    body:
-      encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<blob href='http://localhost:3001/api/buckets/bucket1/blob1'
-        id='blob1'>\n  <bucket>bucket1</bucket>\n  <content_length>17</content_length>\n
-        \ <content_type>text/plain</content_type>\n  <last_modified>2010-09-23 17:44:54
-        +0200</last_modified>\n  <user_metadata>\n    <entry key='SOMENEWKEY'><![CDATA[NEWVALUE]]></entry>\n
-        \ </user_metadata>\n  <content href='http://localhost:3001/api/buckets/bucket1/blob1/content'
-        rel='blob_content'></content>\n</blob>\n"
-    http_version: 
-  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
-- request:
-    method: get
-    uri: http://localhost:3001/api/buckets/bucket1/blob3
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/xml
-      Authorization:
-      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent:
-      - Faraday v0.8.6
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      content-type:
-      - application/xml
-      server:
-      - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver:
-      - mock
-      content-length:
-      - '428'
-      x-content-type-options:
-      - nosniff
-      etag:
-      - f5c6bcf8a055f57b9f69ac36ef07626f
-      cache-control:
-      - max-age=0, private, must-revalidate
-      date:
-      - Wed, 06 Mar 2013 08:56:16 GMT
-      connection:
-      - close
-    body:
-      encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<blob href='http://localhost:3001/api/buckets/bucket1/blob3'
-        id='blob3'>\n  <bucket>bucket1</bucket>\n  <content_length>17</content_length>\n
-        \ <content_type>text/plain</content_type>\n  <last_modified>2010-08-14 03:14:31
-        +0200</last_modified>\n  <user_metadata>\n  </user_metadata>\n  <content href='http://localhost:3001/api/buckets/bucket1/blob3/content'
-        rel='blob_content'></content>\n</blob>\n"
-    http_version: 
-  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
-- request:
-    method: get
-    uri: http://localhost:3001/api/buckets/bucket1/blob2
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/xml
-      Authorization:
-      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent:
-      - Faraday v0.8.6
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      content-type:
-      - application/xml
-      server:
-      - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver:
-      - mock
-      content-length:
-      - '476'
-      x-content-type-options:
-      - nosniff
-      etag:
-      - c4aec8663f7a6df184a8253d5d13142a
-      cache-control:
-      - max-age=0, private, must-revalidate
-      date:
-      - Wed, 06 Mar 2013 08:56:16 GMT
-      connection:
-      - close
-    body:
-      encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<blob href='http://localhost:3001/api/buckets/bucket1/blob2'
-        id='blob2'>\n  <bucket>bucket1</bucket>\n  <content_length>56</content_length>\n
-        \ <content_type>text/html</content_type>\n  <last_modified>2010-09-23 17:55:05
-        +0200</last_modified>\n  <user_metadata>\n    <entry key='VERSION'><![CDATA[1.2]]></entry>\n
-        \ </user_metadata>\n  <content href='http://localhost:3001/api/buckets/bucket1/blob2/content'
-        rel='blob_content'></content>\n</blob>\n"
-    http_version: 
-  recorded_at: Wed, 06 Mar 2013 08:56:16 GMT
-- request:
-    method: get
-    uri: http://localhost:3001/api/buckets/bucket1
+    uri: http://localhost:3001/api/hardware_profiles/m1-small
     body:
       encoding: US-ASCII
       string: ''
@@ -446,30 +174,271 @@ http_interactions:
       content-type:
       - application/xml
       x-backend-runtime:
-      - '0.0020835399627685547'
+      - '0.00012612342834472656'
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
       - mock
       content-length:
-      - '407'
+      - '465'
       x-content-type-options:
       - nosniff
       etag:
-      - c3d2ba8fdf26ef08f573e94239a15b9e
+      - 28c52ced85d102f8d21eafb861582994
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Wed, 06 Mar 2013 15:56:31 GMT
+      - Wed, 06 Mar 2013 15:47:53 GMT
       connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<bucket href='http://localhost:3001/api/buckets/bucket1'
-        id='bucket1'>\n  <name>bucket1</name>\n  <size>4</size>\n  <blob href='http://localhost:3001/api/buckets/bucket1/blob1'
-        id='blob1'></blob>\n  <blob href='http://localhost:3001/api/buckets/bucket1/blob3'
-        id='blob3'></blob>\n  <blob href='http://localhost:3001/api/buckets/bucket1/blob2'
-        id='blob2'></blob>\n</bucket>\n"
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small'
+        id='m1-small'>\n  <id>m1-small</id>\n  <name>m1-small</name>\n  <property
+        kind='fixed' name='cpu' unit='count' value='1' />\n  <property kind='fixed'
+        name='memory' unit='MB' value='1740.8' />\n  <property kind='fixed' name='storage'
+        unit='GB' value='160' />\n  <property kind='fixed' name='architecture' unit='label'
+        value='i386' />\n</hardware_profile>\n"
     http_version: 
-  recorded_at: Wed, 06 Mar 2013 15:56:31 GMT
+  recorded_at: Wed, 06 Mar 2013 15:47:53 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/hardware_profiles/m1-small
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Authorization:
+      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
+      User-Agent:
+      - Faraday v0.8.6
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/xml
+      x-backend-runtime:
+      - '7.295608520507812e-05'
+      server:
+      - Apache-Deltacloud/1.1.1
+      x-deltacloud-driver:
+      - mock
+      content-length:
+      - '465'
+      x-content-type-options:
+      - nosniff
+      etag:
+      - 28c52ced85d102f8d21eafb861582994
+      cache-control:
+      - max-age=0, private, must-revalidate
+      date:
+      - Wed, 06 Mar 2013 15:47:53 GMT
+      connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small'
+        id='m1-small'>\n  <id>m1-small</id>\n  <name>m1-small</name>\n  <property
+        kind='fixed' name='cpu' unit='count' value='1' />\n  <property kind='fixed'
+        name='memory' unit='MB' value='1740.8' />\n  <property kind='fixed' name='storage'
+        unit='GB' value='160' />\n  <property kind='fixed' name='architecture' unit='label'
+        value='i386' />\n</hardware_profile>\n"
+    http_version: 
+  recorded_at: Wed, 06 Mar 2013 15:47:53 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/hardware_profiles/m1-small
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Authorization:
+      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
+      User-Agent:
+      - Faraday v0.8.6
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/xml
+      x-backend-runtime:
+      - '0.00015091896057128906'
+      server:
+      - Apache-Deltacloud/1.1.1
+      x-deltacloud-driver:
+      - mock
+      content-length:
+      - '465'
+      x-content-type-options:
+      - nosniff
+      etag:
+      - 28c52ced85d102f8d21eafb861582994
+      cache-control:
+      - max-age=0, private, must-revalidate
+      date:
+      - Wed, 06 Mar 2013 15:47:53 GMT
+      connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small'
+        id='m1-small'>\n  <id>m1-small</id>\n  <name>m1-small</name>\n  <property
+        kind='fixed' name='cpu' unit='count' value='1' />\n  <property kind='fixed'
+        name='memory' unit='MB' value='1740.8' />\n  <property kind='fixed' name='storage'
+        unit='GB' value='160' />\n  <property kind='fixed' name='architecture' unit='label'
+        value='i386' />\n</hardware_profile>\n"
+    http_version: 
+  recorded_at: Wed, 06 Mar 2013 15:47:53 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/hardware_profiles/m1-small
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Authorization:
+      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
+      User-Agent:
+      - Faraday v0.8.6
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/xml
+      x-backend-runtime:
+      - '4.3392181396484375e-05'
+      server:
+      - Apache-Deltacloud/1.1.1
+      x-deltacloud-driver:
+      - mock
+      content-length:
+      - '465'
+      x-content-type-options:
+      - nosniff
+      etag:
+      - 28c52ced85d102f8d21eafb861582994
+      cache-control:
+      - max-age=0, private, must-revalidate
+      date:
+      - Wed, 06 Mar 2013 15:47:53 GMT
+      connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small'
+        id='m1-small'>\n  <id>m1-small</id>\n  <name>m1-small</name>\n  <property
+        kind='fixed' name='cpu' unit='count' value='1' />\n  <property kind='fixed'
+        name='memory' unit='MB' value='1740.8' />\n  <property kind='fixed' name='storage'
+        unit='GB' value='160' />\n  <property kind='fixed' name='architecture' unit='label'
+        value='i386' />\n</hardware_profile>\n"
+    http_version: 
+  recorded_at: Wed, 06 Mar 2013 15:47:53 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/hardware_profiles/m1-small
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Authorization:
+      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
+      User-Agent:
+      - Faraday v0.8.6
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/xml
+      x-backend-runtime:
+      - '0.00015473365783691406'
+      server:
+      - Apache-Deltacloud/1.1.1
+      x-deltacloud-driver:
+      - mock
+      content-length:
+      - '465'
+      x-content-type-options:
+      - nosniff
+      etag:
+      - 28c52ced85d102f8d21eafb861582994
+      cache-control:
+      - max-age=0, private, must-revalidate
+      date:
+      - Wed, 06 Mar 2013 15:47:53 GMT
+      connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small'
+        id='m1-small'>\n  <id>m1-small</id>\n  <name>m1-small</name>\n  <property
+        kind='fixed' name='cpu' unit='count' value='1' />\n  <property kind='fixed'
+        name='memory' unit='MB' value='1740.8' />\n  <property kind='fixed' name='storage'
+        unit='GB' value='160' />\n  <property kind='fixed' name='architecture' unit='label'
+        value='i386' />\n</hardware_profile>\n"
+    http_version: 
+  recorded_at: Wed, 06 Mar 2013 15:47:53 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/hardware_profiles/m1-small
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Authorization:
+      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
+      User-Agent:
+      - Faraday v0.8.6
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/xml
+      x-backend-runtime:
+      - '0.00010776519775390625'
+      server:
+      - Apache-Deltacloud/1.1.1
+      x-deltacloud-driver:
+      - mock
+      content-length:
+      - '465'
+      x-content-type-options:
+      - nosniff
+      etag:
+      - 28c52ced85d102f8d21eafb861582994
+      cache-control:
+      - max-age=0, private, must-revalidate
+      date:
+      - Wed, 06 Mar 2013 15:47:53 GMT
+      connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small'
+        id='m1-small'>\n  <id>m1-small</id>\n  <name>m1-small</name>\n  <property
+        kind='fixed' name='cpu' unit='count' value='1' />\n  <property kind='fixed'
+        name='memory' unit='MB' value='1740.8' />\n  <property kind='fixed' name='storage'
+        unit='GB' value='160' />\n  <property kind='fixed' name='architecture' unit='label'
+        value='i386' />\n</hardware_profile>\n"
+    http_version: 
+  recorded_at: Wed, 06 Mar 2013 15:47:53 GMT
 recorded_with: VCR 2.4.0

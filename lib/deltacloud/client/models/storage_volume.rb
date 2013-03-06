@@ -1,5 +1,7 @@
 module Deltacloud::Client
   class StorageVolume < Base
+
+    include Deltacloud::Client::Methods::Common
     include Deltacloud::Client::Methods::Instance
     include Deltacloud::Client::Methods::StorageVolume
     include Deltacloud::Client::Methods::StorageSnapshot
@@ -41,7 +43,8 @@ module Deltacloud::Client
     # See: +create_storage_snapshot+
     #
     def snapshot!(snapshot_opts={})
-      create_storage_snapshot(_id, snapshot_opts)
+      snap = create_storage_snapshot(_id, snapshot_opts)
+      reload! && snap
     end
 
     def attached_instance

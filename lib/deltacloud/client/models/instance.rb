@@ -1,6 +1,7 @@
 module Deltacloud::Client
   class Instance < Base
 
+    include Deltacloud::Client::Methods::Common
     include Deltacloud::Client::Methods::Instance
     include Deltacloud::Client::Methods::Realm
 

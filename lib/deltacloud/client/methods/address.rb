@@ -40,15 +40,11 @@ module Deltacloud::Client
       # Create a new address
       #
       def create_address
-        must_support! :addresses
-        response = connection.post(api_uri('addresses'))
-        model(:address).convert(self, response.body)
+        create_resource :address, {}
       end
 
       def destroy_address(address_id)
-        must_support! :addresses
-        r = connection.delete(api_uri("addresses/#{snapshot_id}"))
-        r.status == 204
+        destroy_resource :address, address_id
       end
 
       def associate_address(address_id, instance_id)

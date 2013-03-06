@@ -35,4 +35,32 @@ describe Deltacloud::Client::Methods::StorageVolume do
     lambda { @client.storage_volume('foo') }.must_raise Deltacloud::Client::NotFound
   end
 
+  it 'support #create_volume and #destroy_volume' do
+    @client.must_respond_to :create_storage_volume
+    result = @client.create_storage_volume(:snapshot_id => 'snap1', :name => 'foo123', :capacity => '10')
+    result.must_be_instance_of Deltacloud::Client::StorageVolume
+    result.name.must_equal 'foo123'
+    result.capacity.must_equal '10'
+    @client.must_respond_to :destroy_storage_volume
+    @client.destroy_storage_volume(result._id).must_equal true
+    lambda { @client.storage_volume(result._id) }.must_raise Deltacloud::Client::NotFound
+  end
+
+  it 'support #attach_storage_volume and #detach_storage_volume' do
+    @client.must_respond_to :attach_storage_volume
+    result = @client.attach_storage_volume('vol1', 'inst1', '/dev/sdc')
+    result.must_be_instance_of Deltacloud::Client::StorageVolume
+    result.name.must_equal 'vol1'
+    result.state.must_equal 'IN-USE'
+    result.device.must_equal '/dev/sdc'
+    result.mount[:instance].must_equal 'inst1'
+    @client.must_respond_to :detach_storage_volume
+    result = @client.detach_storage_volume('vol1')
+    result.must_be_instance_of Deltacloud::Client::StorageVolume
+    result.name.must_equal 'vol1'
+    result.state.must_equal 'AVAILABLE'
+    result.device.must_be_nil
+    result.mount[:instance].must_be_nil
+  end
+
 end

@@ -8,6 +8,7 @@ module Deltacloud::Client
 
     include Deltacloud::Client::Helpers::Model
 
+    include Deltacloud::Client::Methods::Common
     include Deltacloud::Client::Methods::Api
     include Deltacloud::Client::Methods::BackwardCompatibility
     include Deltacloud::Client::Methods::Driver

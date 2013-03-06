@@ -35,4 +35,13 @@ describe Deltacloud::Client::Methods::Bucket do
     lambda { @client.bucket('foo') }.must_raise Deltacloud::Client::NotFound
   end
 
+  it 'support #create_bucket and #destroy_bucket' do
+    @client.must_respond_to :create_bucket
+    b = @client.create_bucket('foo123')
+    b.must_be_instance_of Deltacloud::Client::Bucket
+    b.name.must_equal 'foo123'
+    @client.destroy_bucket(b._id)
+    lambda { @client.bucket(b._id) }.must_raise Deltacloud::Client::NotFound
+  end
+
 end

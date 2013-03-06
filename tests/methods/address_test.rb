@@ -41,6 +41,9 @@ describe Deltacloud::Client::Methods::Address do
     result.must_be_instance_of Deltacloud::Client::Address
     result.ip.wont_be_empty
     result.instance_id.must_be_nil
+    @client.must_respond_to :destroy_address
+    @client.destroy_address(result._id).must_equal true
+    lambda { @client.address(result._id) }.must_raise Deltacloud::Client::NotFound
   end
 
 end

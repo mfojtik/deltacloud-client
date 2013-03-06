@@ -25,7 +25,7 @@ module Deltacloud::Client
       #
       def storage_snapshots(filter_opts={})
         from_collection :storage_snapshots,
-        connection.get(api_uri('storage_snapshots'), filter_opts)
+          connection.get(api_uri('storage_snapshots'), filter_opts)
       end
 
       # Retrieve the single storage_snapshot entity
@@ -45,11 +45,7 @@ module Deltacloud::Client
       #   :description -> Description of the StorageSnapshot
       #
       def create_storage_snapshot(volume_id, create_opts={})
-        must_support! :storage_snapshots
-        response = connection.post(api_uri("storage_snapshots")) do |request|
-          request.params = create_opts.merge(:volume_id => volume_id)
-        end
-        from_resource :storage_snapshot, response.body
+        create_resource :storage_snapshot, create_opts.merge(:volume_id => volume_id)
       end
 
       # Destroy the current +StorageSnapshot+
@@ -58,9 +54,7 @@ module Deltacloud::Client
       # - snapshot_id -> The 'id' of the snapshot to destroy
       #
       def destroy_storage_snapshot(snapshot_id)
-        must_support! :storage_snapshots
-        r = connection.delete(api_uri("storage_snapshots/#{snapshot_id}"))
-        r.status == 204
+        destroy_resource :storage_snapshot, snapshot_id
       end
 
     end

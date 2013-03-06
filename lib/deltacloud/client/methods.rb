@@ -1,3 +1,4 @@
+require_relative './methods/common'
 require_relative './methods/driver'
 require_relative './methods/realm'
 require_relative './methods/hardware_profile'

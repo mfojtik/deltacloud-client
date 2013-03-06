@@ -33,7 +33,7 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       date:
-      - Wed, 06 Mar 2013 09:31:55 GMT
+      - Wed, 06 Mar 2013 15:48:36 GMT
       connection:
       - close
     body:
@@ -56,104 +56,10 @@ http_interactions:
         \ </link>\n  <link href='http://localhost:3001/api/buckets' rel='buckets'>\n
         \ </link>\n  <link href='http://localhost:3001/api/keys' rel='keys'>\n  </link>\n</api>\n"
     http_version: 
-  recorded_at: Wed, 06 Mar 2013 09:31:55 GMT
-- request:
-    method: post
-    uri: http://localhost:3001/api/addresses
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/xml
-      Authorization:
-      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent:
-      - Faraday v0.8.6
-  response:
-    status:
-      code: 201
-      message: 
-    headers:
-      content-type:
-      - application/xml
-      location:
-      - http://localhost:3001/api/addresses/192.168.0.5
-      server:
-      - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver:
-      - mock
-      content-length:
-      - '373'
-      x-content-type-options:
-      - nosniff
-      etag:
-      - cb628d46a8c01d4f11ab6f3894dc6ead
-      cache-control:
-      - max-age=0, private, must-revalidate
-      date:
-      - Wed, 06 Mar 2013 09:31:55 GMT
-      connection:
-      - close
-    body:
-      encoding: US-ASCII
-      string: ! '<?xml version=''1.0'' encoding=''utf-8'' ?>
-
-        <address href=''http://localhost:3001/api/addresses/192.168.0.5'' id=''192.168.0.5''>
-
-        <ip>192.168.0.5</ip>
-
-        <actions>
-
-        <link href=''http://localhost:3001/api/addresses/192.168.0.5'' method=''delete''
-        rel=''destroy'' />
-
-        <link href=''http://localhost:3001/api/addresses/192.168.0.5/associate'' method=''post''
-        rel=''associate'' />
-
-        </actions>
-
-        </address>
-
-'
-    http_version: 
-  recorded_at: Wed, 06 Mar 2013 09:31:55 GMT
-- request:
-    method: delete
-    uri: http://localhost:3001/api/addresses/192.168.0.5
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/xml
-      Authorization:
-      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
-      User-Agent:
-      - Faraday v0.8.6
-  response:
-    status:
-      code: 204
-      message: 
-    headers:
-      server:
-      - Apache-Deltacloud/1.1.1
-      x-deltacloud-driver:
-      - mock
-      x-content-type-options:
-      - nosniff
-      date:
-      - Wed, 06 Mar 2013 15:05:09 GMT
-      connection:
-      - close
-    body:
-      encoding: US-ASCII
-      string: ''
-    http_version: 
-  recorded_at: Wed, 06 Mar 2013 15:05:09 GMT
+  recorded_at: Wed, 06 Mar 2013 15:48:36 GMT
 - request:
     method: get
-    uri: http://localhost:3001/api/addresses/192.168.0.5
+    uri: http://localhost:3001/api/hardware_profiles/opaque
     body:
       encoding: US-ASCII
       string: ''
@@ -166,32 +72,81 @@ http_interactions:
       - Faraday v0.8.6
   response:
     status:
-      code: 404
+      code: 200
       message: 
     headers:
       content-type:
       - application/xml
       x-backend-runtime:
-      - '0.017974853515625'
+      - '0.0001239776611328125'
       server:
       - Apache-Deltacloud/1.1.1
       x-deltacloud-driver:
       - mock
       content-length:
-      - '436'
+      - '189'
       x-content-type-options:
       - nosniff
+      etag:
+      - cc1cae4458571986869bee99e920d94c
+      cache-control:
+      - max-age=0, private, must-revalidate
       date:
-      - Wed, 06 Mar 2013 15:05:31 GMT
+      - Wed, 06 Mar 2013 15:48:36 GMT
       connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<error status='404' url='/api/addresses/192.168.0.5'>\n
-        \ <backend driver='mock' provider='default'></backend>\n  <code>404</code>\n
-        \ <message><![CDATA[Not Found]]></message>\n  <backtrace></backtrace>\n  <request>\n
-        \   <param name='splat'><![CDATA[[]]]></param>\n    <param name='captures'><![CDATA[[\"192.168.0.5\"]]]></param>\n
-        \   <param name='id'><![CDATA[\"192.168.0.5\"]]></param>\n  </request>\n</error>\n"
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<hardware_profile href='http://localhost:3001/api/hardware_profiles/opaque'
+        id='opaque'>\n  <id>opaque</id>\n  <name>opaque</name>\n</hardware_profile>\n"
     http_version: 
-  recorded_at: Wed, 06 Mar 2013 15:05:31 GMT
+  recorded_at: Wed, 06 Mar 2013 15:48:36 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/hardware_profiles/m1-small
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Authorization:
+      - Basic bW9ja3VzZXI6bW9ja3Bhc3N3b3Jk
+      User-Agent:
+      - Faraday v0.8.6
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/xml
+      x-backend-runtime:
+      - '0.00011181831359863281'
+      server:
+      - Apache-Deltacloud/1.1.1
+      x-deltacloud-driver:
+      - mock
+      content-length:
+      - '465'
+      x-content-type-options:
+      - nosniff
+      etag:
+      - 28c52ced85d102f8d21eafb861582994
+      cache-control:
+      - max-age=0, private, must-revalidate
+      date:
+      - Wed, 06 Mar 2013 15:48:50 GMT
+      connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version='1.0' encoding='utf-8' ?>\n<hardware_profile href='http://localhost:3001/api/hardware_profiles/m1-small'
+        id='m1-small'>\n  <id>m1-small</id>\n  <name>m1-small</name>\n  <property
+        kind='fixed' name='cpu' unit='count' value='1' />\n  <property kind='fixed'
+        name='memory' unit='MB' value='1740.8' />\n  <property kind='fixed' name='storage'
+        unit='GB' value='160' />\n  <property kind='fixed' name='architecture' unit='label'
+        value='i386' />\n</hardware_profile>\n"
+    http_version: 
+  recorded_at: Wed, 06 Mar 2013 15:48:50 GMT
 recorded_with: VCR 2.4.0

@@ -8,4 +8,8 @@ class Fixnum
     (self.to_s =~ /^2(\d+)$/) ? true : false
   end
 
+  def is_no_content?
+    self == 204
+  end
+
 end

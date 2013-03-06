@@ -25,7 +25,7 @@ module Deltacloud::Client
       #
       def buckets(filter_opts={})
         from_collection :buckets,
-        connection.get(api_uri('buckets'), filter_opts)
+          connection.get(api_uri('buckets'), filter_opts)
       end
 
       # Retrieve the single bucket entity
@@ -42,19 +42,13 @@ module Deltacloud::Client
       # - create_opts
       #
       def create_bucket(name)
-        must_support! :buckets
-         response = connection.post(api_uri('buckets')) do |request|
-          request.params = { :name => name }
-        end
-        model(:bucket).convert(self, response.body)
+        create_resource :bucket, :name => name
       end
 
       # Destroy given bucket
       #
       def destroy_bucket(bucket_id)
-        must_support! :buckets
-        r = connection.delete(api_uri("buckets/#{bucket_id}"))
-        r.status == 204
+        destroy_resource :bucket, bucket_id
       end
 
     end

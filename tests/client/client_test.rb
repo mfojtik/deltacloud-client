@@ -26,4 +26,11 @@ describe Deltacloud::Client do
     client.request_driver.must_equal :ec2
     client.current_driver.must_equal 'ec2'
   end
+
+  it 'support to test of valid DC connection' do
+    Deltacloud::Client.must_respond_to 'valid_connection?'
+    Deltacloud::Client.valid_connection?(DELTACLOUD_URL).must_equal true
+    Deltacloud::Client.valid_connection?('http://unknown:9999').must_equal false
+  end
+
 end

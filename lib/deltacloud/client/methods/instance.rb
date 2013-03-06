@@ -37,10 +37,10 @@ module Deltacloud::Client
       # Returns created instance, or list of created instances or all instances.
       #
       def create_instance(image_id, create_opts={})
-        must_support! :instances
-        r = connection.post(api_uri("instances")) do |request|
-          request.params = create_opts.merge(:image_id => image_id)
-        end
+        r = create_resource :instance, create_opts.merge(
+          :image_id => image_id,
+          :no_convert_model => true
+        )
         parse_create_instance(r)
       end
 
@@ -50,9 +50,7 @@ module Deltacloud::Client
       # - instance_id -> The 'id' of the Instance to destroy
       #
       def destroy_instance(instance_id)
-        must_support! :instances
-        r = connection.delete(api_uri("instances/#{instance_id}"))
-        r.status == 204
+        destroy_resource :instance, instance_id
       end
 
       # Attempt to change the +Instance+ state to STOPPED

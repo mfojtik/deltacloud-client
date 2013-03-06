@@ -42,17 +42,11 @@ module Deltacloud::Client
       # - create_opts
       #
       def create_firewall(name, create_opts={})
-        must_support! :firewalls
-        response = connection.post(api_uri('firewalls')) do |request|
-          request.params = create_opts.merge(:name => name)
-        end
-        model(:firewall).convert(self, response.body)
+        create_resource :firewall, { :name => name }.merge(create_opts)
       end
 
       def destroy_firewall(firewall_id)
-        must_support! :firewalls
-        r = connection.delete(api_uri("firewalls/#{firewall_id}"))
-        r.status == 204
+        destroy_resource :firewall, firewall_id
       end
 
       def add_firewall_rule(firewall_id, protocol, port_from, port_to, opts={})
