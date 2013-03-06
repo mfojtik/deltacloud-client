@@ -4,6 +4,8 @@ module Deltacloud::Client
     include Deltacloud::Client::Methods::Common
     include Deltacloud::Client::Methods::Instance
     include Deltacloud::Client::Methods::Realm
+    include Deltacloud::Client::Methods::HardwareProfile
+    include Deltacloud::Client::Methods::Image
 
     attr_reader :realm_id
     attr_reader :owner_id
@@ -42,6 +44,14 @@ module Deltacloud::Client
     #
     def realm
       super(realm_id)
+    end
+
+    def hardware_profile
+      super(hardware_profile_id)
+    end
+
+    def image
+      super(image_id)
     end
 
     def method_missing(name, *args)

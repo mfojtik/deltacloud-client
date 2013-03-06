@@ -29,7 +29,7 @@ module Deltacloud::Client
     # StorageSnapshot model methods
     #
     def storage_volume
-      storage_volume(storage_volume_id)
+      super(storage_volume_id)
     end
 
     # Syntax sugar for destroying the current instance
