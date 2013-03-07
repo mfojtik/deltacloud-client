@@ -7,6 +7,7 @@ module Deltacloud::Client
       def extract_xml_body(obj)
         case obj
         when Faraday::Response then obj.body
+        when Rack::MockResponse then obj.body
         when Nokogiri::XML::Element then obj.to_s
         when Nokogiri::XML::Document then obj.to_s
         else obj

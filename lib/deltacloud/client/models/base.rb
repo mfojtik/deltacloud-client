@@ -87,6 +87,8 @@ module Deltacloud::Client
 
     class << self
 
+      include Deltacloud::Client::Helpers::Model
+
       # Parse the XML response body from Deltacloud API
       # to +Hash+. Result is then used to create an instance of Deltacloud model
       #

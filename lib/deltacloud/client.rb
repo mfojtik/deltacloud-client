@@ -18,6 +18,7 @@ module Deltacloud
 
     # Faraday Middleware for Deltacloud errors
     require_relative './error_response'
+    require_relative './server'
 
     # Deltacloud API methods
     require_relative './client/methods/api'
