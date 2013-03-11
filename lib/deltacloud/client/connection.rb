@@ -35,7 +35,7 @@ module Deltacloud::Client
         f.headers = deltacloud_request_headers
         f.basic_auth opts[:api_user], opts[:api_password]
         f.use Deltacloud::ErrorResponse
-        f.use Faraday::DeltacloudServer
+        f.use Faraday::DeltacloudServer if opts[:use_server]
         f.adapter :net_http
       end
       cache_entrypoint!

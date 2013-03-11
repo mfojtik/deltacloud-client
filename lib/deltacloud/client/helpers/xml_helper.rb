@@ -5,12 +5,11 @@ module Deltacloud::Client
       # Extract XML string from the various objects
       #
       def extract_xml_body(obj)
+        return obj.body if obj.respond_to?(:body)
         case obj
-        when Faraday::Response then obj.body
-        when Rack::MockResponse then obj.body
-        when Nokogiri::XML::Element then obj.to_s
-        when Nokogiri::XML::Document then obj.to_s
-        else obj
+          when Nokogiri::XML::Element then obj.to_s
+          when Nokogiri::XML::Document then obj.to_s
+          else obj
         end
       end
 

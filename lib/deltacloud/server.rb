@@ -11,7 +11,6 @@ module Faraday
 
   class DeltacloudServer < Faraday::Middleware
 
-    require 'deltacloud_rack'
     require 'rack/test'
 
     def deltacloud_server

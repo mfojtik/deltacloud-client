@@ -18,7 +18,6 @@ module Deltacloud
 
     # Faraday Middleware for Deltacloud errors
     require_relative './error_response'
-    require_relative './server'
 
     # Deltacloud API methods
     require_relative './client/methods/api'
@@ -42,6 +41,7 @@ module Deltacloud
     VERSION = '1.1.2'
 
     # Check if the connection to Deltacloud API is valid
+    #
     def self.valid_connection?(api_url)
       begin
         Deltacloud::Client(api_url, '', '') && true
@@ -54,6 +54,43 @@ module Deltacloud
 
   end
 
+  # Require the Deltacloud::API Rack middleware if available and
+  # setup a 'fake' Deltacloud API server. Then mock all requests to this
+  # 'fake' Deltacloud API server.
+  #
+  # - driver -> Deltacloud API driver to use
+  # - api_user -> Deltacloud API username (eg. API key)
+  # - api_password -> Deltacloud API password (eg. API secret)
+  # - api_provider -> Deltacloud API provider to use (eg. vsphere.host.com)
+  #
+  def self.Connect(driver, api_user, api_password, api_provider=nil)
+    if require_deltacloud
+      Client('http://localhost:3001/api', api_user, api_password, :driver => driver, :provider => api_provider,
+        :use_server => true)
+    else
+      warn '[WARNING] To use Driver() method, you need to install `rack-test` and `deltacloud-core` gems.'
+      false
+    end
+  end
+
+  def self.require_deltacloud
+    begin
+      require 'deltacloud_rack'
+      require_relative './server'
+      true
+    rescue LoadError
+      false
+    end
+  end
+
+  # Syntax sugar for Deltacloud::Client::Connection#new
+  #
+  # - url -> Deltacloud API url (eg. http://localhost:3001/api)
+  # - api_user -> Deltacloud API username (eg. API key)
+  # - api_password -> Deltacloud API password (eg. API secret)
+  # - opts
+  #   :provider -> Deltacloud API provider to use (eg. vsphere.host.com)
+  #
   def self.Client(url, api_user, api_password, opts={})
     Client::Connection.new({
       :url => url,
