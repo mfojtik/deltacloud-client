@@ -1,3 +1,18 @@
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.  The
+# ASF licenses this file to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance with the
+# License.  You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
+# License for the specific language governing permissions and limitations
+# under the License.
+
 module Deltacloud::Client
   class Instance < Base
 
@@ -11,6 +26,7 @@ module Deltacloud::Client
     attr_reader :owner_id
     attr_reader :image_id
     attr_reader :hardware_profile_id
+    attr_reader :actions
 
     attr_accessor :state
     attr_accessor :public_addresses
@@ -59,6 +75,15 @@ module Deltacloud::Client
       super
     end
 
+    def can_create_image?
+      actions.include? :create_image
+    end
+
+    def create_image(create_opts={})
+      return false unless can_create_image?
+      super(_id, create_opts)
+    end
+
     # Helper for is_STATE?
     #
     # is_running?
@@ -85,7 +110,8 @@ module Deltacloud::Client
           ),
           :private_addresses => InstanceAddress.convert(
             xml_body.xpath('private_addresses/address')
-          )
+          ),
+          :actions => xml_body.xpath('actions/link').map { |a| a['rel'].to_sym }
         }
       end
 
